@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Homepage, Error, ProfilePage, Login } from "./pages";
+import { Homepage, Error, ProfilePage, SignUp,Login } from "./pages";
 import { ToastContainer } from "react-toastify";
 
 const App = () => {
@@ -8,6 +8,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Homepage />} />
+        <Route path="/signUp" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/profile-page" element={<ProfilePage />} />
         <Route path="*" element={<Error />} />
