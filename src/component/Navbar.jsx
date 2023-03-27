@@ -2,10 +2,10 @@ import React from 'react'
 
 const Navbar = () => {
   return (
-    <div className='bg-gray-100 w-full h-[77px] pl-[110px] pr-[115px] flex items-center justify-between'>
+    <nav className='bg-gray-100 w-full h-[77px] pl-[110px] pr-[115px] flex items-center justify-between'>
       <div className='w-[147px] h-[46px] bg-red-400 flex justify-center items-center uppercase text-bold'>Crypto Logo</div>
       <div className='w-[414px] h-[38px] ml-[-180px] p-[10px]'>
-        <ul className='flex justify-between items-center '>
+        <ul className='flex justify-between items-center text-[14.8px] font-normal text-[#101828]'>
           <li>Home</li>
           <li>Portfolio</li> 
           <li>Markets</li>
@@ -19,7 +19,7 @@ const Navbar = () => {
         <button className='w-[83px] h-[39px] border border-[#0C3C4C] 
         rounded-lg text-base bg-[#0C3C4C] font-normal text-white'>Register</button>
       </div>
-    </div>
+    </nav>
   )
 }
 
