@@ -20,7 +20,6 @@ const login = () => {
     const value = e.target.value;
     console.log({name,value});
     setValues({ ...values, [name]: value });
-    
   };
 
   const handleSubmit = async (e)=>{
