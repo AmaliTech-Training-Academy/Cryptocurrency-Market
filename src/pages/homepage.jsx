@@ -5,8 +5,8 @@ const homepage = () => {
   return (
     <div>
         <Navbar/>
-        
-        <Footer/>
+
+        {/* <Footer/> */}
     </div>
   )
 }
