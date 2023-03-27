@@ -5,6 +5,7 @@ const homepage = () => {
   return (
     <div>
         <Navbar/>
+        
         <Footer/>
     </div>
   )
