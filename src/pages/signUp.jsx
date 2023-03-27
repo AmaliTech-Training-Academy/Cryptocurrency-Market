@@ -1,8 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import icon from "../assets/CryptoMart.svg";
 import { Input } from "../component";
+import { userSchema } from "../Validations/UserValidation";
+
+const initialState = {
+  email: "",
+  password: "",
+  confimPassword:"",
+  isMember:true,
+}
+
 const login = () => {
+  const [values,setValues] = useState(initialState)
+
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    console.log({name,value});
+    setValues({ ...values, [name]: value });
+  };
+
+  const handleSubmit = async (e)=>{
+    e.preventDefault()
+    const isValid = await userSchema.isValid(values)
+    console.log(isValid);
+  }
   return (
     <div className="w-full flex justify-center items-center ">
       <div className="">
@@ -19,15 +43,16 @@ const login = () => {
               <h1 className="font-bold text-[rgba(12,60,76,0.81)] text-[22px] mb-[35.22px] text-center">
                 SIGN UP
               </h1>
-              <form>
-                <Input label="Email Address*" placeholder="Enter your email " />
-                <Input label="Password*" placeholder="Enter your password " />
+              <form >
+                <Input label="Email Address*" type='email' name='email' value={values.email} handleChange={handleChange} placeholder="Enter your email " />
+                <Input label="Password*" type='password' name='password' value={values.password} handleChange={handleChange} placeholder="Enter your password " />
                 <Input
                   label="Confirm Password*"
+                  type='confirmPassword' name='confirmPassword' value={values.confirmPassword} handleChange={handleChange}
                   placeholder="Re-enter password "
                 />
                 <div className="mt-[46px]  h-[42px] text-center  ">
-                  <button className=" h-[42px] w-[268px] rounded-lg bg-[#0c3c4cce] font-normal text-white text-[17px] mb-[16px]">
+                  <button type="submit" onClick={(e)=>handleSubmit(e)} className=" h-[42px] w-[268px] rounded-lg bg-[#0c3c4cce] font-normal text-white text-[17px] mb-[16px]">
                     Sign Up
                   </button>
                   <p>Already have an account?<Link to='/login' className="text-[#0000ffb3]">LogIn</Link></p>
