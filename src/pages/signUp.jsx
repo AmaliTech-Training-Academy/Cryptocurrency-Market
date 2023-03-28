@@ -1,7 +1,6 @@
-import { Form, Formik, useFormik } from "formik";
+import { useFormik } from "formik";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
 import icon from "../assets/CryptoMart.svg";
 import { Input } from "../component";
 import { userSchema } from "../Validations/UserValidation";
@@ -30,7 +29,7 @@ const login = () => {
     validationSchema: userSchema,
     onSubmit,
   });
-  console.log(errors);
+ 
   return (
     <div className="w-full flex justify-center items-center ">
       <div className="">
