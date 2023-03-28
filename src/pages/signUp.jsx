@@ -1,16 +1,22 @@
 import { useFormik } from "formik";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import icon from "../assets/CryptoMart.svg";
 import { Input } from "../component";
+import { loginUser, registerUser } from "../features/user/userSlice";
 import { userSchema } from "../Validations/UserValidation";
 
 const login = () => {
+const dispatch = useDispatch()
   const onSubmit = async (values, actions) => {
-    console.log("submitted");
+    if ({...values}) {
+      dispatch(registerUser({...values}))
+    }
     await new Promise((resolve) => setTimeout(resolve, 1000));
     actions.resetForm();
   };
+
 
   const {
     values,
@@ -29,7 +35,9 @@ const login = () => {
     validationSchema: userSchema,
     onSubmit,
   });
- 
+
+  
+
   return (
     <div className="w-full flex justify-center items-center ">
       <div className="">
