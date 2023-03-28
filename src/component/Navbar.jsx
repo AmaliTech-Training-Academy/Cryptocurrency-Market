@@ -1,9 +1,12 @@
 import React from 'react'
+import CryptoMart from '../assets/logo crypto.svg'
 
 const Navbar = () => {
   return (
     <nav className='bg-gray-100 w-full h-[77px] pl-[110px] pr-[115px] flex items-center justify-between'>
-      <div className='w-[147px] h-[46px] bg-red-400 flex justify-center items-center uppercase text-bold'>Crypto Logo</div>
+      <div className='w-[147px] h-[46px] flex justify-center items-center uppercase text-bold'>
+        <img src={CryptoMart} alt="" />
+      </div>
       <div className='w-[414px] h-[38px] ml-[-180px] p-[10px]'>
         <ul className='flex justify-between items-center text-[14.8px] font-normal text-[#101828]'>
           <li>Home</li>
