@@ -26,9 +26,7 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     storeUser: (state,{payload})=>{
-      console.log(payload);
       state.user = {...state.user,email:payload.email}
-      console.log(state.user);
     }
   },
   extraReducers: (builder) => {
