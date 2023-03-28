@@ -6,6 +6,7 @@ import Img1 from "../assets/Group 55.svg"
 import Img2 from "../assets/Group 58.svg"
 import Img3 from "../assets/Group 56.svg"
 import Img4 from "../assets/Group 57.svg"
+import Hero1 from "../assets/hero.png"
 
 
 const landingPage = () => {
@@ -26,7 +27,7 @@ const landingPage = () => {
           </div>
           <img src={Hero} alt="" className='absolute top-0 right-0'/>
         </div>
-        <div className='px-[89px] pt-[70px] h-[1000px] bg-yellow-300'>
+        <div className='px-[89px] pt-[70px]'>
           <div className='flex justify-between'>
             <div className='w-[737.99px] h-[692.66px] grid grid-rows-2 grid-cols-2 gap-y-[26.76px] gap-x-[34.93px]'>
               <div className='square'>
@@ -71,6 +72,31 @@ const landingPage = () => {
               </div>
                 <h3 className='font-normal text-[31.25px] leading-[38px] text-black'>Crypto Live market Prices</h3>
             </div>
+          </div>
+          <div className='w-[1251px] h-[609px] bg-blue-800 mt-[80px] grid grid-rows-2 grid-cols-2 gap-x-[59px] gap-y-[37px]'>
+            <div className='w-[596px] h-[286px] bg-red-500'>
+            </div>
+            <div className='w-[596px] h-[286px] bg-red-500'>
+            </div>
+            <div className='w-[596px] h-[286px] bg-red-500'>
+            </div>
+            <div className='w-[596px] h-[286px] bg-red-500'>
+            </div>
+          </div>
+          <div className='flex justify-center mt-[55px]'>
+            <button className='w-[196px] h-[50px] bg-[#0C3C4C] rounded-[10px] border border-[#6CE9A6] font-normal text-[25px] text-white leading-[38px]'>More Currency</button>
+          </div>
+          <div className='w-[1251px] h-[368px] mt-[87px] mb-[206px] flex justify-between'>
+            <div>
+              <div className='flex justify-center items-center gap-[9px]'>
+                <span className='w-[100px] border-b border-[#93FCEC]'></span>
+                <h4 className='font-normal text-[25px] leading-[30px] text-[#101828]'>Why Choose Us</h4>
+                <span className='w-[100px] border-b border-[#93FCEC]'></span>
+              </div>
+              <h3 className='w-[401px] h-[60px] mt-[40px] font-normal text-[25px] leading-[30px]'>We’ve Built A Platform To Manage Assets</h3>
+              <h2 className='w-[439px] h-[175px] font-normal text-[29.0593px] text-[#7C7D7D] mt-[32px]'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
+            </div>
+            <img src={Hero1} alt="" className='w-[488.23px] h-[368px] mr-[61.77px]'/>
           </div>
         </div>
       </main>
