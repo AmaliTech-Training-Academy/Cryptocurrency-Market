@@ -1,7 +1,7 @@
 import { useFormik } from "formik";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import icon from "../assets/CryptoMart.svg";
 import { Input } from "../component";
 import { registerUser, storeUser } from "../features/user/userSlice";
@@ -43,7 +43,7 @@ const dispatch = useDispatch()
     <div className="w-full flex justify-center items-center ">
       <div className="">
         <img src={icon} alt="" className="ml-[200px]" />
-        <div className="shadow-inner w-[626px] flex flex-col justify-center items-center pt-[48px] pb-[55px] text-[#101828]">
+        <div className="shadow w-[626px] flex flex-col justify-center items-center pt-[48px] pb-[55px] text-[#101828]">
           <div className="">
             <h2 className="text-[34px] font-normal mb-[25px] text-center">
               Create Your Account{" "}
