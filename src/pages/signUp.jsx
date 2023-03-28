@@ -4,16 +4,17 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import icon from "../assets/CryptoMart.svg";
 import { Input } from "../component";
-import { loginUser, registerUser } from "../features/user/userSlice";
+import { loginUser, registerUser, storeUser } from "../features/user/userSlice";
 import { userSchema } from "../Validations/UserValidation";
 
 const login = () => {
 const dispatch = useDispatch()
-  const onSubmit = async (values, actions) => {
+  const onSubmit = (values, actions) => {
+    // console.log(values);
     if ({...values}) {
-      dispatch(registerUser({...values}))
+      dispatch(storeUser({email: values.email}))
+     return dispatch(registerUser(values))
     }
-    await new Promise((resolve) => setTimeout(resolve, 1000));
     actions.resetForm();
   };
 
@@ -82,7 +83,7 @@ const dispatch = useDispatch()
 
                 <Input
                   label="Confirm Password*"
-                  type="confirmPassword"
+                  type="password"
                   name="confirmPassword"
                   value={values.confirmPassword}
                   handleChange={handleChange}

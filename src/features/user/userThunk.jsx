@@ -1,20 +1,23 @@
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { storeUser } from "./userSlice";
 
+const url =`https://address-book-system.onrender.com/api/v1`
 
-const url =`https://address-book-system.onrender.com/api/v1/`
-
-export const registerUserThunk = async ( user, thunkAPI) => {
+export const registerUserThunk = async ( endPoint,user, thunkAPI) => {
+    
     try {
-      const resp = await axios.post(url, user);
+      const resp = await axios.post(`${url}/${endPoint}`, user);
+      
       return resp.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.msg);
     }
   };
   
-  export const loginUserThunk = async (user, thunkAPI) => {
+  export const loginUserThunk = async (endPoint,user, thunkAPI) => {
     try {
-      const resp = await axios.post(url, user);
+      const resp = await axios.post(`${url}/${endPoint}`, user);
       return resp.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.msg);
