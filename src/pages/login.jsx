@@ -1,14 +1,20 @@
 import { useFormik } from "formik";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import icon from "../assets/CryptoMart.svg";
 import { Input } from "../component";
+import { loginUser, storeUser } from "../features/user/userSlice";
+import { loginSchema } from "../Validations/UserLogin";
 import { userSchema } from "../Validations/UserValidation";
 
 const login = () => {
-  const onSubmit = async (values, actions) => {
-    console.log("submitted");
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+  const dispatch = useDispatch();
+  const onSubmit = (values, actions) => {
+    if ({ ...values }) {
+      dispatch(storeUser({ email: values.email }));
+      return dispatch(loginUser(values));
+    }
     actions.resetForm();
   };
 
@@ -24,9 +30,8 @@ const login = () => {
     initialValues: {
       email: "",
       password: "",
-      confirmPassword: "",
     },
-    validationSchema: userSchema,
+    validationSchema: loginSchema,
     onSubmit,
   });
 
@@ -40,7 +45,7 @@ const login = () => {
               <h1 className="font-bold text-[rgba(12,60,76,0.81)] text-[26px] mb-[35.22px] text-center">
                 Login
               </h1>
-              <form>
+              <form onSubmit={handleSubmit} autoComplete="off">
                 <Input
                   label="Email Address*"
                   type="email"
@@ -68,8 +73,12 @@ const login = () => {
                   Forgot password?
                 </Link>
                 <div className="mt-[46px]  h-[42px] text-center  ">
-                  <button className=" h-[42px] w-[268px] rounded-lg bg-[#0c3c4cce] font-normal text-white text-[17px] mb-[16px]">
-                    Sign Up
+                  <button
+                    disabled={isSubmitting}
+                    type="submit"
+                    className=" h-[42px] w-[268px] rounded-lg bg-[#0c3c4cce] font-normal text-white text-[17px] mb-[16px]"
+                  >
+                    Login
                   </button>
                   <p>
                     Don’t have an account?

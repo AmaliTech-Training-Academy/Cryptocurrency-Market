@@ -15,7 +15,7 @@ export const registerUser = createAsyncThunk(
 );
 
 export const loginUser = createAsyncThunk(
-  "user/login",
+  "user/loginUser",
   async (user, thunkAPI) => {
     return loginUserThunk("auth/login", user, thunkAPI);
   }
@@ -51,7 +51,7 @@ const userSlice = createSlice({
       .addCase(loginUser.fulfilled, (state,{payload}) => {
         state.isLoading = false;
         state.user = {...state.user,...payload.data}
-        toast.success("User Created");
+        toast.success("Welcome Back");
       })
       .addCase(loginUser.rejected, (state, { payload }) => {
         state.isLoading = false;

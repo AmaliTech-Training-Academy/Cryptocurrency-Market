@@ -4,13 +4,13 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import icon from "../assets/CryptoMart.svg";
 import { Input } from "../component";
-import { loginUser, registerUser, storeUser } from "../features/user/userSlice";
+import { registerUser, storeUser } from "../features/user/userSlice";
 import { userSchema } from "../Validations/UserValidation";
 
-const login = () => {
+const signUp = () => {
 const dispatch = useDispatch()
   const onSubmit = (values, actions) => {
-    // console.log(values);
+    
     if ({...values}) {
       dispatch(storeUser({email: values.email}))
      return dispatch(registerUser(values))
@@ -116,4 +116,4 @@ const dispatch = useDispatch()
   );
 };
 
-export default login;
+export default signUp;
