@@ -7,6 +7,8 @@ import Img2 from "../assets/Group 58.svg"
 import Img3 from "../assets/Group 56.svg"
 import Img4 from "../assets/Group 57.svg"
 import Hero1 from "../assets/hero.png"
+import Chevron from "../assets/chevron.svg"
+import Bitcoin from "../assets/Group 59.svg"
 
 
 const landingPage = () => {
@@ -74,13 +76,39 @@ const landingPage = () => {
             </div>
           </div>
           <div className='w-[1251px] h-[609px] bg-blue-800 mt-[80px] grid grid-rows-2 grid-cols-2 gap-x-[59px] gap-y-[37px]'>
-            <div className='w-[596px] h-[286px] bg-red-500'>
+            <div className='w-[596px] h-[286px] pl-[18px] relative bg-red-600'>
+              <img src={Bitcoin} className='w-[73px] h-[73px] rounded-full bg-[#D9D9D9] absolute top-[72px]'/>
+              <span className='font-medium text-[39.06px] text-white leading-[47px] absolute top-[85px] left-[97px]'>Bitcoin</span>
+              <div className='w-[550px] h-[105px] bg-green-700 top-[164px] relative'>
+                <span className='border-dashed border-[0.2px] border-[rgba(252,252,253,0.25)] w-[546px] h-0 absolute top-[52.5px]'></span>
+                <span className='border-dashed border-[0.3px] border-[rgba(252,252,253,0.25)] w-[79px] h-0 rotate-90 absolute top-[50px] ml-[80px]'></span>
+                <span className='border-dashed border-[0.3px] border-[rgba(252,252,253,0.25)] w-[79px] h-0 rotate-90 absolute top-[50px] ml-[232px]'></span>
+                <span className='border-dashed border-[0.3px] border-[rgba(252,252,253,0.25)] w-[79px] h-0 rotate-90 absolute top-[50px] ml-[410px]'></span>
+                <div className='px-[10px] relative'>
+                  <span className='font-noromal text-[25px] leading-[30px] text-white absolute top-3 left-4'>USD</span>
+                  <img src={Chevron} alt="" className='absolute top-1.5 left-16 w-12'/>
+                  <span className='font-normal text-[25px] text-white leading-[30px] absolute top-3 left-32'>Change 1h</span>
+                  <span className='font-normal text-[25px] text-white leading-[30px] absolute top-3 right-[120px]'>Change 24h</span>
+                  <span className='font-normal text-[25px] text-white leading-[30px] absolute top-3 right-2'>Last 7d</span>
+                </div>
+                <span className='font-normal text-[19px] text-white leading-[19px] absolute top-16 left-4'>3,500.40</span>
+              </div>
+
             </div>
-            <div className='w-[596px] h-[286px] bg-red-500'>
+            <div className='w-[596px] h-[286px] bg-red-500 pl-[18px] relative'>
+              <span className='w-[73px] h-[73px] rounded-full bg-[#D9D9D9] absolute top-[72px]'></span>
+              <span className='font-medium text-[39.06px] text-white leading-[47px] absolute top-[85px] left-[97px]'>Ethereum</span>
+
             </div>
-            <div className='w-[596px] h-[286px] bg-red-500'>
+            <div className='w-[596px] h-[286px] bg-red-500 pl-[18px] relative'>
+              <span className='w-[73px] h-[73px] rounded-full bg-[#D9D9D9] absolute top-[72px]'></span>
+              <span className='font-medium text-[39.06px] text-white leading-[47px] absolute top-[85px] left-[97px]'>Doge Coin</span>
+
             </div>
-            <div className='w-[596px] h-[286px] bg-red-500'>
+            <div className='w-[596px] h-[286px] bg-red-500 pl-[18px] relative'>
+              <span className='w-[73px] h-[73px] rounded-full bg-[#D9D9D9] absolute top-[72px]'></span>
+              <span className='font-medium text-[39.06px] text-white leading-[47px] absolute top-[85px] left-[97px]'>USD Coin</span>
+
             </div>
           </div>
           <div className='flex justify-center mt-[55px]'>
