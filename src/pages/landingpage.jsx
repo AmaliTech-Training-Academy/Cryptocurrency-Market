@@ -7,14 +7,11 @@ import Img2 from "../assets/Group 58.svg"
 import Img3 from "../assets/Group 56.svg"
 import Img4 from "../assets/Group 57.svg"
 import Hero1 from "../assets/hero.png"
-import Chevron from "../assets/chevron.svg"
+import Arrow from "../assets/arrow-down.png"
 import Bitcoin from "../assets/bitcoin.png"
 import Ethereum from "../assets/Group 61.svg"
 import DogeCoin from "../assets/Group 60.svg"
 import USCoin from "../assets/Group 62.svg"
-
-
-
 
 
 const landingPage = () => {
@@ -75,7 +72,7 @@ const landingPage = () => {
             <div className='mt-[67.34px]'>
               <div className='flex justify-center items-center gap-[2px]'>
                 <span className='w-[100px] border-b border-2 border-[#93FCEC]'></span>
-                <h5 className='font-normal text-[25px] leading-[30px] text-[#101828]'>Live Prices</h5>
+                <h5 className='font-medium text-[25px] leading-[30px] text-[#101828]'>Live Prices</h5>
                 <span className='w-[100px] border-b border-2  border-[#93FCEC]'></span>
               </div>
                 <h3 className='font-normal text-[31.25px] leading-[38px] text-black'>Crypto Live market Prices</h3>
@@ -92,7 +89,7 @@ const landingPage = () => {
                 <span className='border_three'></span>
                 <div className='container'>
                   <span className='usd'>USD</span>
-                  <img src={Chevron} alt="" className='absolute top-1.5 left-16 w-12'/>
+                  <img src={Arrow} alt="" className='absolute top-[-4px] left-16 '/>
                   <span className='change1'>Change 1h</span>
                   <span className='change2'>Change 24h</span>
                   <span className='last'>Last 7d</span>
@@ -111,7 +108,7 @@ const landingPage = () => {
                 <span className='border_three'></span>
                 <div className='container'>
                   <span className='usd'>USD</span>
-                  <img src={Chevron} alt="" className='absolute top-1.5 left-16 w-12'/>
+                  <img src={Arrow} alt="" className='absolute top-[-4px] left-16'/>
                   <span className='change1'>Change 1h</span>
                   <span className='change2'>Change 24h</span>
                   <span className='last'>Last 7d</span>
@@ -129,7 +126,7 @@ const landingPage = () => {
                 <span className='border_three'></span>
                 <div className='container'>
                   <span className='usd'>USD</span>
-                  <img src={Chevron} alt="" className='absolute top-1.5 left-16 w-12'/>
+                  <img src={Arrow} alt="" className='absolute top-[-4px] left-16'/>
                   <span className='change1'>Change 1h</span>
                   <span className='change2'>Change 24h</span>
                   <span className='last'>Last 7d</span>
@@ -147,7 +144,7 @@ const landingPage = () => {
                 <span className='border_three'></span>
                 <div className='container'>
                   <span className='usd'>USD</span>
-                  <img src={Chevron} alt="" className='absolute top-1.5 left-16 w-12'/>
+                  <img src={Arrow} alt="" className='absolute top-[-4px] left-16'/>
                   <span className='change1'>Change 1h</span>
                   <span className='change2'>Change 24h</span>
                   <span className='last'>Last 7d</span>
@@ -162,12 +159,12 @@ const landingPage = () => {
           <div className='w-[1251px] h-[368px] mt-[87px] mb-[206px] flex justify-between'>
             <div>
               <div className='flex justify-center items-center gap-[9px]'>
-                <span className='w-[100px] border-b border-2 border-[#93FCEC]'></span>
+                <span className='w-[100px] border-b border-2 border-[#6CE9A6]'></span>
                 <h4 className='font-normal text-[25px] leading-[30px] text-[#101828]'>Why Choose Us</h4>
-                <span className='w-[100px] border-b border-2 border-[#93FCEC]'></span>
+                <span className='w-[100px] border-b border-2 border-[#6CE9A6]'></span>
               </div>
               <h3 className='w-[401px] h-[60px] mt-[40px] font-normal text-[25px] leading-[30px]'>We’ve Built A Platform To Manage Assets</h3>
-              <h2 className='w-[439px] h-[175px] font-normal text-[29.0593px] text-[#7C7D7D] mt-[32px]'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
+              <h2 className='w-[439px] h-[175px] font-normal text-[29.0593px] text-[#7C7D7D] mt-[32px] leading-[35px]'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
             </div>
             <img src={Hero1} alt="" className='w-[488.23px] h-[368px] mr-[61.77px]'/>
           </div>
