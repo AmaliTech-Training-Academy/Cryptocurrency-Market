@@ -4,7 +4,7 @@ import { loginUserThunk, registerUserThunk } from "./userThunk";
 
 const initialState = {
   isLoading: false,
-  user: {},
+  user: null,
 };
 
 export const registerUser = createAsyncThunk(
@@ -35,6 +35,7 @@ const userSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(registerUser.fulfilled, (state,{payload}) => {
+        console.log(payload);
         state.isLoading = false;
         state.user = {...state.user,...payload.data}
         toast.success("User Created");

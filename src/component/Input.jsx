@@ -21,7 +21,7 @@ const Input = ({
         id={name}
         type={type}
         className={`w-[339px] h-[51px] rounded-lg  border-[1px]  pl-3 ${
-          error && touch ? "border-[red]" : "border-[rgba(83,53,45,0.5)]"
+          error && touch ? "border-[red]" : "border-[#53352d80]"
         }`}
         placeholder={placeholder}
         name={name}

@@ -1,23 +1,30 @@
 import { useFormik } from "formik";
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import icon from "../assets/CryptoMart.svg";
 import { Input } from "../component";
 import { loginUser, storeUser } from "../features/user/userSlice";
 import { loginSchema } from "../Validations/UserLogin";
-import { userSchema } from "../Validations/UserValidation";
+
 
 const login = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
+  const {user} = useSelector((store) => store.user)
+  
   const onSubmit = (values, actions) => {
-    if ({ ...values }) {
-      dispatch(storeUser({ email: values.email }));
-      return dispatch(loginUser(values));
-    }
-    actions.resetForm();
+   dispatch(loginUser(values))
+  
   };
 
+  useEffect(()=>{
+    if (user) {
+     setTimeout(() => {
+       navigate('/')
+     }, 3000);
+    }
+   },[user])
   const {
     values,
     errors,
@@ -74,7 +81,7 @@ const login = () => {
                 </Link>
                 <div className="mt-[46px]  h-[42px] text-center  ">
                   <button
-                    disabled={isSubmitting}
+                    // disabled={isSubmitting}
                     type="submit"
                     className=" h-[42px] w-[268px] rounded-lg bg-[#0c3c4cce] font-normal text-white text-[17px] mb-[16px]"
                   >

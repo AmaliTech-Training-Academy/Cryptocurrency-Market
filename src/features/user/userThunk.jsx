@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 const url =`https://address-book-system.onrender.com/api/v1`
 
 export const registerUserThunk = async ( endPoint,user, thunkAPI) => {
