@@ -9,7 +9,7 @@ body {
 }
 
 .square {
-  @apply w-[351.53px] h-[332.95px] relative border border-[#93FCEC];
+  @apply w-[351.53px] h-[332.95px] relative border-2 border-[#93FCEC];
 }
 
 .icon {
@@ -22,6 +22,10 @@ body {
 
 .text1 {
   @apply font-normal text-[17.7297px] leading-[21px] text-[#101828] absolute top-[195.03px] left-[16.62px]
+}
+
+.main {
+  @apply w-[596px] h-[286px] pl-[18px] relative bg-[#0C3C4C] border-[1px] border-[#93FCEC]
 }
 
 .h2 {

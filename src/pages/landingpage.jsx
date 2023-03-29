@@ -61,7 +61,7 @@ const landingPage = () => {
             </div>
             <div className='w-[439px] h-[692.66px]'>
               <div className='[w-337px] h-[42px] flex items-center justify-start gap-[10.1px]'>
-                <div className='w-[107.69px] border border-[#93FCEC]'></div>
+                <div className='w-[107.69px] border-2 border-[#93FCEC]'></div>
                 <h3 className='font-normal text-[35.0567px] leading-[42px] text-center text-[#101828]'>Crypt feature</h3>
               </div>
               <div>
@@ -74,18 +74,18 @@ const landingPage = () => {
           <div className='flex justify-center'>
             <div className='mt-[67.34px]'>
               <div className='flex justify-center items-center gap-[2px]'>
-                <span className='w-[100px] border-b border-[#93FCEC]'></span>
+                <span className='w-[100px] border-b border-2 border-[#93FCEC]'></span>
                 <h5 className='font-normal text-[25px] leading-[30px] text-[#101828]'>Live Prices</h5>
-                <span className='w-[100px] border-b border-[#93FCEC]'></span>
+                <span className='w-[100px] border-b border-2  border-[#93FCEC]'></span>
               </div>
                 <h3 className='font-normal text-[31.25px] leading-[38px] text-black'>Crypto Live market Prices</h3>
             </div>
           </div>
-          <div className='w-[1251px] h-[609px] bg-blue-800 mt-[80px] grid grid-rows-2 grid-cols-2 gap-x-[59px] gap-y-[37px]'>
-            <div className='w-[596px] h-[286px] pl-[18px] relative bg-red-600'>
+          <div className='w-[1251px] h-[609px] mt-[80px] grid grid-rows-2 grid-cols-2 gap-x-[59px] gap-y-[37px]'>
+            <div className='main'>
               <img src={Bitcoin} className='w-[73px] h-[73px] rounded-full absolute top-[72px]'/>
               <span className='h2'>Bitcoin</span>
-              <div className='w-[550px] h-[105px] bg-green-700 top-[164px] relative'>
+              <div className='w-[550px] h-[105px] top-[164px] relative'>
                 <span className='span'></span>
                 <span className='border_one'></span>
                 <span className='border_two'></span>
@@ -101,10 +101,10 @@ const landingPage = () => {
               </div>
 
             </div>
-            <div className='w-[596px] h-[286px] bg-red-500 pl-[18px] relative'>
+            <div className='main'>
               <img src={Ethereum} className='absolute top-[72px]'/>
               <span className='h2'>Ethereum</span>
-              <div className='w-[550px] h-[105px] bg-green-700 top-[164px] relative'>
+              <div className='w-[550px] h-[105px] top-[164px] relative'>
                 <span className='span'></span>
                 <span className='border_one'></span>
                 <span className='border_two'></span>
@@ -119,10 +119,10 @@ const landingPage = () => {
                 <span className='usd_value'>3,500.40</span>
               </div>
             </div>
-            <div className='w-[596px] h-[286px] bg-red-500 pl-[18px] relative'>
+            <div className='main'>
               <img src={DogeCoin} className='absolute top-[72px]'/>
               <span className='h2'>Doge Coin</span>
-              <div className='w-[550px] h-[105px] bg-green-700 top-[164px] relative'>
+              <div className='w-[550px] h-[105px] top-[164px] relative'>
                 <span className='span'></span>
                 <span className='border_one'></span>
                 <span className='border_two'></span>
@@ -137,10 +137,10 @@ const landingPage = () => {
                 <span className='usd_value'>3,500.40</span>
               </div>
             </div>
-            <div className='w-[596px] h-[286px] bg-red-500 pl-[18px] relative'>
+            <div className='main'>
               <img src={USCoin} className='absolute top-[72px]'/>
               <span className='h2'>USD Coin</span>
-              <div className='w-[550px] h-[105px] bg-green-700 top-[164px] relative'>
+              <div className='w-[550px] h-[105px] top-[164px] relative'>
                 <span className='span'></span>
                 <span className='border_one'></span>
                 <span className='border_two'></span>
@@ -162,9 +162,9 @@ const landingPage = () => {
           <div className='w-[1251px] h-[368px] mt-[87px] mb-[206px] flex justify-between'>
             <div>
               <div className='flex justify-center items-center gap-[9px]'>
-                <span className='w-[100px] border-b border-[#93FCEC]'></span>
+                <span className='w-[100px] border-b border-2 border-[#93FCEC]'></span>
                 <h4 className='font-normal text-[25px] leading-[30px] text-[#101828]'>Why Choose Us</h4>
-                <span className='w-[100px] border-b border-[#93FCEC]'></span>
+                <span className='w-[100px] border-b border-2 border-[#93FCEC]'></span>
               </div>
               <h3 className='w-[401px] h-[60px] mt-[40px] font-normal text-[25px] leading-[30px]'>We’ve Built A Platform To Manage Assets</h3>
               <h2 className='w-[439px] h-[175px] font-normal text-[29.0593px] text-[#7C7D7D] mt-[32px]'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
