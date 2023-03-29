@@ -1,6 +1,6 @@
 import { useFormik } from "formik";
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import icon from "../assets/CryptoMart.svg";
 import { Input } from "../component";
@@ -8,16 +8,14 @@ import { registerUser, storeUser } from "../features/user/userSlice";
 import { userSchema } from "../Validations/UserValidation";
 
 const signUp = () => {
-const dispatch = useDispatch()
+  const navigate =useNavigate()
+  const dispatch = useDispatch();
+  const {user} = useSelector((store) => store.user)
   const onSubmit = (values, actions) => {
+    dispatch(registerUser(values));
+    dispatch(storeUser({ email: values.email }));
     
-    if ({...values}) {
-      dispatch(storeUser({email: values.email}))
-     return dispatch(registerUser(values))
-    }
-    actions.resetForm();
   };
-
 
   const {
     values,
@@ -37,18 +35,24 @@ const dispatch = useDispatch()
     onSubmit,
   });
 
-  
+  useEffect(() => {
+    if (user) {
+      setTimeout(() => {
+        navigate("/login");
+      }, 3000);
+    }
+  }, [user]);
 
   return (
     <div className="w-full flex justify-center items-center ">
       <div className="">
         <img src={icon} alt="" className="ml-[200px]" />
-        <div className="shadow w-[626px] flex flex-col justify-center items-center pt-[48px] pb-[55px] text-[#101828]">
+        <div className="shadow w-[626px] flex flex-col justify-center items-center pt-[4px] pb-[55px] text-[#101828]">
           <div className="">
-            <h2 className="text-[34px] font-normal mb-[25px] text-center">
+            <h2 className="text-[34px] font-normal mb-[15px] text-center">
               Create Your Account{" "}
             </h2>
-            <p className="mb-[25px] text-[21.52px] text-center">
+            <p className="mb-[20px] text-[21.52px] text-center">
               Get Started For Free By Signing Up Now.
             </p>
             <div className=" flex flex-col justify-center items-center">

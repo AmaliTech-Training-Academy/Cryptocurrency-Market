@@ -46,7 +46,7 @@ const login = () => {
     <div className="w-full flex justify-center items-center ">
       <div className="">
         <img src={icon} alt="" className="ml-[200px]" />
-        <div className="shadow-inner w-[626px] flex flex-col justify-center items-center pt-[48px] pb-[55px] text-[#101828]">
+        <div className="shadow w-[626px] flex flex-col justify-center items-center pt-[48px] pb-[55px] text-[#101828]">
           <div className="">
             <div className=" flex flex-col justify-center items-center ">
               <h1 className="font-bold text-[rgba(12,60,76,0.81)] text-[26px] mb-[35.22px] text-center">
