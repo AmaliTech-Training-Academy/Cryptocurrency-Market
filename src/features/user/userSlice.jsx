@@ -4,20 +4,20 @@ import { loginUserThunk, registerUserThunk } from "./userThunk";
 
 const initialState = {
   isLoading: false,
-  user: {},
+  user: null,
 };
 
 export const registerUser = createAsyncThunk(
   "user/registerUser",
   async (user, thunkAPI) => {
-    return registerUserThunk("auth/register", user, thunkAPI);
+    return registerUserThunk("/auth/register", user, thunkAPI);
   }
 );
 
 export const loginUser = createAsyncThunk(
   "user/loginUser",
   async (user, thunkAPI) => {
-    return loginUserThunk("auth/login", user, thunkAPI);
+    return loginUserThunk("/auth/login", user, thunkAPI);
   }
 );
 

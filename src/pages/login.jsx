@@ -6,7 +6,6 @@ import icon from "../assets/CryptoMart.svg";
 import { Input } from "../component";
 import { loginUser, storeUser } from "../features/user/userSlice";
 import { loginSchema } from "../Validations/UserLogin";
-import { userSchema } from "../Validations/UserValidation";
 import { useNavigate } from "react-router-dom";
 
 const login = () => {
@@ -39,7 +38,7 @@ const login = () => {
       if (user) {
        setTimeout(() => {
          navigate('/')
-       }, 3000);
+       }, 1500);
       }
      },[user])
   

@@ -1,21 +1,22 @@
 import axios from "axios";
+import customFetch from "../../utils/axios";
+customFetch
 
 
-const url =`https://address-book-system.onrender.com/api/v1`
 
-export const registerUserThunk = async ( endPoint,user, thunkAPI) => {
+export const registerUserThunk = async ( url,user, thunkAPI) => {
     
     try {
-      const resp = await axios.post(`${url}/${endPoint}`, user);
+      const resp = await customFetch.post(url, user);
       return resp.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.msg);
     }
   };
   
-  export const loginUserThunk = async (endPoint,user, thunkAPI) => {
+  export const loginUserThunk = async (url,user, thunkAPI) => {
     try {
-      const resp = await axios.post(`${url}/${endPoint}`, user);
+      const resp = await customFetch.post(url, user);
       return resp.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.msg);
