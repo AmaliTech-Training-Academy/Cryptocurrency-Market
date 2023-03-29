@@ -1,21 +1,21 @@
 import { useFormik } from "formik";
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch,useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import icon from "../assets/CryptoMart.svg";
 import { Input } from "../component";
 import { loginUser, storeUser } from "../features/user/userSlice";
 import { loginSchema } from "../Validations/UserLogin";
 import { userSchema } from "../Validations/UserValidation";
+import { useNavigate } from "react-router-dom";
 
 const login = () => {
+  const navigate = useNavigate()
+  const { user } = useSelector((store) => store.user);
   const dispatch = useDispatch();
   const onSubmit = (values, actions) => {
-    if ({ ...values }) {
       dispatch(storeUser({ email: values.email }));
-      return dispatch(loginUser(values));
-    }
-    actions.resetForm();
+       dispatch(loginUser(values));
   };
 
   const {
@@ -34,6 +34,15 @@ const login = () => {
     validationSchema: loginSchema,
     onSubmit,
   });
+
+  useEffect(()=>{
+      if (user) {
+       setTimeout(() => {
+         navigate('/')
+       }, 3000);
+      }
+     },[user])
+  
 
   return (
     <div className="w-full flex justify-center items-center ">
