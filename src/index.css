@@ -23,3 +23,47 @@ body {
 .text1 {
   @apply font-normal text-[17.7297px] leading-[21px] text-[#101828] absolute top-[195.03px] left-[16.62px]
 }
+
+.h2 {
+  @apply font-medium text-[39.06px] text-white leading-[47px] absolute top-[85px] left-[97px]
+}
+
+.span {
+  @apply border-dashed border-[0.2px] border-[rgba(252,252,253,0.25)] w-[546px] h-0 absolute top-[52.5px]
+}
+
+.border_one {
+  @apply border-dashed border-[0.3px] border-[rgba(252,252,253,0.25)] w-[79px] h-0 rotate-90 absolute top-[50px] ml-[80px]
+}
+
+.border_two {
+  @apply border-dashed border-[0.3px] border-[rgba(252,252,253,0.25)] w-[79px] h-0 rotate-90 absolute top-[50px] ml-[232px]
+}
+
+.border_three {
+  @apply border-dashed border-[0.3px] border-[rgba(252,252,253,0.25)] w-[79px] h-0 rotate-90 absolute top-[50px] ml-[410px]
+}
+
+.container {
+  @apply px-[10px] relative
+}
+
+.usd {
+  @apply font-normal text-[25px] leading-[30px] text-white absolute top-3 left-4
+}
+
+.change1 {
+  @apply font-normal text-[25px] text-white leading-[30px] absolute top-3 left-32
+}
+
+.change2 {
+  @apply font-normal text-[25px] text-white leading-[30px] absolute top-3 right-[120px]
+}
+
+.last {
+  @apply font-normal text-[25px] text-white leading-[30px] absolute top-3 right-2
+}
+
+.usd_value {
+  @apply font-normal text-[19px] text-white leading-[19px] absolute top-16 left-4
+}
