@@ -10,20 +10,18 @@ import notification from "../assets/Notification icon.svg";
 import Phone from "../assets/countryCodes.json";
 import { useFormik } from "formik";
 import { basicSchema } from "../schema";
+import { NavLink } from "react-router-dom";
 
 const onSubmit = async (values, actions) => {
-
-   // Image upload 
-   const reader = new FileReader();
-   reader.onload = () => {
-     document
-       .getElementById("image-preview")
-       .setAttribute("src", reader.result);
-   };
-   if (values.image) {
-     reader.readAsDataURL(values.image);
-   }
-  await new Promise((resolve) => setTimeout(resolve, 100));
+  // Image upload
+  const reader = new FileReader();
+  reader.onload = () => {
+    document.getElementById("image-preview").setAttribute("src", reader.result);
+  };
+  if (values.image) {
+    reader.readAsDataURL(values.image);
+  }
+  await new Promise((resolve) => setTimeout(resolve, 1000));
 
   console.log(values);
   actions.resetForm();
@@ -51,8 +49,6 @@ const profile = () => {
     validationSchema: basicSchema,
     onSubmit,
   });
-
-  console.log(errors);
 
   // Image Upload
   const fileUpload = useRef(null);
@@ -85,18 +81,22 @@ const profile = () => {
         <div className="flex mt-[36px] ">
           <div className="w-[268px] h-[213px] bg-[rgba(255,255,255,0.05)] shadow   ">
             <div className="flex flex-col">
-              <div className="flex items-center w-[268px] h-[39px] bg-red-600 mt-[26px] pl-8">
-                <span className=" flex justify-center items-center w-[17px] h-[17px] border border-[#000000] rounded-full mr-8">
-                  <img src={Psi} alt="" />
-                </span>
-                Profile Settings
-              </div>
-              <div className=" flex items-center pl-8 mt-[36px]">
-                <span className=" flex justify-center items-center w-[17px] h-[17px]  mr-8">
-                  <img src={Plok} alt="" />
-                </span>
-                Password
-              </div>
+              <NavLink id="settings" to="/profile-page" className="py-[0.5rem] mt-[20px] ">
+                <div className="flex items-center w-[268px] pl-8">
+                  <span className=" flex justify-center items-center w-[17px] h-[17px] border border-[#000000] rounded-full mr-8">
+                    <img src={Psi} alt="" />
+                  </span>
+                  Profile Settings
+                </div>
+              </NavLink>
+              <NavLink id="settings" to="/password" className="mt-[20px] py-[0.5rem]">
+                <div className=" flex items-center pl-8">
+                  <span className=" flex justify-center items-center w-[17px] h-[17px]  mr-8">
+                    <img src={Plok} alt="" />
+                  </span>
+                  Password
+                </div>
+              </NavLink>
               <div className=" flex items-center pl-8 mt-[36px] mb-[35px]">
                 <span className=" flex justify-center items-center w-[17px] h-[17px]  mr-8">
                   <img src={notification} alt="" className="w-[9px] h-[9px]" />
@@ -109,9 +109,13 @@ const profile = () => {
             <div className="ml-[49px] mt-[32px]">
               <div className="w-[525px] h-[127px] flex justify-between items-center">
                 <div className=" w-[127px] h-[127px] rounded-full relative">
-                <div className=" w-[127px] h-[127px] rounded-full relative overflow-hidden bg-profile bg-no-repeat bg-cover">
-                  <img src={previewImage} alt="" className="w-[127px] h-[127px]" />
-                </div>
+                  <div className=" w-[127px] h-[127px] rounded-full relative overflow-hidden bg-profile bg-no-repeat bg-cover">
+                    <img
+                      src={previewImage}
+                      alt=""
+                      className="w-[127px] h-[127px]"
+                    />
+                  </div>
 
                   {/* <img src={Pimg} alt="" className="w-[127px] position" /> */}
                   <div className="absolute flex justify-center align-middle right-[8px] bottom-[10px] w-6 h-6 bg-white rounded-full ">
@@ -298,11 +302,6 @@ const profile = () => {
                     <p className="text-[red] mr-10">{errors.gender}</p>
                   )}
                 </div>
-
-                {/*  <div className="mt-[43px]">
-                  <label htmlFor="gender">Gender</label>
-                  
-                </div> */}
 
                 <div className="mt-[63px] ">
                   <button

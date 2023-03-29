@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Settings page navigation */
+#settings.active {
+    background: #F2F4F7;
+}
+
+/* Nav links Navigation */
+#nav-links.active {
+    position: relative;
+}
+
+#nav-links.active::after {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    content: '';
+    background: #32D583;
+    bottom: -0.5rem;
+    left: 0;
+}
