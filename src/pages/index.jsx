@@ -1,16 +1,17 @@
-import Homepage from "./homepage";
+import Landingpage from "./landingpage";
 import ProfilePage from "./profile" 
 import Error from "./error";
 import Login from "./login"
 import SignUp from './signUp'
 import ProtectedRoute from "./ProctedRoute";
-ProtectedRoute
+import Homepage from "./homepage";
+
 
 export{
-    Homepage,
+    Landingpage,
     ProfilePage,
     Error,
     Login,
     SignUp,
-    ProtectedRoute
+    ProtectedRoute,Homepage
 }
