@@ -13,7 +13,6 @@ const login = () => {
   const { user } = useSelector((store) => store.user);
   const dispatch = useDispatch();
   const onSubmit = (values, actions) => {
-      dispatch(storeUser({ email: values.email }));
        dispatch(loginUser(values));
   };
 
