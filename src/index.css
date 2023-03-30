@@ -71,3 +71,11 @@ body {
 .usd_value {
   @apply font-normal text-[19px] text-white leading-[19px] absolute top-16 left-4
 }
+
+.perfect_niche {
+  background: linear-gradient(180deg, #0C3C4C 17.71%, rgba(12, 60, 76, 0.807171) 36.98%, rgba(12, 60, 76, 0.722776) 56.77%, rgba(12, 60, 76, 0.661398) 73.44%, rgba(12, 60, 76, 0.607692) 90.62%, rgba(12, 60, 76, 0) 100%);
+}
+
+.crypt_feature {
+  @apply font-normal text-[35.0567px] leading-[42px] text-[#101828]
+}
