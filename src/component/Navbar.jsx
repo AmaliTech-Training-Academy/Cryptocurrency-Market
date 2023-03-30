@@ -17,19 +17,19 @@ const Navbar = () => {
       <div className='w-[414px] h-[38px] ml-[-180px] p-[10px]'>
         <ul className='flex justify-between items-center text-[14.8px] font-normal text-[#101828]'>
           <li className={`${activePage === "home" ? "border-[#93FCEC] border-b-2" : "" }`} onClick={() => handlePageChange("home")}>
-            <Link to="/">Home</Link>
+            Home
           </li>
           <li className={`${activePage === "portfolio" ? "border-[#93FCEC] border-b-2" : ""}`} onClick={() => handlePageChange("portfolio")}>
-            <Link to="/">Portfolio</Link>
+            Portfolio
           </li> 
           <li className={`${activePage === "markets" ? "border-[#93FCEC] border-b-2" : ""}`} onClick={() => handlePageChange("markets")}>
-            <Link to="/">Markets</Link>
+            Markets
           </li>
           <li className={`${activePage === "faqs" ? "border-[#93FCEC] border-b-2" : ""}`} onClick={() => handlePageChange("faqs")}>
-            <Link to="/">FAQs</Link>
+            FAQs
           </li>
           <li className={`${activePage === "developers" ? "border-[#93FCEC] border-b-2" : ""}`} onClick={() => handlePageChange("developers")}>
-            <Link to="/">Developers</Link>
+            Developers
           </li>
         </ul>
       </div>
