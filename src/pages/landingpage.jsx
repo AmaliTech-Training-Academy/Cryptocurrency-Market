@@ -19,7 +19,7 @@ const landingPage = () => {
     <div>
       <Navbar/>
       <main>
-        <div className='h-[663.91px] bg-gradient-to-b from-[#0C3C4C] to-transparent via-[rgba(12,60,76,0.6077)]  pl-[109px] pt-[86.91px] relative'>
+        <div className='h-[663.91px] bg-gradient-to-b from-[#0C3C4C] to-transparent via-[rgba(12,60,76,0.6077)]  pl-[109px] pt-[86.91px] relative w-full '>
           <h1 className='w-[795px] h-[74px] font-bold text-white text-[61.04px] leading-[74px]'>Finding Your Perfect Niche</h1>
           <h4 className='w-[823px] h-[164px] font-normal text-white text-[25px] leading-[41px] mt-[34px] '>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
           incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4>
@@ -32,8 +32,8 @@ const landingPage = () => {
           </div>
           <img src={Hero} alt="" className='absolute top-0 right-0'/>
         </div>
-        <div className='px-[89px] pt-[70px]'>
-          <div className='flex justify-between'>
+        <div className='px-[89px] pt-[70px] w-full flex flex-col justify-center items-center '>
+          <div className='flex justify-center w-full xl-[1440px]:gap-[89px]'>
             <div className='w-[737.99px] h-[692.66px] grid grid-rows-2 grid-cols-2 gap-y-[26.76px] gap-x-[34.93px]'>
               <div className='square'>
                 <img src={Img1} alt="" className='icon'/>
