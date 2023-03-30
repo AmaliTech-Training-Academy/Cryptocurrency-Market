@@ -4,7 +4,8 @@ import Error from "./error";
 import Login from "./login"
 import SignUp from './signUp'
 import ProtectedRoute from "./ProctedRoute";
-ProtectedRoute
+import Homepage from "./homepage";
+
 
 export{
     Landingpage,
@@ -12,5 +13,5 @@ export{
     Error,
     Login,
     SignUp,
-    ProtectedRoute
+    ProtectedRoute,Homepage
 }

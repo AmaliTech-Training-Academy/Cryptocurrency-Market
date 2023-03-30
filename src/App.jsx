@@ -6,9 +6,10 @@ import {
   ProfilePage,
   SignUp,
   Login,
+  Landingpage,
   ProtectedRoute,
 } from "./pages";
-import { Landingpage, Error, ProfilePage, Login } from "./pages";
+// import { Landingpage, Error, ProfilePage, Login } from "./pages";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
