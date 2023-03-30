@@ -19,13 +19,13 @@ const landingPage = () => {
     <div>
       <Navbar/>
       <main>
-        <div className='h-[663.91px] bg-gradient-to-b from-[#0C3C4C] to-transparent via-[rgba(12,60,76,0.6077)]  pl-[109px] pt-[86.91px] relative w-full '>
+        <div className='h-[663.91px] pl-[109px] pt-[86.91px] relative w-full perfect_niche'>
           <h1 className='w-[795px] h-[74px] font-bold text-white text-[61.04px] leading-[74px]'>Finding Your Perfect Niche</h1>
           <h4 className='w-[823px] h-[164px] font-normal text-white text-[25px] leading-[41px] mt-[34px] '>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
           incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4>
           <div className='w-[638px] h-[86px] mt-[69.44px] flex justify-between'>
             <button className='w-[243px] h-[86px] rounded-[10px] font-normal text-[31.25px] text-white text-center border border-[#93FCEC]'>Explore More</button>
-            <button className='w-[311px] h-[86px] rounded-[8px] font-normal text-[31.25px] text-white text-center bg-[rgba(12,60,76,0.722776)] border border-[#32D583] flex justify-center items-center gap-4'>
+            <button className='w-[311px] h-[86px] rounded-lg font-normal text-[31.25px] text-white text-center bg-[rgba(12,60,76,0.722776)] border border-[#32D583] flex justify-center items-center gap-4'>
               <span className='w-[60px] h-[60px] rounded-full border border-[#93FCEC] flex justify-center items-center'><img src={Play} alt="" className='w-[18px] h-[24.06px]'/> </span>
               Watch video
             </button>
@@ -59,10 +59,10 @@ const landingPage = () => {
             <div className='w-[439px] h-[692.66px]'>
               <div className='[w-337px] h-[42px] flex items-center justify-start gap-[10.1px]'>
                 <div className='w-[107.69px] border-2 border-[#93FCEC]'></div>
-                <h3 className='font-normal text-[35.0567px] leading-[42px] text-center text-[#101828]'>Crypt feature</h3>
+                <h3 className='crypt_feature text-center'>Crypt feature</h3>
               </div>
               <div>
-                <h3 className='font-normal text-[35.0567px] leading-[42px] text-[#101828] pt-[21.94px]'>The most Trusted and Secure Cryptocurrency Platform</h3>
+                <h3 className='crypt_feature pt-[21.94px]'>The most Trusted and Secure Cryptocurrency Platform</h3>
                 <h2 className='font-normal text-[29.0593px] leading-[35px] text-[#7C7D7D] pt-[21.06px]'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
               </div>
               <button className='w-[215px] h-[58px] bg-[#0C3C4C] border border-[#93FCEC] rounded-[10px] font-normal text-[31.35px] text-[#E4E7EC] mt-[87px]'>Explore More</button>
