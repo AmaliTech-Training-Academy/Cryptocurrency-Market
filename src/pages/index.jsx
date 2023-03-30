@@ -1,4 +1,4 @@
-import Homepage from "./homepage";
+import Landingpage from "./landingpage";
 import ProfilePage from "./profile" 
 import Error from "./error";
 import Login from "./login"
@@ -7,7 +7,7 @@ import ProtectedRoute from "./ProctedRoute";
 ProtectedRoute
 
 export{
-    Homepage,
+    Landingpage,
     ProfilePage,
     Error,
     Login,

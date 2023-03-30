@@ -7,3 +7,19 @@
 body {
   font-family: 'Inter';
 }
+
+.square {
+  @apply w-[351.53px] h-[332.95px] relative border border-[#93FCEC];
+}
+
+.icon {
+  @apply absolute top-[38.78px] left-[25.49px];
+}
+
+.text {
+  @apply font-normal text-[34.6284px] leading-[42px] text-[#101828] absolute top-[135.19px] left-[16.62px]
+}
+
+.text1 {
+  @apply font-normal text-[17.7297px] leading-[21px] text-[#101828] absolute top-[195.03px] left-[16.62px]
+}
