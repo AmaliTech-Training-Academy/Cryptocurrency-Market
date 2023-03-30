@@ -6,7 +6,7 @@ import LinkedIn from "../assets/uil_linkedin.svg"
 
 const Footer = () => {
   return ( 
-    <footer className='h-[522px]'>
+    <footer className='h-[522px] w-full '>
       <div className='h-[455px] bg-[#114050] relative'>
         <div className='w-[292.81px] h-[126px] absolute top-[102px] left-[71.94px] flex flex-col'>
           <span className='text-[46.3448px] text-white'>Logo</span>

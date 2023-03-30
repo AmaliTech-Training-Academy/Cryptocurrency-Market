@@ -10,7 +10,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className='bg-gray-100 w-full h-[77px] pl-[110px] pr-[115px] flex items-center justify-between'>
+    <nav className='bg-gray-100 w-full  h-[77px] pl-[110px] pr-[115px] flex items-center justify-between'>
       <div className='w-[147px] h-[46px] flex justify-center items-center uppercase text-bold'>
         <img src={CryptoMart} alt="" />
       </div>
