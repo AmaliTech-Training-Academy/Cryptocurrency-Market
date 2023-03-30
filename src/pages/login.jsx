@@ -1,22 +1,30 @@
 import { useFormik } from "formik";
-import React, { useEffect } from "react";
-import { useDispatch,useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import icon from "../assets/CryptoMart.svg";
 import { Input } from "../component";
 import { loginUser, storeUser } from "../features/user/userSlice";
 import { loginSchema } from "../Validations/UserLogin";
-import { useNavigate } from "react-router-dom";
+
 
 const login = () => {
-  const navigate = useNavigate()
-  const { user } = useSelector((store) => store.user);
   const dispatch = useDispatch();
+  const navigate = useNavigate()
+  const {user} = useSelector((store) => store.user)
+  
   const onSubmit = (values, actions) => {
-      dispatch(storeUser({ email: values.email }));
-       dispatch(loginUser(values));
+   dispatch(loginUser(values))
+  
   };
 
+  useEffect(()=>{
+    if (user) {
+     setTimeout(() => {
+       navigate('/')
+     }, 3000);
+    }
+   },[user])
   const {
     values,
     errors,
@@ -34,20 +42,11 @@ const login = () => {
     onSubmit,
   });
 
-  useEffect(()=>{
-      if (user) {
-       setTimeout(() => {
-         navigate('/')
-       }, 1500);
-      }
-     },[user])
-  
-
   return (
     <div className="w-full flex justify-center items-center ">
       <div className="">
         <img src={icon} alt="" className="ml-[200px]" />
-        <div className="shadow-inner w-[626px] flex flex-col justify-center items-center pt-[48px] pb-[55px] text-[#101828]">
+        <div className="shadow w-[626px] flex flex-col justify-center items-center pt-[48px] pb-[55px] text-[#101828]">
           <div className="">
             <div className=" flex flex-col justify-center items-center ">
               <h1 className="font-bold text-[rgba(12,60,76,0.81)] text-[26px] mb-[35.22px] text-center">
@@ -82,7 +81,7 @@ const login = () => {
                 </Link>
                 <div className="mt-[46px]  h-[42px] text-center  ">
                   <button
-                    disabled={isSubmitting}
+                    // disabled={isSubmitting}
                     type="submit"
                     className=" h-[42px] w-[268px] rounded-lg bg-[#0c3c4cce] font-normal text-white text-[17px] mb-[16px]"
                   >
