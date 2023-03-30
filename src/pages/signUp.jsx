@@ -4,18 +4,23 @@ import { useDispatch,useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import icon from "../assets/CryptoMart.svg";
 import { Input } from "../component";
-import { loginUser, storeUser } from "../features/user/userSlice";
-import { loginSchema } from "../Validations/UserLogin";
+import { registerUser, storeUser } from "../features/user/userSlice";
+import { userSchema } from "../Validations/UserValidation";
 import { useNavigate } from "react-router-dom";
 
-const login = () => {
+const signUp = () => {
   const navigate = useNavigate()
   const { user } = useSelector((store) => store.user);
-  const dispatch = useDispatch();
+const dispatch = useDispatch()
   const onSubmit = (values, actions) => {
-      dispatch(storeUser({ email: values.email }));
-       dispatch(loginUser(values));
+    dispatch(registerUser(values));
+    dispatch(storeUser({ email: values.email }));
+    
+    dispatch(registerUser(values))
+    dispatch(storeUser({email: values.email}))
+    
   };
+  
 
   const {
     values,
@@ -29,30 +34,38 @@ const login = () => {
     initialValues: {
       email: "",
       password: "",
+      confirmPassword: "",
     },
-    validationSchema: loginSchema,
+    validationSchema: userSchema,
     onSubmit,
   });
 
-  useEffect(()=>{
-      if (user) {
-       setTimeout(() => {
-         navigate('/')
-       }, 1500);
-      }
-     },[user])
   
+  useEffect(()=>{
+    if (user) {
+     setTimeout(() => {
+       navigate('/login')
+     }, 3000);
+    }
+   },[user])
 
   return (
     <div className="w-full flex justify-center items-center ">
       <div className="">
         <img src={icon} alt="" className="ml-[200px]" />
-        <div className="shadow-inner w-[626px] flex flex-col justify-center items-center pt-[48px] pb-[55px] text-[#101828]">
+        <div className="shadow w-[626px] flex flex-col justify-center items-center pt-[4px] pb-[55px] text-[#101828]">
           <div className="">
-            <div className=" flex flex-col justify-center items-center ">
-              <h1 className="font-bold text-[rgba(12,60,76,0.81)] text-[26px] mb-[35.22px] text-center">
-                Login
+            <h2 className="text-[34px] font-normal mb-[15px] text-center">
+              Create Your Account{" "}
+            </h2>
+            <p className="mb-[20px] text-[21.52px] text-center">
+              Get Started For Free By Signing Up Now.
+            </p>
+            <div className=" flex flex-col justify-center items-center">
+              <h1 className="font-bold text-[rgba(12,60,76,0.81)] text-[22px] mb-[35.22px] text-center">
+                SIGN UP
               </h1>
+
               <form onSubmit={handleSubmit} autoComplete="off">
                 <Input
                   label="Email Address*"
@@ -65,6 +78,7 @@ const login = () => {
                   error={errors.email}
                   touch={touched.email}
                 />
+                {/* {errors.email && touched.email && <p className="text-[red]">{errors.email}</p>} */}
                 <Input
                   label="Password*"
                   type="password"
@@ -77,21 +91,29 @@ const login = () => {
                   touch={touched.password}
                 />
 
-                <Link to="/signUp" className="text-[#0000ffb3] ml-[210px] ">
-                  Forgot password?
-                </Link>
+                <Input
+                  label="Confirm Password*"
+                  type="password"
+                  name="confirmPassword"
+                  value={values.confirmPassword}
+                  handleChange={handleChange}
+                  placeholder="Enter your confirmPassword "
+                  onBlur={handleBlur}
+                  error={errors.confirmPassword}
+                  touch={touched.confirmPassword}
+                />
                 <div className="mt-[46px]  h-[42px] text-center  ">
                   <button
-                    disabled={isSubmitting}
+                    // disabled={isSubmitting}
                     type="submit"
                     className=" h-[42px] w-[268px] rounded-lg bg-[#0c3c4cce] font-normal text-white text-[17px] mb-[16px]"
                   >
-                    Login
+                    Sign Up
                   </button>
                   <p>
-                    Don’t have an account?
-                    <Link to="/signUp" className="text-[#0000ffb3]">
-                      SignUp
+                    Already have an account?
+                    <Link to="/login" className="text-[#0000ffb3]">
+                      LogIn
                     </Link>
                   </p>
                 </div>
@@ -104,4 +126,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default signUp;
