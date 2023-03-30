@@ -11,14 +11,15 @@ import Pv1 from "../assets/Password vector 1.svg";
 import { useFormik } from "formik";
 import { passswordSchema } from "../schema";
 import { NavLink } from "react-router-dom";
-
-const onSubmit = async (values, actions) => {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-
-  actions.resetForm();
-};
+import { useDispatch } from "react-redux";
+import { updatePassword } from "../features/user/userSlice";
 
 const Password = () => {
+  const dispatch = useDispatch();
+  const onSubmit = async (values, actions) => {
+    dispatch(updatePassword(values));
+  };
+
   const {
     values,
     errors,
@@ -56,16 +57,23 @@ const Password = () => {
         <div className="flex mt-[36px] ">
           <div className="w-[268px] h-[213px] bg-[rgba(255,255,255,0.05)] shadow   ">
             <div className="flex flex-col">
-                <NavLink id="settings" to='/profile-page' className='py-[0.5rem]'>
-              <div className="flex items-center w-[268px] h-[39px] mt-[20px] pl-8">
-
-                <span className=" flex justify-center items-center w-[17px] h-[17px] border border-[#000000] rounded-full mr-8">
-                  <img src={Psi} alt="" />
-                </span>
-                Profile Settings
-              </div>
-                </NavLink>
-              <NavLink id="settings" to="/password"className='mt-[20px] py-[0.5rem]'>
+              <NavLink
+                id="settings"
+                to="/profile-page"
+                className="py-[0.5rem] mt-[20px]"
+              >
+                <div className="flex items-center w-[268px] pl-8">
+                  <span className=" flex justify-center items-center w-[17px] h-[17px] border border-[#000000] rounded-full mr-8">
+                    <img src={Psi} alt="" />
+                  </span>
+                  Profile Settings
+                </div>
+              </NavLink>
+              <NavLink
+                id="settings"
+                to="/password"
+                className="mt-[20px] py-[0.5rem]"
+              >
                 <div className=" flex items-center pl-8">
                   <span className=" flex justify-center items-center w-[17px] h-[17px]  mr-8">
                     <img src={Plok} alt="" />

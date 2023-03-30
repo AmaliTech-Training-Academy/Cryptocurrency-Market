@@ -3,11 +3,42 @@
 @tailwind utilities;
 
 /* Settings page navigation */
+
+#settings:hover {
+    transition: all .3s ease;
+    background: #c1c1c2;
+}
 #settings.active {
     background: #F2F4F7;
 }
 
 /* Nav links Navigation */
+#nav-links {
+    position: relative;
+}
+
+#nav-links::after {
+    position: absolute;
+    width: 0;
+    height: 1px;
+    content: '';
+    background: #32D583;
+    bottom: -0.5rem;
+    left: 0;
+    transition: all .3s ease;
+}
+
+#nav-links:hover:after {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    content: '';
+    background: #32D583;
+    bottom: -0.5rem;
+    left: 0;
+}
+
+
 #nav-links.active {
     position: relative;
 }
@@ -21,3 +52,14 @@
     bottom: -0.5rem;
     left: 0;
 }
+
+/* phoneinput */
+.PhoneInputInput{
+    width: 320px;
+    height: 44px;
+    /* border: 1px solid #E2E8F0; */
+    border-radius: 0.25rem;
+    padding-left: 10px;
+
+}
+
