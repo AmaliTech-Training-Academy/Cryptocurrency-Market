@@ -10,7 +10,10 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
+<<<<<<< HEAD
     "axios": "^1.3.4",
+=======
+>>>>>>> 07eea14 ( feature: user profile and change password page styles done. And validation for user profile page ongoing)
     "formik": "^2.2.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
