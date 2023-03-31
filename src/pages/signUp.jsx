@@ -43,7 +43,7 @@ const dispatch = useDispatch()
   useEffect(()=>{
     if (user) {
      setTimeout(() => {
-       navigate('/login')
+       navigate('/')
      }, 3000);
     }
    },[user])
