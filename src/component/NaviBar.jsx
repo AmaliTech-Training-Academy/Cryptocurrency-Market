@@ -4,6 +4,7 @@ import notification from '../assets/Notification icon.svg'
 import Pimg from '../assets/Profile-picture.png'
 import Down from '../assets/chevron.svg'
 import Search from '../assets/search icon.svg'
+import { NavLink } from 'react-router-dom'
 
 
 
@@ -17,11 +18,11 @@ function NaviBar() {
         </div>
         <div className=''>
         <ul className='flex justify-between  w-[273px] items-center text-[14.8px] font-normal text-[#101828]'>
-            <li className='mr-8' >Home</li>
-            <li className='mr-8'>Portfolio</li>
-            <li className='mr-8'>Markets</li>
-            <li className='mr-8'>FAQs</li>
-            <li>Developers</li>
+            <NavLink to={'/profile-page'} id='nav-links' className='mr-8' >Home</NavLink>
+            <NavLink to={'/password'}  id='nav-links' className='mr-8'>Portfolio</NavLink>
+            <NavLink to={'/markets'}  id='nav-links' className='mr-8'>Markets</NavLink>
+            <NavLink to={'/faqs'}  id='nav-links' className='mr-8'>FAQs</NavLink>
+            <NavLink to={'/developers'}  id='nav-links' >Developers</NavLink>
         </ul>
         </div>
         <div className=' h-[36px] flex justify-between w-[300px] mr-[140px]'>
