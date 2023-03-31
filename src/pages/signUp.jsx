@@ -30,22 +30,22 @@ const dispatch = useDispatch()
     handleSubmit,
   } = useFormik({
     initialValues: {
-      email: "",
+      name:"",
+      name: "",
       password: "",
-      confirmPassword: "",
     },
     validationSchema: userSchema,
     onSubmit,
   });
 
   
-  // useEffect(()=>{
-  //   if (user) {
-  //    setTimeout(() => {
-  //      navigate('/login')
-  //    }, 3000);
-  //   }
-  //  },[user])
+  useEffect(()=>{
+    if (user) {
+     setTimeout(() => {
+       navigate('/')
+     }, 3000);
+    }
+   },[user])
 
   return (
     <div className="w-full flex justify-center items-center ">
@@ -65,6 +65,17 @@ const dispatch = useDispatch()
               </h1>
 
               <form onSubmit={handleSubmit} autoComplete="off">
+              <Input
+                  label="Name*"
+                  type="name"
+                  name="name"
+                  value={values.name}
+                  handleChange={handleChange}
+                  placeholder="Enter your name "
+                  onBlur={handleBlur}
+                  error={errors.name}
+                  touch={touched.name}
+                />
                 <Input
                   label="Email Address*"
                   type="email"
@@ -89,17 +100,7 @@ const dispatch = useDispatch()
                   touch={touched.password}
                 />
 
-                <Input
-                  label="Confirm Password*"
-                  type="password"
-                  name="confirmPassword"
-                  value={values.confirmPassword}
-                  handleChange={handleChange}
-                  placeholder="Enter your confirmPassword "
-                  onBlur={handleBlur}
-                  error={errors.confirmPassword}
-                  touch={touched.confirmPassword}
-                />
+               
                 <div className="mt-[46px]  h-[42px] text-center  ">
                   <button
                     // disabled={isSubmitting}
