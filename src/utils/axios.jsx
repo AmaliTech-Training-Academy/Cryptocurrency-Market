@@ -1,16 +1,12 @@
 import axios from "axios";
-
-
 const customFetch = axios.create({
     baseURL : `https://address-book-system.onrender.com/api/v1`
 })
-
 customFetch.interceptors.request.use(
     (config) => {
       const user = getUserFromLocalStorage();
       if (user) {
-        config.headers['Authorization'] = `Bearer ${user.token}`;
-        
+        config.headers['Authorization'] = `Bearer ${user.acces_token}`;
       }
       return config;
     },
@@ -18,7 +14,6 @@ customFetch.interceptors.request.use(
       return Promise.reject(error);
     }
   );
-
   export const  checkForUnauthorizedResponse = (error,thunkAPI) =>{
     if (error.response.status === 401) {
       thunkAPI.dispatch(clearStore());
@@ -26,5 +21,4 @@ customFetch.interceptors.request.use(
     }
     return thunkAPI.rejectWithValue(error.response.data.msg);
   }
-
 export default customFetch

@@ -7,27 +7,32 @@ import Che from "../assets/chevron 1.svg";
 import Psi from "../assets/Vector.svg";
 import Plok from "../assets/lock vector.svg";
 import notification from "../assets/Notification icon.svg";
-import Phone from "../assets/countryCodes.json";
+import PhoneInput from "react-phone-number-input";
 import { useFormik } from "formik";
 import { basicSchema } from "../schema";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { updateUserProfile } from "../features/user/userSlice";
+import 'react-phone-number-input/style.css'
+import DropdownMenu from "../component/DropdownMenu";
 
-const onSubmit = async (values, actions) => {
+const profile = () => {
+  const [value, setValue] = useState();
+  const dispatch = useDispatch();
+
+  const onSubmit = async (values, actions) => {
+    console.log(values);
+    dispatch(updateUserProfile(values));
+
+    // actions.resetForm();
+  };
+
   // Image upload
   const reader = new FileReader();
   reader.onload = () => {
     document.getElementById("image-preview").setAttribute("src", reader.result);
   };
-  if (values.image) {
-    reader.readAsDataURL(values.image);
-  }
-  await new Promise((resolve) => setTimeout(resolve, 1000));
 
-  console.log(values);
-  actions.resetForm();
-};
-
-const profile = () => {
   const {
     values,
     errors,
@@ -39,10 +44,8 @@ const profile = () => {
     handleSubmit,
   } = useFormik({
     initialValues: {
-      image: "",
       firstName: "",
       lastName: "",
-      email: "",
       mobileNumber: "",
       gender: "",
     },
@@ -68,9 +71,9 @@ const profile = () => {
       <NaviBar />
       <div className="ml-[43px]">
         <div className="mt-2 flex items-center justify-center w-[261px] h-[30px]">
-          <div className="mr-[25px]">
+          <Link to={'/'} className="mr-[25px]">
             <img src={Home} alt="" className="w-[16px] h-[18px] " />
-          </div>
+          </Link>
           <div className="mr-[12px]">
             <img src={Che} alt="" className="w-[7px] h-[12px]" />
           </div>
@@ -81,7 +84,11 @@ const profile = () => {
         <div className="flex mt-[36px] ">
           <div className="w-[268px] h-[213px] bg-[rgba(255,255,255,0.05)] shadow   ">
             <div className="flex flex-col">
-              <NavLink id="settings" to="/profile-page" className="py-[0.5rem] mt-[20px] ">
+              <NavLink
+                id="settings"
+                to="/profile-page"
+                className="py-[0.5rem] mt-[20px] "
+              >
                 <div className="flex items-center w-[268px] pl-8">
                   <span className=" flex justify-center items-center w-[17px] h-[17px] border border-[#000000] rounded-full mr-8">
                     <img src={Psi} alt="" />
@@ -89,7 +96,11 @@ const profile = () => {
                   Profile Settings
                 </div>
               </NavLink>
-              <NavLink id="settings" to="/password" className="mt-[20px] py-[0.5rem]">
+              <NavLink
+                id="settings"
+                to="/password"
+                className="mt-[20px] py-[0.5rem]"
+              >
                 <div className=" flex items-center pl-8">
                   <span className=" flex justify-center items-center w-[17px] h-[17px]  mr-8">
                     <img src={Plok} alt="" />
@@ -116,9 +127,7 @@ const profile = () => {
                       className="w-[127px] h-[127px]"
                     />
                   </div>
-
-                  {/* <img src={Pimg} alt="" className="w-[127px] position" /> */}
-                  <div className="absolute flex justify-center align-middle right-[8px] bottom-[10px] w-6 h-6 bg-white rounded-full ">
+                  <div className="absolute flex justify-center align-middle right-[8px] bottom-[10px] w-6 h-6 bg-white rounded-full">
                     <img src={Epi} alt="" className="w-4" />
                   </div>
                 </div>
@@ -173,7 +182,7 @@ const profile = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                       />
-                      {errors.firstName && touched.email && (
+                      {errors.firstName && touched.firstName && (
                         <p className="text-[red] mb-4">{errors.firstName}</p>
                       )}
                     </div>
@@ -192,14 +201,14 @@ const profile = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                       />
-                      {errors.lastName && touched.email && (
+                      {errors.lastName && touched.lastName && (
                         <p className="text-[red] mb-4">{errors.lastName}</p>
                       )}
                     </div>
                   </div>
                 </div>
 
-                {/* secondpart */}
+                {/* secondinputfields */}
 
                 <div className="">
                   <div className="flex ">
@@ -225,25 +234,17 @@ const profile = () => {
                     <div className="flex flex-col">
                       <div className="mt-[49px] ">
                         <label className="ml-[10px] ">Mobile Number</label>
-                        <div className="flex w-[360px] h-[44px] border mt-[18px] rounded">
-                          <select
+                        <div className={` flex w-[375px] h-[46px] border mt-[18px] rounded pl-[10px] ${errors.mobileNumber && touched.mobileNumber
+                            ? "border-[red]"
+                            : "border-[#53352d80]"}`}>
+                      
+                          <PhoneInput
+                          defaultCountry="GH"
                             name="mobileNumber"
+                            type= "number"
                             id="mobileNumber"
-                            className="w-[25%]"
-                          >
-                            {Phone.map((item) => (
-                              <option
-                                value={item.dial_code}
-                              >{`${item.flag} ${item.name} ${item.dial_code}`}</option>
-                            ))}
-                          </select>
-                          <input
-                            type="number"
-                            id="mobileNumber"
-                            name="mobileNumber"
-                            placeholder="555667668"
-                            className="border  pl-[15px] rounded flex-1 h-full w-full"
-                            value={values.mobileNumber}
+                            placeholder=" 5678990"
+                            value={value}
                             onChange={handleChange}
                             onBlur={handleBlur}
                           />
@@ -305,7 +306,7 @@ const profile = () => {
 
                 <div className="mt-[63px] ">
                   <button
-                    disabled={isSubmitting}
+                    // disabled={isSubmitting}
                     type="submit"
                     className="bg-[#0C3C4C] w-[252px] h-[67px] rounded mb-[25px] text-white text-[16px]"
                   >
