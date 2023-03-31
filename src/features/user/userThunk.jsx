@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import axios from "axios";
 import customFetch from "../../utils/axios";
 customFetch
@@ -24,6 +25,8 @@ export const registerUserThunk = async ( url,user, thunkAPI) => {
     }
   };
 =======
+=======
+>>>>>>> e14c10a4edabf5371579b050cb54b4c86a7d3e07
 import customFetch from "../../utils/axios";
 
 export const updateUserProfileThunk = async(url,user,thunkAPI) => {
@@ -44,4 +47,7 @@ export const changePasswordThunk = async(url,user,thunkAPI) => {
     }
 }
 
+<<<<<<< HEAD
 >>>>>>> 977fb35 ( feature:all toggle functions done)
+=======
+>>>>>>> e14c10a4edabf5371579b050cb54b4c86a7d3e07

@@ -4,6 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
+<<<<<<< HEAD
 body {
   font-family: 'Inter';
 }
@@ -79,6 +80,8 @@ body {
 .crypt_feature {
   @apply font-normal text-[35.0567px] leading-[42px] text-[#101828]
 }
+=======
+>>>>>>> e14c10a4edabf5371579b050cb54b4c86a7d3e07
 
 
 body {

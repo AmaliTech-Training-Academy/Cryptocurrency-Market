@@ -12,12 +12,16 @@
     "@reduxjs/toolkit": "^1.9.3",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "axios": "^1.3.4",
 =======
 >>>>>>> 07eea14 ( feature: user profile and change password page styles done. And validation for user profile page ongoing)
 =======
     "axios": "^1.3.4",
 >>>>>>> 977fb35 ( feature:all toggle functions done)
+=======
+    "axios": "^1.3.4",
+>>>>>>> e14c10a4edabf5371579b050cb54b4c86a7d3e07
     "formik": "^2.2.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
