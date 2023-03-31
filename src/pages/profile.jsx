@@ -7,14 +7,14 @@ import Che from "../assets/chevron 1.svg";
 import Psi from "../assets/Vector.svg";
 import Plok from "../assets/lock vector.svg";
 import notification from "../assets/Notification icon.svg";
-import PhoneInput from "react-phone-number-input";
+import PhoneInput,{formatPhoneNumber, formatPhoneNumberIntl, isValidPhoneNumber} from "react-phone-number-input";
 import { useFormik } from "formik";
 import { basicSchema } from "../schema";
 import { Link, NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { updateUserProfile } from "../features/user/userSlice";
 import 'react-phone-number-input/style.css'
-import DropdownMenu from "../component/DropdownMenu";
+
 
 const profile = () => {
   const [value, setValue] = useState();
@@ -48,6 +48,7 @@ const profile = () => {
       lastName: "",
       mobileNumber: "",
       gender: "",
+      email: "",
     },
     validationSchema: basicSchema,
     onSubmit,
@@ -215,8 +216,9 @@ const profile = () => {
                     <div className="flex flex-col">
                       <label className="ml-[10px] mt-[49px]">Email</label>
                       <input
-                        type="text"
+                        type="email"
                         name="email"
+                        id="email"
                         placeholder="examples@gmail.com"
                         className={`border w-[360px] h-[44px] mt-[18px] mb-[5px] mr-[37px] pl-[15px] rounded ${
                           errors.email && touched.email
@@ -234,11 +236,11 @@ const profile = () => {
                     <div className="flex flex-col">
                       <div className="mt-[49px] ">
                         <label className="ml-[10px] ">Mobile Number</label>
-                        <div className={` flex w-[375px] h-[46px] border mt-[18px] rounded pl-[10px] ${errors.mobileNumber && touched.mobileNumber
+                        <div className={` flex  rounded pl-[10px] ${errors.mobileNumber && touched.mobileNumber
                             ? "border-[red]"
                             : "border-[#53352d80]"}`}>
-                      
-                          <PhoneInput
+                      {/* 
+                          <PhoneInput 
                           defaultCountry="GH"
                             name="mobileNumber"
                             type= "number"
@@ -247,6 +249,17 @@ const profile = () => {
                             value={value}
                             onChange={handleChange}
                             onBlur={handleBlur}
+                            error={value ? (isValidPhoneNumber(value) ? undefined : 'Invalid phone number') : 'Phone number required'}
+                          /> */}
+                          < input
+                          type="number"
+                           name="mobileNumber"
+                           className={` flex w-[375px] h-[46px] border mt-[18px] rounded pl-[10px] ${errors.mobileNumber && touched.mobileNumber
+                            ? "border-[red]"
+                            : "border-[#53352d80]"}`}
+                           value={values.mobileNumber}
+                           onChange={handleChange}
+                           onBlur={handleBlur}
                           />
                         </div>
                         {errors.mobileNumber && touched.mobileNumber && (
