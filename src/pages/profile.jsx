@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { NaviBar } from "../component";
+import { NaviBar, Select } from "../component";
 import Pimg from "../assets/Profile-picture.png";
 import Epi from "../assets/edit picture.svg";
 import Home from "../assets/home vector.svg";
@@ -14,7 +14,6 @@ import { basicSchema } from "../schema";
 import { Link, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser, storeUser, updateUserProfile } from "../features/user/userSlice";
-
 
 const profile = () => {
   const [value, setValue] = useState();
@@ -73,11 +72,11 @@ const profile = () => {
 
 
   return (
-    <div className="bg-[#FCFCFD] ">
+    <div className="bg-[#FCFCFD] w-full ">
       <NaviBar />
-      <div className="ml-[43px]">
+      <div className="ml-[43px] ">
         <div className="mt-2 flex items-center justify-center w-[261px] h-[30px]">
-          <Link to={'/'} className="mr-[25px]">
+          <Link to={'/landing'} className="mr-[25px]">
             <img src={Home} alt="" className="w-[16px] h-[18px] " />
           </Link>
           <div className="mr-[12px]">
@@ -245,7 +244,7 @@ const profile = () => {
                             ? "border-[red]"
                             : "border-[#53352d80]"}`}>
                       
-                        {/*   <PhoneInput 
+                          {/* <PhoneInput 
                           country="gh"
                           onlyCountries={['gh', 'fr', 'us']}
                             name="mobileNumber"
@@ -257,19 +256,24 @@ const profile = () => {
                              onBlur={handleBlur} 
                             error={value ? (isValidPhoneNumber(value) ? undefined : 'Invalid phone number') : 'Phone number required'}
                           /> */}
+                          <div className="flex justify-center items-center">
+                            <Select/>
+                            
                           < input
                           type="number"
-                           name="mobileNumber"
-                           className={` flex w-[375px] h-[46px] border mt-[18px] rounded pl-[10px] ${errors.mobileNumber && touched.mobileNumber
+                          name="mobileNumber"
+                          placeholder="598 756 9870"
+                          className={` flex w-[285px] h-[46px] border mt-[18px] rounded pl-[10px] ${errors.mobileNumber && touched.mobileNumber
                             ? "border-[red]"
                             : "border-[#53352d80]"}`}
-                           value={values.mobileNumber}
-                           onChange={handleChange}
-                           onBlur={handleBlur}
-                          />
+                            value={values.mobileNumber}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            />
+                            </div>
                         </div>
                         {errors.mobileNumber && touched.mobileNumber && (
-                          <p className="text-[red] ">{errors.mobileNumber}</p>
+                          <p className="text-[red] ml-[70px]">{errors.mobileNumber}</p>
                         )}
                       </div>
                     </div>

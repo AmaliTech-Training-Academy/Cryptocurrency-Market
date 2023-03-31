@@ -12,6 +12,7 @@ import {
 } from "./pages";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Select } from "./component";
 
 const App = () => {
   return (
@@ -21,7 +22,7 @@ const App = () => {
           path="/"
           element={
             <ProtectedRoute>
-              <Homepage />
+              <Select />
             </ProtectedRoute>
           }
         ></Route>

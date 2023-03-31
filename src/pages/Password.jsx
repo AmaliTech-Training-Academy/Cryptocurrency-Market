@@ -10,7 +10,7 @@ import notification from "../assets/Notification icon.svg";
 import Pv1 from "../assets/Password vector 1.svg";
 import { useFormik } from "formik";
 import { passswordSchema } from "../schema";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { updatePassword } from "../features/user/userSlice";
 
@@ -44,9 +44,9 @@ const Password = () => {
       <NaviBar />
       <div className="ml-[43px]">
         <div className="mt-2 flex items-center justify-center w-[261px] h-[30px]">
-          <div className="mr-[25px]">
+          <Link to={'/landing'} className="mr-[25px]">
             <img src={Home} alt="" className="w-[16px] h-[18px] " />
-          </div>
+          </Link>
           <div className="mr-[12px]">
             <img src={Che} alt="" className="w-[7px] h-[12px]" />
           </div>
@@ -83,7 +83,7 @@ const Password = () => {
               </NavLink>
               <div className=" flex items-center pl-8 mt-[36px] mb-[35px]">
                 <span className=" flex justify-center items-center w-[17px] h-[17px]  mr-8">
-                  <img src={notification} alt="" className="w-[9px] h-[9px]" />
+                  <img src={notification} alt="" className="w-[15px] h[14px]" />
                 </span>
                 Notification
               </div>
