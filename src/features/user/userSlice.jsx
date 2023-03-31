@@ -1,22 +1,17 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { loginUserThunk, registerUserThunk } from "./userThunk";
-=======
+import {
+  addUserToLocalStorage,
+  getUserFromLocalStorage,
+} from "../../utils/localStorage";
+import { getUserThunk, loginUserThunk, registerUserThunk } from "./userThunk";
 import { changePasswordThunk, updateUserProfileThunk } from "./userThunk";
->>>>>>> 977fb35 ( feature:all toggle functions done)
-=======
-import { changePasswordThunk, updateUserProfileThunk } from "./userThunk";
->>>>>>> e14c10a4edabf5371579b050cb54b4c86a7d3e07
 
 const initialState = {
   isLoading: false,
-  user: null,
+  user: getUserFromLocalStorage(),
 };
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 export const registerUser = createAsyncThunk(
   "user/registerUser",
   async (user, thunkAPI) => {
@@ -31,24 +26,46 @@ export const loginUser = createAsyncThunk(
   }
 );
 
+export const updateUserProfile = createAsyncThunk(
+  "user/updateUserProfile",
+  async (user, thunkAPI) => {
+    return updateUserProfileThunk("/auth/update-user", user, thunkAPI);
+  }
+);
+
+export const updatePassword = createAsyncThunk(
+  "user/updatePassword",
+  async (user, thunkAPI) => {
+    return changePasswordThunk("/auth/update-user", user, thunkAPI);
+  }
+);
+
+export const getUser = createAsyncThunk(
+  "user/getUser",
+  async (user, thunkAPI) => {
+    return getUserThunk("/auth/find-user", user, thunkAPI);
+  }
+);
+
 const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    storeUser: (state,{payload})=>{
-      state.user = {...state.user,email:payload.email}
-    }
+    storeUser: (state, { payload }) => {
+      state.user = {...payload};
+    },
   },
   extraReducers: (builder) => {
     builder
       .addCase(registerUser.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(registerUser.fulfilled, (state,{payload}) => {
-        console.log(payload);
+      .addCase(registerUser.fulfilled, (state, { payload }) => {
+        const { data } = payload;
         state.isLoading = false;
-        state.user = {...state.user,...payload.data}
-        toast.success("User Created");
+        state.user = { data };
+        addUserToLocalStorage(data);
+        toast.success(`Hello there ${data}`);
       })
       .addCase(registerUser.rejected, (state, { payload }) => {
         state.isLoading = false;
@@ -57,47 +74,22 @@ const userSlice = createSlice({
       .addCase(loginUser.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(loginUser.fulfilled, (state,{payload}) => {
+      .addCase(loginUser.fulfilled, (state, { payload }) => {
+        const { data } = payload;
         state.isLoading = false;
-        state.user = {...state.user,...payload.data}
-        toast.success("Welcome Back");
+        state.user = { data };
+        addUserToLocalStorage(data);
+        toast.success(`Welcom Back ${data}`);
       })
       .addCase(loginUser.rejected, (state, { payload }) => {
         state.isLoading = false;
         toast.error(payload);
-      });
-      
-  },
-});
-
-export const { toggleSidebar, logoutUser,storeUser } = userSlice.actions;
-=======
-export const updateUserProfile = createAsyncThunk(
-  "user/updateUserProfile",
-  async (user, thunkAPI) => {
-    return updateUserProfileThunk("/auth/update-user", user, thunkAPI);
-  }
-);
-
-export const updatePassword = createAsyncThunk(
-  "user/updatePassword",
-  async (user, thunkAPI) => {
-    return changePasswordThunk("/auth/update-user", user, thunkAPI);
-  }
-);
-
-const userSlice = createSlice({
-  name: "user",
-  initialState,
-  reducers: {},
-  extraReducers: (builder) => {
-    builder
+      })
       .addCase(updateUserProfile.pending, (state) => {
         state.isLoading = true;
       })
       .addCase(updateUserProfile.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.user = { ...payload.data };
         toast.success("User Updated");
       })
       .addCase(updateUserProfile.rejected, (state, { payload }) => {
@@ -106,67 +98,33 @@ const userSlice = createSlice({
       })
       .addCase(updatePassword.pending, (state, { payload }) => {
         state.isLoading = true;
-        toast.success("Password Updated");
+        
       })
       .addCase(updatePassword.fulfilled, (state, { payload }) => {
         state.isLoading = false;
+        toast.success("Password Updated");
       })
       .addCase(updatePassword.rejected, (state, { payload }) => {
         state.isLoading = false;
         toast.success("Password Denied");
-      });
+      })
+      .addCase(getUser.pending, (state, { payload }) => {
+        state.isLoading = true;
+        
+      })
+      .addCase(getUser.fulfilled, (state, { payload }) => {
+        const { data } = payload;
+        state.isLoading = false;
+        state.user = { data };
+        // toast.success("Password Updated");
+      })
+      .addCase(getUser.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        // toast.success("Password Denied");
+      })
   },
 });
 
-export const { toggleSidebar, logoutUser } = userSlice.actions;
->>>>>>> 977fb35 ( feature:all toggle functions done)
-=======
-export const updateUserProfile = createAsyncThunk(
-  "user/updateUserProfile",
-  async (user, thunkAPI) => {
-    return updateUserProfileThunk("/auth/update-user", user, thunkAPI);
-  }
-);
+export const { toggleSidebar, logoutUser, storeUser } = userSlice.actions;
 
-export const updatePassword = createAsyncThunk(
-  "user/updatePassword",
-  async (user, thunkAPI) => {
-    return changePasswordThunk("/auth/update-user", user, thunkAPI);
-  }
-);
-
-const userSlice = createSlice({
-  name: "user",
-  initialState,
-  reducers: {},
-  extraReducers: (builder) => {
-    builder
-      .addCase(updateUserProfile.pending, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(updateUserProfile.fulfilled, (state, { payload }) => {
-        state.isLoading = false;
-        state.user = { ...payload.data };
-        toast.success("User Updated");
-      })
-      .addCase(updateUserProfile.rejected, (state, { payload }) => {
-        state.isLoading = false;
-        toast.error(payload);
-      })
-      .addCase(updatePassword.pending, (state, { payload }) => {
-        state.isLoading = true;
-        toast.success("Password Updated");
-      })
-      .addCase(updatePassword.fulfilled, (state, { payload }) => {
-        state.isLoading = false;
-      })
-      .addCase(updatePassword.rejected, (state, { payload }) => {
-        state.isLoading = false;
-        toast.success("Password Denied");
-      });
-  },
-});
-
-export const { toggleSidebar, logoutUser } = userSlice.actions;
->>>>>>> e14c10a4edabf5371579b050cb54b4c86a7d3e07
 export default userSlice.reducer;

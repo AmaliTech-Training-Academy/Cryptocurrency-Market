@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { NaviBar } from "../component";
 import Pimg from "../assets/Profile-picture.png";
 import Epi from "../assets/edit picture.svg";
@@ -7,24 +7,25 @@ import Che from "../assets/chevron 1.svg";
 import Psi from "../assets/Vector.svg";
 import Plok from "../assets/lock vector.svg";
 import notification from "../assets/Notification icon.svg";
-import PhoneInput,{formatPhoneNumber, formatPhoneNumberIntl, isValidPhoneNumber} from "react-phone-number-input";
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
 import { useFormik } from "formik";
 import { basicSchema } from "../schema";
 import { Link, NavLink } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { updateUserProfile } from "../features/user/userSlice";
-import 'react-phone-number-input/style.css'
+import { useDispatch, useSelector } from "react-redux";
+import { getUser, storeUser, updateUserProfile } from "../features/user/userSlice";
 
 
 const profile = () => {
   const [value, setValue] = useState();
   const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.user);
 
   const onSubmit = async (values, actions) => {
-    console.log(values);
-    dispatch(updateUserProfile(values));
-
-    // actions.resetForm();
+   const resp =  await dispatch(updateUserProfile(values))
+   if (resp.payload.success) {
+    dispatch(getUser())
+   }
   };
 
   // Image upload
@@ -48,7 +49,7 @@ const profile = () => {
       lastName: "",
       mobileNumber: "",
       gender: "",
-      email: "",
+      email: user.email,
     },
     validationSchema: basicSchema,
     onSubmit,
@@ -66,6 +67,10 @@ const profile = () => {
   const handleClick = (e) => {
     fileUpload.current.click();
   };
+
+
+
+
 
   return (
     <div className="bg-[#FCFCFD] ">
@@ -111,7 +116,7 @@ const profile = () => {
               </NavLink>
               <div className=" flex items-center pl-8 mt-[36px] mb-[35px]">
                 <span className=" flex justify-center items-center w-[17px] h-[17px]  mr-8">
-                  <img src={notification} alt="" className="w-[9px] h-[9px]" />
+                  <img src={notification} alt="" className="w-[15px] h-[15px]" />
                 </span>
                 Notification
               </div>
@@ -239,16 +244,17 @@ const profile = () => {
                         <div className={` flex  rounded pl-[10px] ${errors.mobileNumber && touched.mobileNumber
                             ? "border-[red]"
                             : "border-[#53352d80]"}`}>
-                      {/* 
-                          <PhoneInput 
-                          defaultCountry="GH"
+                      
+                        {/*   <PhoneInput 
+                          country="gh"
+                          onlyCountries={['gh', 'fr', 'us']}
                             name="mobileNumber"
                             type= "number"
                             id="mobileNumber"
                             placeholder=" 5678990"
                             value={value}
                             onChange={handleChange}
-                            onBlur={handleBlur}
+                             onBlur={handleBlur} 
                             error={value ? (isValidPhoneNumber(value) ? undefined : 'Invalid phone number') : 'Phone number required'}
                           /> */}
                           < input

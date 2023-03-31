@@ -1,24 +1,27 @@
 import axios from "axios";
+import { getUserFromLocalStorage } from "./localStorage";
+
 const customFetch = axios.create({
-    baseURL : `https://address-book-system.onrender.com/api/v1`
-})
+  baseURL: `https://address-book-system.onrender.com/api/v1`,
+});
 customFetch.interceptors.request.use(
-    (config) => {
-      const user = getUserFromLocalStorage();
-      if (user) {
-        config.headers['Authorization'] = `Bearer ${user.acces_token}`;
-      }
-      return config;
-    },
-    (error) => {
-      return Promise.reject(error);
+  (config) => {
+    const user = getUserFromLocalStorage();
+    console.log(user);
+    if (user) {
+      config.headers["Authorization"] = `Bearer ${user.access_token}`;
     }
-  );
-  export const  checkForUnauthorizedResponse = (error,thunkAPI) =>{
-    if (error.response.status === 401) {
-      thunkAPI.dispatch(clearStore());
-      return thunkAPI.rejectWithValue("Unauthorized! Logging Out...");
-    }
-    return thunkAPI.rejectWithValue(error.response.data.msg);
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
   }
-export default customFetch
+);
+export const checkForUnauthorizedResponse = (error, thunkAPI) => {
+  if (error.response.status === 401) {
+    thunkAPI.dispatch(clearStore());
+    return thunkAPI.rejectWithValue("Unauthorized! Logging Out...");
+  }
+  return thunkAPI.rejectWithValue(error.response.data.msg);
+};
+export default customFetch;

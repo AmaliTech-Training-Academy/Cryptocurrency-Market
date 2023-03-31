@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-import axios from "axios";
+
 import customFetch from "../../utils/axios";
-customFetch
 
 
 
@@ -24,14 +21,11 @@ export const registerUserThunk = async ( url,user, thunkAPI) => {
       return thunkAPI.rejectWithValue(error.response.data.msg);
     }
   };
-=======
-=======
->>>>>>> e14c10a4edabf5371579b050cb54b4c86a7d3e07
-import customFetch from "../../utils/axios";
+
 
 export const updateUserProfileThunk = async(url,user,thunkAPI) => {
     try {
-        const response = await customFetch.put(url, user);
+        const response = await customFetch.patch(url, user);
         return response.data;
     } catch (error) {
         return thunkAPI.rejectWithValue(error.response.data.msg);
@@ -40,14 +34,19 @@ export const updateUserProfileThunk = async(url,user,thunkAPI) => {
 
 export const changePasswordThunk = async(url,user,thunkAPI) => {
     try {
-        const response = await customFetch.put(url, user);
+        const response = await customFetch.patch(url, user);
         return response.data;
     } catch (error) {
         return thunkAPI.rejectWithValue(error.response.data.msg);
     }
 }
 
-<<<<<<< HEAD
->>>>>>> 977fb35 ( feature:all toggle functions done)
-=======
->>>>>>> e14c10a4edabf5371579b050cb54b4c86a7d3e07
+export const getUserThunk = async(url,user,thunkAPI) => {
+  try {
+      const response = await customFetch.get(url, user);
+      return response.data;
+  } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.msg);
+  }
+}
+
