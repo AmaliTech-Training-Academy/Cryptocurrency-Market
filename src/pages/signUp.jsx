@@ -14,10 +14,8 @@ const signUp = () => {
 const dispatch = useDispatch()
   const onSubmit = (values, actions) => {
     dispatch(registerUser(values));
-    dispatch(storeUser({ email: values.email }));
-    
-    dispatch(registerUser(values))
-    dispatch(storeUser({email: values.email}))
+    // dispatch(storeUser({ email: values.email }));
+
     
   };
   
@@ -41,13 +39,13 @@ const dispatch = useDispatch()
   });
 
   
-  useEffect(()=>{
-    if (user) {
-     setTimeout(() => {
-       navigate('/login')
-     }, 3000);
-    }
-   },[user])
+  // useEffect(()=>{
+  //   if (user) {
+  //    setTimeout(() => {
+  //      navigate('/login')
+  //    }, 3000);
+  //   }
+  //  },[user])
 
   return (
     <div className="w-full flex justify-center items-center ">

@@ -14,8 +14,7 @@ const login = () => {
   const {user} = useSelector((store) => store.user)
   
   const onSubmit = (values, actions) => {
-   dispatch(loginUser(values))
-  
+       dispatch(loginUser(values));
   };
 
   useEffect(()=>{

@@ -1,10 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
+import { addUserToLocalStorage, getUserFromLocalStorage } from "../../utils/localStorage";
 import { loginUserThunk, registerUserThunk } from "./userThunk";
 
 const initialState = {
   isLoading: false,
-  user: null,
+  user: getUserFromLocalStorage(),
 };
 
 export const registerUser = createAsyncThunk(
@@ -35,10 +36,11 @@ const userSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(registerUser.fulfilled, (state,{payload}) => {
-        console.log(payload);
+        const {data} = payload
         state.isLoading = false;
-        state.user = {...state.user,...payload.data}
-        toast.success("User Created");
+        state.user = {data}
+        addUserToLocalStorage(data)
+        toast.success(`Hello There ${data}`);
       })
       .addCase(registerUser.rejected, (state, { payload }) => {
         state.isLoading = false;
@@ -48,9 +50,11 @@ const userSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(loginUser.fulfilled, (state,{payload}) => {
+        const {data} = payload
         state.isLoading = false;
-        state.user = {...state.user,...payload.data}
-        toast.success("Welcome Back");
+        state.user = {data}
+        addUserToLocalStorage(data)
+        toast.success(`Welcome back ${data}`);
       })
       .addCase(loginUser.rejected, (state, { payload }) => {
         state.isLoading = false;
