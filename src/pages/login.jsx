@@ -20,7 +20,7 @@ const login = () => {
   useEffect(()=>{
     if (user) {
      setTimeout(() => {
-       navigate('/')
+       navigate('/profile-page')
      }, 3000);
     }
    },[user])

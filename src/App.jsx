@@ -18,14 +18,16 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route
-          path="/"
+          path="/profile-page"
           element={
             <ProtectedRoute>
-              <Homepage />
+              <ProfilePage />
             </ProtectedRoute>
           }
-        ></Route>
-        <Route path="/landing" element={<Landingpage />} />
+        >
+          
+        </Route>
+        <Route path="/" element={<Landingpage />} />
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/profile-page" element={<ProfilePage />} />

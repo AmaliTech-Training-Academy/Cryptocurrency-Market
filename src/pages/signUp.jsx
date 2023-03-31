@@ -30,8 +30,9 @@ const dispatch = useDispatch()
     handleSubmit,
   } = useFormik({
     initialValues: {
-      name:"",
-      name: "",
+      firstName:"",
+      lastName:"",
+      email: "",
       password: "",
     },
     validationSchema: userSchema,
@@ -42,7 +43,7 @@ const dispatch = useDispatch()
   useEffect(()=>{
     if (user) {
      setTimeout(() => {
-       navigate('/')
+       navigate('/login')
      }, 3000);
     }
    },[user])
@@ -66,15 +67,26 @@ const dispatch = useDispatch()
 
               <form onSubmit={handleSubmit} autoComplete="off">
               <Input
-                  label="Name*"
-                  type="name"
-                  name="name"
-                  value={values.name}
+                  label="First Name*"
+                  type="firstName"
+                  name="firstName"
+                  value={values.firstName}
                   handleChange={handleChange}
-                  placeholder="Enter your name "
+                  placeholder="Enter your firstName "
                   onBlur={handleBlur}
-                  error={errors.name}
-                  touch={touched.name}
+                  error={errors.firstName}
+                  touch={touched.firstName}
+                />
+                <Input
+                  label="Last Name*"
+                  type="lastName"
+                  name="lastName"
+                  value={values.lastName}
+                  handleChange={handleChange}
+                  placeholder="Enter your lastName "
+                  onBlur={handleBlur}
+                  error={errors.lastName}
+                  touch={touched.lastName}
                 />
                 <Input
                   label="Email Address*"
