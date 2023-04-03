@@ -7,6 +7,7 @@ import { Input } from "../component";
 import { registerUser, storeUser } from "../features/user/userSlice";
 import { userSchema } from "../Validations/UserValidation";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const signUp = () => {
   const navigate = useNavigate()
@@ -14,6 +15,7 @@ const signUp = () => {
 const dispatch = useDispatch()
   const onSubmit = (values, actions) => {
     dispatch(registerUser(values));
+    dispatch(storeUser(values))
     // dispatch(storeUser({ email: values.email }));
 
     
@@ -42,8 +44,8 @@ const dispatch = useDispatch()
   
   useEffect(()=>{
     if (user) {
-     setTimeout(() => {
-       navigate('/')
+      setTimeout(() => {
+       navigate('/profile-page')
      }, 3000);
     }
    },[user])

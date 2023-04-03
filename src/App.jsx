@@ -18,19 +18,19 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route
-          path="/profile-page"
+          path="/"
           element={
             <ProtectedRoute>
               <ProfilePage />
             </ProtectedRoute>
           }
         >
-          
+          {/* <Route index element={<ProfilePage />} /> */}
+        <Route path="profile-page" element={<ProfilePage />} />
         </Route>
-        <Route path="/" element={<Landingpage />} />
+        <Route path="/landing" element={<Landingpage />} />
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/profile-page" element={<ProfilePage />} />
         <Route path="*" element={<Error />} />
       </Routes>
       <ToastContainer position="top-center" />

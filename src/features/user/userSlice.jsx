@@ -27,7 +27,8 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     storeUser: (state,{payload})=>{
-      state.user = {...state.user,email:payload.email}
+      console.log(payload);
+      state.user = {...state.user,firstName:payload.firstName,lastName:payload.lastName,email:payload.email}
     }
   },
   extraReducers: (builder) => {
@@ -38,9 +39,8 @@ const userSlice = createSlice({
       .addCase(registerUser.fulfilled, (state,{payload}) => {
         const {data} = payload
         state.isLoading = false;
-        state.user = {data}
         addUserToLocalStorage(data)
-        toast.success(`Hello There ${data}`);
+        
       })
       .addCase(registerUser.rejected, (state, { payload }) => {
         state.isLoading = false;
@@ -50,11 +50,12 @@ const userSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(loginUser.fulfilled, (state,{payload}) => {
-        const {data} = payload
+        const data = {...payload}
+        console.log(data);
         state.isLoading = false;
-        state.user = {data}
+        state.user ={ firstName : data.data.firstName,lastName : data.data.lastName,email : data.data.email}
         addUserToLocalStorage(data)
-        toast.success(`Welcome back ${data}`);
+        toast.success(`Welcome back ${data.data.firstName}`);
       })
       .addCase(loginUser.rejected, (state, { payload }) => {
         state.isLoading = false;
