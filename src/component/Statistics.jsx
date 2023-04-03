@@ -2,7 +2,7 @@ import React from 'react'
 
 const Statistics = () => {
   return (
-    <div className='p-4 mb-[69px]'>
+    <div className='p-4 mb-[69px] shadow'>
         <h1 className='text-[25px] mb-[10px]'>Statistics</h1>
         <div className="flex justify-between mb-4">
 
