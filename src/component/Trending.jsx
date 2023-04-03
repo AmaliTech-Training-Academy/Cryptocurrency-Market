@@ -4,7 +4,7 @@ import bnb from "../assets/BNB.png";
 import plus from "../assets/plus.png";
 const Trending = () => {
   return (
-    <div className="p-4">
+    <div className="p-4 shadow">
       <div className="flex justify-between items-baseline mb-[22px]">
         <h1 className="text-[25px] mb-[10px]">Trending Market</h1>
         <Link className="text-[blue]">View more market</Link>

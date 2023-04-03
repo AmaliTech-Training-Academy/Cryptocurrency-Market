@@ -6,8 +6,8 @@ import btc from "../assets/btc.png";
 
 const Watchlist = () => {
   return (
-    <div className="p-[40px] pt-[10px]">
-      <h1 className="text-[25px] mb-[24px]">Trending Market</h1>
+    <div className="p-[40px] pt-[10px] mb-[42px] shadow">
+      <h1 className="text-[25px] mb-[24px]">Watchlist</h1>
       <div className="flex justify-between items-baseline mb-[32px]">
         <div className="w-[70px] flex justify-between">
           <img src={bnb} alt="" />
