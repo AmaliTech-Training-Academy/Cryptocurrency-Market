@@ -5,7 +5,7 @@ const Viewcrypto = () => {
   return (
     <div className='bg-[#FCFCFD]'>
             <NaviBar />
-        <div className='container mx-auto h-[976px]'>
+        <div className='container mx-auto h-[800px]'>
             <div className='mt-[65px] ml-[130px] w-[1178px]'>
                 <div className=' flex justify-between'>
                     <h6 className='text-[#101828] text-[25px] font-bold'>My Portfolio</h6>
@@ -33,7 +33,7 @@ const Viewcrypto = () => {
     
         
             <div className=' w-[1208px] h-[45px] pt-[11.8px] ml-[130px] border-b-[0.235999px] border-b-[#C1C1C1] mt-[63px] '>
-                    <ul className='flex justify-between font-normal text-[18.8799px] text-[#101828] leading-[23px] pr-[86px]'>
+                    <ul className='flex justify-between font-normal text-[18.8799px] text-[#101828] leading-[23px] pr-[86px] pl-[34.8px]'>
                         <li>Name</li>
                         <li>Symbol</li>
                         <li>Price</li>
