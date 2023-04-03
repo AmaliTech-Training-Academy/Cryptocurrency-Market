@@ -1,5 +1,6 @@
 import React from 'react'
 // import Navibar from '../component/Navibar'
+import Assetmodal from '../component/Assetmodal'
 
 function activeCrypto() {
   return (
@@ -33,6 +34,7 @@ function activeCrypto() {
           </ul>
         </div>
       </div>
+      <Assetmodal />
     </div>
   )
 }
