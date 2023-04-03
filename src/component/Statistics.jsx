@@ -2,11 +2,11 @@ import React from 'react'
 
 const Statistics = () => {
   return (
-    <div className='p-4'>
+    <div className='p-4 mb-[69px]'>
         <h1 className='text-[25px] mb-[10px]'>Statistics</h1>
-        <div className="flex justify-between">
+        <div className="flex justify-between mb-4">
 
-        <div className="flex w-[170px] justify-between items-center">
+        <div className="flex w-[170px] justify-between items-baseline">
             <h2 className="text-[21px]">Bitcoin</h2>
             <p>BTC/USD</p>
         </div>

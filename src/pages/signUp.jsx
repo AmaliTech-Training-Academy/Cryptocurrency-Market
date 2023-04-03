@@ -16,8 +16,7 @@ const dispatch = useDispatch()
     dispatch(registerUser(values));
     dispatch(storeUser({ email: values.email }));
     
-    dispatch(registerUser(values))
-    dispatch(storeUser({email: values.email}))
+    
     
   };
   
