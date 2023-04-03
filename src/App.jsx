@@ -8,6 +8,7 @@ import {
   Login,
   Landingpage,
   ProtectedRoute,
+  ActiveCrypto
 } from "./pages";
 // import { Landingpage, Error, ProfilePage, Login } from "./pages";
 import { ToastContainer } from "react-toastify";
@@ -29,6 +30,7 @@ const App = () => {
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/profile-page" element={<ProfilePage />} />
+        <Route path="/active-crypto" element={<ActiveCrypto />} />
         <Route path="*" element={<Error />} />
       </Routes>
       <ToastContainer position="top-center" />

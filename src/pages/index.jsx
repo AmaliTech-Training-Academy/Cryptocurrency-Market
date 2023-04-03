@@ -5,6 +5,7 @@ import Login from "./login"
 import SignUp from './signUp'
 import ProtectedRoute from "./ProctedRoute";
 import Homepage from "./homepage";
+import ActiveCrypto from "./activecrypto"
 
 
 export{
@@ -13,5 +14,7 @@ export{
     Error,
     Login,
     SignUp,
-    ProtectedRoute,Homepage
+    ProtectedRoute,
+    Homepage,
+    ActiveCrypto
 }
