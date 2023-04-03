@@ -8,7 +8,7 @@ const dashboard = () => {
         <Statistics />
         <Trending />
       </div>
-      <div className="w-[26%] bg-[red] flex flex-col">
+      <div className="w-[26%]  flex flex-col">
         <Watchlist />
         <Popular />
       </div>
