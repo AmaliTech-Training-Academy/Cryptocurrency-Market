@@ -8,6 +8,7 @@ import {
   Login,
   Landingpage,
   ProtectedRoute,
+  Dashboard,
 } from "./pages";
 // import { Landingpage, Error, ProfilePage, Login } from "./pages";
 import { ToastContainer } from "react-toastify";
@@ -24,7 +25,9 @@ const App = () => {
               <Homepage />
             </ProtectedRoute>
           }
-        ></Route>
+        >
+        </Route>
+          <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/landing" element={<Landingpage />} />
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
