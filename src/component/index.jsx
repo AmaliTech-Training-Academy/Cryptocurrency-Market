@@ -3,12 +3,14 @@ import Footer from "./Footer";
 import Input from "./Input";
 import Cryptomodal from "./Cryptomodal"
 import Assetmodal from "./Assetmodal"
+import Filter from "./Filter"
 
 export{
     Navbar,
     Footer,
     Input,
     Cryptomodal,
-    Assetmodal
+    Assetmodal,
+    Filter
     
 }
