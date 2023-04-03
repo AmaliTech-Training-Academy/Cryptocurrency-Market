@@ -1,7 +1,8 @@
 import axios from "axios";
+import { getUserFromLocalStorage } from "./localStorage";
 
 
-const customFetch = axios.create({
+export const customFetch = axios.create({
     baseURL : `https://address-book-system.onrender.com/api/v1`
 })
 
@@ -9,7 +10,7 @@ customFetch.interceptors.request.use(
     (config) => {
       const user = getUserFromLocalStorage();
       if (user) {
-        config.headers['Authorization'] = `Bearer ${user.token}`;
+        config.headers['Authorization'] = `Bearer ${user.access_token}`;
         
       }
       return config;

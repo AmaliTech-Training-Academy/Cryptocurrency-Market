@@ -21,14 +21,16 @@ const App = () => {
           path="/"
           element={
             <ProtectedRoute>
-              <Homepage />
+              <ProfilePage />
             </ProtectedRoute>
           }
-        ></Route>
+        >
+          {/* <Route index element={<ProfilePage />} /> */}
+        <Route path="profile-page" element={<ProfilePage />} />
+        </Route>
         <Route path="/landing" element={<Landingpage />} />
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/profile-page" element={<ProfilePage />} />
         <Route path="*" element={<Error />} />
       </Routes>
       <ToastContainer position="top-center" />

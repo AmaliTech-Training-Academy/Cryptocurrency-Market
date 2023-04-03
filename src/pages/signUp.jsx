@@ -7,6 +7,7 @@ import { Input } from "../component";
 import { registerUser, storeUser } from "../features/user/userSlice";
 import { userSchema } from "../Validations/UserValidation";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const signUp = () => {
   const navigate = useNavigate()
@@ -14,10 +15,9 @@ const signUp = () => {
 const dispatch = useDispatch()
   const onSubmit = (values, actions) => {
     dispatch(registerUser(values));
-    dispatch(storeUser({ email: values.email }));
-    
-    dispatch(registerUser(values))
-    dispatch(storeUser({email: values.email}))
+    dispatch(storeUser(values))
+    // dispatch(storeUser({ email: values.email }));
+
     
   };
   
@@ -32,9 +32,10 @@ const dispatch = useDispatch()
     handleSubmit,
   } = useFormik({
     initialValues: {
+      firstName:"",
+      lastName:"",
       email: "",
       password: "",
-      confirmPassword: "",
     },
     validationSchema: userSchema,
     onSubmit,
@@ -43,8 +44,8 @@ const dispatch = useDispatch()
   
   useEffect(()=>{
     if (user) {
-     setTimeout(() => {
-       navigate('/login')
+      setTimeout(() => {
+       navigate('/profile-page')
      }, 3000);
     }
    },[user])
@@ -67,6 +68,28 @@ const dispatch = useDispatch()
               </h1>
 
               <form onSubmit={handleSubmit} autoComplete="off">
+              <Input
+                  label="First Name*"
+                  type="firstName"
+                  name="firstName"
+                  value={values.firstName}
+                  handleChange={handleChange}
+                  placeholder="Enter your firstName "
+                  onBlur={handleBlur}
+                  error={errors.firstName}
+                  touch={touched.firstName}
+                />
+                <Input
+                  label="Last Name*"
+                  type="lastName"
+                  name="lastName"
+                  value={values.lastName}
+                  handleChange={handleChange}
+                  placeholder="Enter your lastName "
+                  onBlur={handleBlur}
+                  error={errors.lastName}
+                  touch={touched.lastName}
+                />
                 <Input
                   label="Email Address*"
                   type="email"
@@ -91,17 +114,7 @@ const dispatch = useDispatch()
                   touch={touched.password}
                 />
 
-                <Input
-                  label="Confirm Password*"
-                  type="password"
-                  name="confirmPassword"
-                  value={values.confirmPassword}
-                  handleChange={handleChange}
-                  placeholder="Enter your confirmPassword "
-                  onBlur={handleBlur}
-                  error={errors.confirmPassword}
-                  touch={touched.confirmPassword}
-                />
+               
                 <div className="mt-[46px]  h-[42px] text-center  ">
                   <button
                     // disabled={isSubmitting}
