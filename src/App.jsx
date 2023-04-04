@@ -13,6 +13,8 @@ import {
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Select } from "./component";
+import Viewcrypto from "./pages/Viewcrypto";
+import {Viewarea} from "./component";
 
 const App = () => {
   return (
@@ -33,8 +35,8 @@ const App = () => {
         <Route path="/signUp" element={<SignUp />} />
        <Route path="/" element={<Homepage />} />
         <Route path="/login" element={<Login />} />
-
         <Route path="*" element={<Error />} />
+        
         
       </Routes>
       <ToastContainer position="top-center" />

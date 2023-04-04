@@ -3,6 +3,7 @@ import Footer from "./Footer";
 import Input from "./Input";
 import NaviBar from "./NaviBar";
 import Select from "./Select";
+import Viewarea from "./Viewarea";
 
     
     export {
@@ -10,5 +11,6 @@ import Select from "./Select";
         NaviBar,
         Footer,
         Input,
-        Select
+        Select,
+        Viewarea
 }
