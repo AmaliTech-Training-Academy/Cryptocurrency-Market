@@ -9,15 +9,12 @@ import Popular from "./Popular";
 import Trending from "./Trending";
 import Viewarea from "./Viewarea";
 
-export {
-  Navbar,
-  NaviBar,
-  Footer,
-  Input,
-  Select,
-  Watchlist,
-  Statistics,
-  Popular,
-  Trending,
-  Viewarea
-};
+    
+    export {
+        Navbar,
+        NaviBar,
+        Footer,
+        Input,
+        Select,
+        Viewarea
+}

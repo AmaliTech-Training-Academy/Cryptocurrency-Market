@@ -15,7 +15,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Select } from "./component";
 import Viewcrypto from "./pages/Viewcrypto";
-import {Viewarea} from "./component";
+
 
 
 const App = () => {
