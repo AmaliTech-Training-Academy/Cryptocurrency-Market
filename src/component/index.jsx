@@ -8,12 +8,14 @@ import Statistics from "./Statistics";
 import Popular from "./Popular";
 import Trending from "./Trending";
 
-    
-    export {
-        Navbar,
-        NaviBar,
-        Footer,
-        Input,
-        Select,Watchlist, Statistics, Popular, Trending 
-}
-
+export {
+  Navbar,
+  NaviBar,
+  Footer,
+  Input,
+  Select,
+  Watchlist,
+  Statistics,
+  Popular,
+  Trending,
+};

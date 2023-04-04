@@ -34,7 +34,6 @@ const Statistics = () => {
       </div>
       <div className="border-b mb-10"></div>
       <AreaChartComponent data={data} spark={spark}/>
-      <h1></h1>
     </div>
   );
 };
