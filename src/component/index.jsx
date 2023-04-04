@@ -4,6 +4,7 @@ import Input from "./Input";
 import NaviBar from "./NaviBar";
 import Select from "./Select";
 import Viewarea from "./Viewarea";
+import Assets from "./Assets";
 
     
     export {
@@ -12,5 +13,6 @@ import Viewarea from "./Viewarea";
         Footer,
         Input,
         Select,
-        Viewarea
+        Viewarea,
+        Assets
 }
