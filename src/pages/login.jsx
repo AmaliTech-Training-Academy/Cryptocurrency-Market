@@ -14,14 +14,13 @@ const login = () => {
   const {user} = useSelector((store) => store.user)
   
   const onSubmit = (values, actions) => {
-   dispatch(loginUser(values))
-  
+       dispatch(loginUser(values));
   };
 
   useEffect(()=>{
     if (user) {
      setTimeout(() => {
-       navigate('/')
+       navigate('/profile-page')
      }, 3000);
     }
    },[user])

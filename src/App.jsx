@@ -22,16 +22,18 @@ const App = () => {
           path="/"
           element={
             <ProtectedRoute>
-              <Select />
+              <ProfilePage />
             </ProtectedRoute>
           }
-        ></Route>
+        >
+          {/* <Route index element={<ProfilePage />} /> */}
+        <Route path="profile-page" element={<ProfilePage />} />
+        </Route>
         <Route path="/landing" element={<Landingpage />} />
         <Route path="/signUp" element={<SignUp />} />
        <Route path="/" element={<Homepage />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/profile-page" element={<ProfilePage />} />
-        <Route path="/password" element={<Password />} />
+
         <Route path="*" element={<Error />} />
         
       </Routes>
