@@ -7,6 +7,7 @@ import Watchlist from "./Watchlist";
 import Statistics from "./Statistics";
 import Popular from "./Popular";
 import Trending from "./Trending";
+import Viewarea from "./Viewarea";
 
 export {
   Navbar,
@@ -18,4 +19,5 @@ export {
   Statistics,
   Popular,
   Trending,
+  Viewarea
 };
