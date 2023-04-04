@@ -8,7 +8,11 @@ import {
   Login,
   Landingpage,
   ProtectedRoute,
+<<<<<<< HEAD
   Password,
+=======
+  ActiveCrypto
+>>>>>>> 84d1279 (feature: created components for view active crypto page)
 } from "./pages";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -33,7 +37,12 @@ const App = () => {
         <Route path="/signUp" element={<SignUp />} />
        <Route path="/" element={<Homepage />} />
         <Route path="/login" element={<Login />} />
+<<<<<<< HEAD
 
+=======
+        <Route path="/profile-page" element={<ProfilePage />} />
+        <Route path="/active-crypto" element={<ActiveCrypto />} />
+>>>>>>> 84d1279 (feature: created components for view active crypto page)
         <Route path="*" element={<Error />} />
         
       </Routes>
