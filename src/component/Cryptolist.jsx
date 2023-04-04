@@ -11,7 +11,7 @@ const closeCrypto = () => setAddCrypto(false)
 
   return (
     <div>
-      <div onClick={() => setAddCrypto(true)} className='h-[45px] pl-[24.8px] pr-[46.55px] mt-5 relative'>
+      <div onClick={() => setAddCrypto(true)} className=' pl-[24.8px] pr-[46.55px] mt-5 relative'>
         <div>
           <span className='font-normal text-[18.8799px] text-[#101828] flex gap-[15.34px]'>
             <img src={BNB} alt="" className='w-[27.14px] h-[27.14px]'/>
