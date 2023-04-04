@@ -9,6 +9,7 @@ import {
   Landingpage,
   ProtectedRoute,
   Password,
+  Dashboard,
 } from "./pages";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -16,6 +17,7 @@ import { Select } from "./component";
 
 const App = () => {
   return (
+    <>
     <BrowserRouter>
       <Routes>
         <Route
@@ -26,9 +28,9 @@ const App = () => {
             </ProtectedRoute>
           }
         >
-          {/* <Route index element={<ProfilePage />} /> */}
         <Route path="profile-page" element={<ProfilePage />} />
         </Route>
+          <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/landing" element={<Landingpage />} />
         <Route path="/signUp" element={<SignUp />} />
        <Route path="/" element={<Homepage />} />
@@ -37,8 +39,9 @@ const App = () => {
         <Route path="*" element={<Error />} />
         
       </Routes>
-      <ToastContainer position="top-center" />
+    <ToastContainer position="top-center" />
     </BrowserRouter>
+    </>
   );
 };
 

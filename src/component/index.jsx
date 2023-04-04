@@ -3,6 +3,10 @@ import Footer from "./Footer";
 import Input from "./Input";
 import NaviBar from "./NaviBar";
 import Select from "./Select";
+import Watchlist from "./Watchlist";
+import Statistics from "./Statistics";
+import Popular from "./Popular";
+import Trending from "./Trending";
 
     
     export {
@@ -10,5 +14,6 @@ import Select from "./Select";
         NaviBar,
         Footer,
         Input,
-        Select
+        Select,Watchlist, Statistics, Popular, Trending 
 }
+
