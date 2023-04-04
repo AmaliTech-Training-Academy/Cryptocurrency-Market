@@ -1,11 +1,19 @@
 import React from 'react'
+<<<<<<< HEAD
 import { Assets, NaviBar, Viewarea } from '../component'
+=======
+import { NaviBar, Viewarea } from '../component'
+>>>>>>> 6d4a149 (feature:viewcrypto page first part styling done)
 
 const Viewcrypto = () => {
   return (
     <div className='bg-[#FCFCFD]'>
             <NaviBar />
+<<<<<<< HEAD
         <div className='container mx-auto h-[800px]'>
+=======
+        <div className='container mx-auto h-[976px]'>
+>>>>>>> 6d4a149 (feature:viewcrypto page first part styling done)
             <div className='mt-[65px] ml-[130px] w-[1178px]'>
                 <div className=' flex justify-between'>
                     <h6 className='text-[#101828] text-[25px] font-bold'>My Portfolio</h6>
@@ -32,8 +40,13 @@ const Viewcrypto = () => {
             </div>
     
         
+<<<<<<< HEAD
             <div className=' w-[1208px] h-[45px] pt-[11.8px] ml-[130px] border-b-[0.235999px] border-b-[#C1C1C1] mt-[39px] '>
                     <ul className='flex justify-between font-normal text-[18.8799px] text-[#101828] leading-[23px] pr-[86px] pl-[34.8px]'>
+=======
+            <div className=' w-[1208px] h-[45px] pt-[11.8px] ml-[130px] border-b-[0.235999px] border-b-[#C1C1C1] mt-[63px] '>
+                    <ul className='flex justify-between font-normal text-[18.8799px] text-[#101828] leading-[23px] pr-[86px]'>
+>>>>>>> 6d4a149 (feature:viewcrypto page first part styling done)
                         <li>Name</li>
                         <li>Symbol</li>
                         <li>Price</li>
@@ -45,10 +58,13 @@ const Viewcrypto = () => {
             <div>
                 <Viewarea />
             </div>
+<<<<<<< HEAD
 
             <div>
                 {<Assets />}
             </div>
+=======
+>>>>>>> 6d4a149 (feature:viewcrypto page first part styling done)
         </div>
     </div>
   )
