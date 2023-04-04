@@ -29,12 +29,15 @@ const App = () => {
           }
         >
           {/* <Route index element={<ProfilePage />} /> */}
+      
         <Route path="profile-page" element={<ProfilePage />} />
         </Route>
         <Route path="/landing" element={<Landingpage />} />
         <Route path="/signUp" element={<SignUp />} />
        <Route path="/" element={<Homepage />} />
         <Route path="/login" element={<Login />} />
+        <Route path="password" element={<Password />} />
+          <Route path="viewcrypto" element={<Viewcrypto />} />
         <Route path="*" element={<Error />} />
         
         
