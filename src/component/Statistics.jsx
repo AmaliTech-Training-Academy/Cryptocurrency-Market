@@ -8,7 +8,7 @@ const Statistics = () => {
   useEffect(() => {
     const fetchdata = async () => {
       const response = await axios.get(
-        "https://api.coincap.io/v2/assets/?limit=10"
+        "https://api.coincap.io/v2/assets/bitcoin/history?interval=d1"
         );
         const data =  response.data
         console.log(data);

@@ -15,6 +15,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Select } from "./component";
 
+
 const App = () => {
   return (
     <>
@@ -24,13 +25,13 @@ const App = () => {
           path="/"
           element={
             <ProtectedRoute>
-              <ProfilePage />
+              <Dashboard/>
             </ProtectedRoute>
           }
         >
-        <Route path="profile-page" element={<ProfilePage />} />
-        </Route>
+          <Route index element={<ProfilePage />} />
           <Route path="/dashboard" element={<Dashboard />} />
+        </Route>
         <Route path="/landing" element={<Landingpage />} />
         <Route path="/signUp" element={<SignUp />} />
        <Route path="/" element={<Homepage />} />

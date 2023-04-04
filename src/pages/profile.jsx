@@ -15,6 +15,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser, storeUser, updateUserProfile } from "../features/user/userSlice";
 
+
 const profile = () => {
   const [value, setValue] = useState();
   const dispatch = useDispatch();

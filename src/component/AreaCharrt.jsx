@@ -24,10 +24,10 @@ const AreaChartComponent = ({data}) => {
             </defs>
             <Area  dataKey='priceUsd' stroke="#32D583"  fill='url(#color)' />
 
-            <Area   dataKey='name' />
+            {/* <Area   dataKey='time' /> */}
 
         <YAxis dataKey='priceUsd' axisLine={false} tickLine={false} tickCount={10} />
-        <XAxis dataKey='name'/>
+        <XAxis dataKey='time'/>
         <Tooltip/>
         <CartesianGrid  opacity={0.1}/>
         </AreaChart>
