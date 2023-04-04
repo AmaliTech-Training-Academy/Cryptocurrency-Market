@@ -5,17 +5,20 @@ import AreaChartComponent from "./AreaCharrt";
 const Statistics = () => {
 
     const [data,setData] = useState()
+    let spark
   useEffect(() => {
     const fetchdata = async () => {
       const response = await axios.get(
-        "https://api.coincap.io/v2/assets/bitcoin/history?interval=d1"
+        "https://api.coinranking.com/v2/coins?limit=10"
         );
-        const data =  response.data
-        console.log(data);
-        setData(data.data)
+        const data =  response.data.data.coins[0].sparkline
+        setData(data.map((items, index)=>{
+            return {hr: index, price: parseFloat(items)}
+          }))
     };
     fetchdata()
   },[]);
+  
   return ( 
     <div className="pl-[36px] pr-[51px] pt-[13px] pb-[10px] mb-[69px] shadow">
       <h1 className="text-[25px] mb-[10px]">Statistics</h1>
@@ -30,7 +33,8 @@ const Statistics = () => {
         </div>
       </div>
       <div className="border-b mb-10"></div>
-      <AreaChartComponent data={data}/>
+      <AreaChartComponent data={data} spark={spark}/>
+      <h1></h1>
     </div>
   );
 };

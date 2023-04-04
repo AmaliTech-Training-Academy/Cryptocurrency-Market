@@ -10,9 +10,7 @@ import {
     Legend
   } from 'recharts';
 
-const AreaChartComponent = ({data}) => {
-//    const 
-
+const AreaChartComponent = ({data,spark}) => {
   return (
     <ResponsiveContainer width='100%' height={400}>
         <AreaChart data={data} margin={{top:5}}>
@@ -22,12 +20,12 @@ const AreaChartComponent = ({data}) => {
                     <stop offset="75%" stopColor='#32D583' stopOpacity={0.3}/>
                 </linearGradient>
             </defs>
-            <Area  dataKey='priceUsd' stroke="#32D583"  fill='url(#color)' />
+            <Area  dataKey='price' stroke="#32D583"  fill='url(#color)' />
 
             {/* <Area   dataKey='time' /> */}
 
-        <YAxis dataKey='priceUsd' axisLine={false} tickLine={false} tickCount={10} />
-        <XAxis dataKey='time'/>
+        <YAxis dataKey='' domain={[27000,28800]} axisLine={false} tickLine={true} tickCount={8} />
+        <XAxis dataKey='hr'/>
         <Tooltip/>
         <CartesianGrid  opacity={0.1}/>
         </AreaChart>
