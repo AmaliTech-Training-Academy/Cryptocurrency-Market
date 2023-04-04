@@ -8,10 +8,11 @@ import {
   Login,
   Landingpage,
   ProtectedRoute,
+  Password,
 } from "./pages";
-// import { Landingpage, Error, ProfilePage, Login } from "./pages";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Select } from "./component";
 
 const App = () => {
   return (
@@ -30,8 +31,11 @@ const App = () => {
         </Route>
         <Route path="/landing" element={<Landingpage />} />
         <Route path="/signUp" element={<SignUp />} />
+       <Route path="/" element={<Homepage />} />
         <Route path="/login" element={<Login />} />
+
         <Route path="*" element={<Error />} />
+        
       </Routes>
       <ToastContainer position="top-center" />
     </BrowserRouter>

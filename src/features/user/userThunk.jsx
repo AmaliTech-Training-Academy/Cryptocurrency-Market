@@ -1,4 +1,4 @@
-import axios from "axios";
+
 import customFetch from "../../utils/axios";
 
 export const registerUserThunk = async (url, user, thunkAPI) => {
@@ -18,3 +18,33 @@ export const loginUserThunk = async (url, user, thunkAPI) => {
     return thunkAPI.rejectWithValue(error.response.data.msg);
   }
 };
+
+
+export const updateUserProfileThunk = async(url,user,thunkAPI) => {
+    try {
+        const response = await customFetch.patch(url, user);
+        return response.data;
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error.response.data.msg);
+    }
+}
+
+export const changePasswordThunk = async(url,user,thunkAPI) => {
+    try {
+        const response = await customFetch.patch(url, user);
+        return response.data;
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error.response.data.msg);
+    }
+}
+
+export const getUserThunk = async(url,user,thunkAPI) => {
+  try {
+      const response = await customFetch.get(url, user);
+      return response.data;
+  } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.msg);
+  }
+}
+
+
