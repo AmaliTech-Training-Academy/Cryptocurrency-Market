@@ -15,12 +15,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Select } from "./component";
 import Viewcrypto from "./pages/Viewcrypto";
-<<<<<<< HEAD
-
-
-=======
 import {Viewarea} from "./component";
->>>>>>> 6d4a149 (feature:viewcrypto page first part styling done)
 
 const App = () => {
   return (

@@ -10,10 +10,14 @@ const Viewcrypto = () => {
     <div className='bg-[#FCFCFD]'>
             <NaviBar />
 <<<<<<< HEAD
+<<<<<<< HEAD
         <div className='container mx-auto h-[800px]'>
 =======
         <div className='container mx-auto h-[976px]'>
 >>>>>>> 6d4a149 (feature:viewcrypto page first part styling done)
+=======
+        <div className='container mx-auto h-[800px]'>
+>>>>>>> f514682 (feature: styles for viewcrypto done)
             <div className='mt-[65px] ml-[130px] w-[1178px]'>
                 <div className=' flex justify-between'>
                     <h6 className='text-[#101828] text-[25px] font-bold'>My Portfolio</h6>
@@ -45,8 +49,12 @@ const Viewcrypto = () => {
                     <ul className='flex justify-between font-normal text-[18.8799px] text-[#101828] leading-[23px] pr-[86px] pl-[34.8px]'>
 =======
             <div className=' w-[1208px] h-[45px] pt-[11.8px] ml-[130px] border-b-[0.235999px] border-b-[#C1C1C1] mt-[63px] '>
+<<<<<<< HEAD
                     <ul className='flex justify-between font-normal text-[18.8799px] text-[#101828] leading-[23px] pr-[86px]'>
 >>>>>>> 6d4a149 (feature:viewcrypto page first part styling done)
+=======
+                    <ul className='flex justify-between font-normal text-[18.8799px] text-[#101828] leading-[23px] pr-[86px] pl-[34.8px]'>
+>>>>>>> f514682 (feature: styles for viewcrypto done)
                         <li>Name</li>
                         <li>Symbol</li>
                         <li>Price</li>
