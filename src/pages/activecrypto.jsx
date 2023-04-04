@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
-// import Navibar from '../component/Navibar'
+import Navibar from '../component/Navibar'
 import Assetmodal from '../component/Assetmodal'
-// import Cryptomodal from '../component/Cryptomodal'
 import Filter from '../component/Filter'
 import Cryptolist from '../component/Cryptolist'
 
@@ -16,8 +15,8 @@ function activeCrypto() {
 
   return (
     <div>
-      {/* <Navibar /> */}
-      <div className='w-full h-[69px] bg-green-400'></div>
+      <Navibar />
+      {/* <div className='w-full h-[69px] bg-green-400'></div> */}
       <div className='container mx-auto h-[885.44px] mt-[30px] mb-[36.56px]'>
         <div className='h-[76.2px] pl-[41.3px] pr-[46.55px] flex justify-between'>
           <span className='font-normal text-[29.4999px] text-[#101828] leading-9 pt-[20.06px]'>Market</span>
@@ -37,7 +36,7 @@ function activeCrypto() {
             </button>
           </div>
         </div>
-        <div className='h-[45px] mt-[10px] pl-[24.8px] pr-[46.55px] pt-[11.8px] border-b-[0.235999px] border-b-[#C1C1C1]'>
+        <div className='h-[45px] mt-[10px] pl-[24.8px] pr-[46.55px] pt-[11.8px] border-b-[0.235999px]'>
           <ul className='flex justify-between font-normal text-[18.8799px] text-[#101828] leading-[23px]'>
             <li>Name</li>
             <li>Symbol</li>

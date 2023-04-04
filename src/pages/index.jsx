@@ -15,12 +15,8 @@ export{
     Error,
     Login,
     SignUp,
-<<<<<<< HEAD
-    ProtectedRoute,Homepage,
-    Password
-=======
     ProtectedRoute,
     Homepage,
+    Password,
     ActiveCrypto
->>>>>>> 84d1279 (feature: created components for view active crypto page)
 }

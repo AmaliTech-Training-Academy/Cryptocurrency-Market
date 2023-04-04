@@ -7,8 +7,8 @@ import Che from "../assets/chevron 1.svg";
 import Psi from "../assets/Vector.svg";
 import Plok from "../assets/lock vector.svg";
 import notification from "../assets/Notification icon.svg";
-import PhoneInput from 'react-phone-input-2'
-import 'react-phone-input-2/lib/style.css'
+// import PhoneInput from 'react-phone-input-2'
+// import 'react-phone-input-2/lib/style.css'
 import { useFormik } from "formik";
 import { basicSchema } from "../schema";
 import { Link, NavLink } from "react-router-dom";
