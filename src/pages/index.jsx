@@ -9,7 +9,6 @@ import Dashboard from "./dashboard";
 
 import Password from "./Password";
 
-import Assets from "../component/Assets"
 export {
   Landingpage,
   ProfilePage,
@@ -20,5 +19,4 @@ export {
   Homepage,
   Password,
   Dashboard,
-  Assets,
 };
