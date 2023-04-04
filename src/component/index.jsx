@@ -4,6 +4,7 @@ import Input from "./Input";
 import Cryptomodal from "./Cryptomodal"
 import Assetmodal from "./Assetmodal"
 import Filter from "./Filter"
+import Cryptolist from "./Cryptolist"
 
 export{
     Navbar,
@@ -11,6 +12,7 @@ export{
     Input,
     Cryptomodal,
     Assetmodal,
-    Filter
+    Filter,
+    Cryptolist
     
 }
