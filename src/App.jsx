@@ -17,6 +17,7 @@ import { Select } from "./component";
 import Viewcrypto from "./pages/Viewcrypto";
 import {Viewarea} from "./component";
 
+
 const App = () => {
   return (
     <>
@@ -32,6 +33,10 @@ const App = () => {
         >
           <Route index element={<ProfilePage />} />
           <Route path="/dashboard" element={<Dashboard />} />
+
+          {/* <Route index element={<ProfilePage />} /> */}
+      
+        <Route path="profile-page" element={<ProfilePage />} />
         </Route>
         <Route path="/landing" element={<Landingpage />} />
         <Route path="/signUp" element={<SignUp />} />
@@ -41,6 +46,8 @@ const App = () => {
         <Route path="/password" element={<Password />} />
         <Route path="/viewcrypto" element={<Viewcrypto />} />
         <Route path="/viewarea" element={<Viewarea />} />
+        <Route path="password" element={<Password />} />
+          <Route path="viewcrypto" element={<Viewcrypto />} />
         <Route path="*" element={<Error />} />
         
         
