@@ -15,7 +15,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { Select } from "./component";
 import Viewcrypto from "./pages/Viewcrypto";
 
-
 const App = () => {
   return (
     <BrowserRouter>
