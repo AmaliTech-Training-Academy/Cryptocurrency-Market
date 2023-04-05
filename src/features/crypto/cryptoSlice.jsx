@@ -3,21 +3,22 @@ import { getDataThunk } from "./cryptoThunk";
 
 const initialState = {
     isLoading: false,
-    data: null,
+    data:[],
   };
 
   export const getData = createAsyncThunk(
     "user/getData",
     async ( thunkAPI) => {
-      return getDataThunk("/coins", thunkAPI);
+      return await getDataThunk("/coins", thunkAPI);
     }
   );
 
 
-  const userSlice = createSlice({
-    name: "user",
+  const cryptoSlice = createSlice({
+    name: "data",
     initialState,
     reducers: {
+    
     },
     extraReducers: (builder) => {
         builder
@@ -26,8 +27,9 @@ const initialState = {
           })
           .addCase(getData.fulfilled, (state,{payload}) => {
             const {data} = payload
+
             state.isLoading = false;
-            state.data = data            
+            state.data = payload         
           })
           .addCase(getData.rejected, (state, { payload }) => {
             state.isLoading = false;
@@ -37,5 +39,5 @@ const initialState = {
 })
 
 
-    export const {  } = userSlice.actions;
-export default userSlice.reducer;
+    export const {  } = cryptoSlice.actions;
+export default cryptoSlice.reducer;
