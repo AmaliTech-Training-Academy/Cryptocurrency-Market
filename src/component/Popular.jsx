@@ -12,7 +12,7 @@ const Popular = () => {
       {all &&
         all.map((item) => {
           return (
-            <div className="flex justify-between items-baseline mb-[32px]">
+            <div key={item.uuid}  className="flex justify-between items-baseline mb-[32px]">
               <div className="font-normal text-[18.8799px] text-[#101828] flex gap-[15.34px]  justify-between items-center">
                 <img
                   src={item.iconUrl}

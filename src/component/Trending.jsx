@@ -26,7 +26,7 @@ const Trending = () => {
    
           {all?all.map((items)=>{
             return(
-              <div className="flex justify-between items-baseline mb-[30px] relative">
+              <div key={items.uuid} className="flex justify-between items-baseline mb-[30px] relative">
               <div className="w-[15%]  flex justify-between items-center">
               <span className='font-normal text-[18.8799px] text-[#101828] flex gap-[15.34px]'>
             <img src={items.iconUrl} alt="" className='w-[27.14px] h-[27.14px]'/>
