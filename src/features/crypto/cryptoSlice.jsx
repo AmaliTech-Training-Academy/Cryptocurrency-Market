@@ -3,7 +3,7 @@ import { getDataThunk } from "./cryptoThunk";
 
 const initialState = {
     isLoading: false,
-    data: null,
+    data: [],
   };
 
   export const getData = createAsyncThunk(
