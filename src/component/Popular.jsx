@@ -1,27 +1,35 @@
-import React from 'react'
-import bnb from "../assets/BNB.png";
+import React from "react";
 import pluss from "../assets/pluss.png";
-import terra from "../assets/Terra logo.png";
-import et from "../assets/Et.png";
-import btc from "../assets/btc.png";
-import Doge from "../assets/Doge coin.png";
-import Cardano from "../assets/Cardano.png";
+import { useSelector } from "react-redux";
 
 const Popular = () => {
+  const { data } = useSelector((store) => store.data);
+  const all = data.data?.coins.slice(0, 10);
+
   return (
-    <div className='p-[40px] pt-[32px] pb-[10px] shadow'>
-        <h1 className="text-[25px] mb-[41px]">Popular Assets</h1>
-        <div className="flex justify-between items-baseline mb-[32px]">
-        <div className="w-[80px] flex justify-between">
-          <img src={bnb} alt="" className='object-fill' />
-          <h1 className='text-[21.5px]'>BNB</h1>
-        </div>
-        <div className="w-[100px] mr-8 flex justify-between items-center text-[#32D583]">
-          <img src={pluss} alt="" className=''/>
-          <h2 className='text-[21.5px]'>+45.74%</h2>
-        </div>
-      </div>
-      <div className="flex justify-between items-baseline mb-[32px]">
+    <div className="p-[40px] pt-[32px] pb-[10px] shadow">
+      <h1 className="text-[25px] mb-[41px]">Popular Assets</h1>
+      {all &&
+        all.map((item) => {
+          return (
+            <div className="flex justify-between items-baseline mb-[32px]">
+              <div className="font-normal text-[18.8799px] text-[#101828] flex gap-[15.34px]  justify-between items-center">
+                <img
+                  src={item.iconUrl}
+                  alt=""
+                  className="object-fill w-[27.14px] h-[27.14px]"
+                />
+                <h1 className="text-[21.5px]">{item.name}</h1>
+              </div>
+              <div className="w-[100px] mr-8 flex justify-between items-center text-[#32D583]">
+                <img src={pluss} alt="" className="" />
+                <h2 className="text-[21.5px]">+45.74%</h2>
+              </div>
+            </div>
+          );
+        })}
+
+      {/* <div className="flex justify-between items-baseline mb-[32px]">
         <div className="w-[110px] flex justify-between">
           <img src={btc} alt="" />
           <h1 className='text-[21.5px]'>Bitcoin</h1>
@@ -72,9 +80,9 @@ const Popular = () => {
           <img src={pluss} alt="" className=''/>
           <h2 className='text-[21.5px]'>+45.74%</h2>
         </div>
-      </div>
+      </div> */}
     </div>
-  )
-}
+  );
+};
 
-export default Popular
+export default Popular;
