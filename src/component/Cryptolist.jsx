@@ -3,9 +3,14 @@ import BNB from "../assets/BNB.png"
 import Up from "../assets/up.png"
 import Cryptomodal from './Cryptomodal'
 import { useSelector } from 'react-redux'
+import AddWatchlist from '../component/AddWatchlist'
 
 
-function Cryptolist({visible}) {
+function Cryptolist() {
+  const [showWatchlist, setShowWatchlist] = useState(false)
+
+  const closeWatchlist = () => setShowWatchlist(false)
+
   const {data} = useSelector((store)=> store.data)
   const all = data?.coins
   // console.log(all);
@@ -37,9 +42,9 @@ function Cryptolist({visible}) {
                 </span>
               </div>
               <div>
-                  <img src={Up} alt="" className='absolute left-[610px] top-3 2xl:left-[760px]'/>
-                <span className=' absolute left-[635px] top-2 2xl:left-[790px] font-normal text-[18.8799px] text-[#32D583] flex gap-[12.98px]'>
-                  $41,650,00
+                  <img src={Up} alt="" className='absolute left-[610px] top-3 2xl:left-[770px]'/>
+                <span className=' absolute left-[635px] top-2 2xl:left-[800px] font-normal text-[18.8799px] text-[#32D583] flex gap-[12.98px]'>
+                  {item.change}
                 </span>
               </div>
               <div>
@@ -48,12 +53,13 @@ function Cryptolist({visible}) {
                 </span>
               </div>
               <div>
-                <span className='absolute right-[35px] top-2 2xl:right-[33px] font-normal text-[18.8799px] text-[#101828] flex'>
-                  ${item.marketCap.slice(0,7)}M <span className='pl-2'>+</span>
+                <span className='absolute right-[25px] top-2 2xl:right-[25px] font-normal text-[18.8799px] text-[#101828] flex'>
+                  ${item.marketCap.slice(0,7)}M <span onClick={() => setShowWatchlist(true)} className='pl-2'>+</span>
                 </span>
               </div>
             </div>
             <Cryptomodal visible={addCrypto} onClose={closeCrypto}/>
+            <AddWatchlist visible={showWatchlist} onClose={closeWatchlist}/>
           </>
         )
       }) }

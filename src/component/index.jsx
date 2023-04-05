@@ -11,8 +11,8 @@ import Filter from "./Filter";
 import Cryptolist from "./Cryptolist";
 import Cryptomodal from "./Cryptomodal";
 import Assetmodal from "./Assetmodal";
-
-
+import FilterPercent from "./FilterPercent"
+import AddWatchlist from "./AddWatchlist"
 export {
   Navbar,
   Footer,
@@ -26,5 +26,7 @@ export {
   Watchlist,
   Statistics,
   Popular,
-  Trending
+  Trending,
+  FilterPercent,
+  AddWatchlist
 };
