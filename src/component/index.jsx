@@ -7,19 +7,8 @@ import Watchlist from "./Watchlist";
 import Statistics from "./Statistics";
 import Popular from "./Popular";
 import Trending from "./Trending";
-
-<<<<<<< HEAD
-export {
-  Navbar,
-  NaviBar,
-  Footer,
-  Input,
-  Select,
-  Watchlist,
-  Statistics,
-  Popular,
-  Trending,
-=======
+import Filter from "./Filter";
+import Cryptolist from "./Cryptolist";
 import Cryptomodal from "./Cryptomodal";
 import Assetmodal from "./Assetmodal";
 
@@ -31,5 +20,10 @@ export {
   Assetmodal,
   NaviBar,
   Select,
->>>>>>> cc6c6ed (feature: created component to display active crypto)
+  Filter,
+  Cryptolist,
+  Watchlist,
+  Statistics,
+  Popular,
+  Trending
 };
