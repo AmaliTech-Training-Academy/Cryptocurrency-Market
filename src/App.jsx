@@ -8,6 +8,7 @@ import {
   Landingpage,
   ProtectedRoute,
   Password,
+  ActiveCrypto
 } from "./pages";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
