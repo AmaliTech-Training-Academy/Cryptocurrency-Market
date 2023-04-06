@@ -76,7 +76,7 @@ const profile = () => {
       <NaviBar />
       <div className="ml-[43px] ">
         <div className="mt-2 flex items-center justify-center w-[261px] h-[30px]">
-          <Link to={'/landing'} className="mr-[25px]">
+          <Link to={'/dashboard'} className="mr-[25px]">
             <img src={Home} alt="" className="w-[16px] h-[18px] " />
           </Link>
           <div className="mr-[12px]">
