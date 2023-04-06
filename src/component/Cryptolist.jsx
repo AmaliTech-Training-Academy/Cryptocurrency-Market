@@ -4,6 +4,7 @@ import Up from "../assets/up.png"
 import Cryptomodal from './Cryptomodal'
 import { useSelector } from 'react-redux'
 import AddWatchlist from '../component/AddWatchlist'
+import { Link } from 'react-router-dom'
 
 
 function Cryptolist({ allData, setAllData }) {
@@ -22,10 +23,14 @@ function Cryptolist({ allData, setAllData }) {
     setShowWatchlist(true)
   }
 
+  const handleSearchCrypto = (state,item) =>{
+    setSelecteditem(item)
+    setAddCrypto(state)
+  } 
+
   const closeWatchlist = () => setShowWatchlist(false)
   const closeCrypto = () => setAddCrypto(false)
 
-  // console.log(all);
 
   return (
     <div>
@@ -33,7 +38,9 @@ function Cryptolist({ allData, setAllData }) {
         return(
           <>
             <div key={index} className='pl-[24.8px] flex items-center mt-5 relative h-10 cursor-pointer'>
-              <div onClick={() => setAddCrypto(true)} className='w-[250px] flex flex-wrap'>
+              <div onClick={() => handleSearchCrypto(true,item)} >
+
+              <div  className='w-[250px] flex flex-wrap'>
                 <span className='font-normal text-[18.8799px] text-[#101828] flex gap-[15.34px]'>
                   <img src={item.iconUrl} alt="" className='w-[27.14px] h-[27.14px]'/>
                   {item.name}
@@ -60,6 +67,7 @@ function Cryptolist({ allData, setAllData }) {
                   $715,650M
                 </span>
               </div>
+              </div>
               <div>
                 <span className='absolute right-[25px] top-2 2xl:right-[25px] font-normal text-[18.8799px] text-[#101828] flex'>
                   ${item.marketCap.slice(0,7)}M <span onClick={() => handleSetWatchList(item)} className='pl-2'>+</span>
@@ -70,7 +78,7 @@ function Cryptolist({ allData, setAllData }) {
           </>
         )
       }) }
-      <Cryptomodal visible={addCrypto} onClose={closeCrypto}/>
+      <Cryptomodal visible={addCrypto} onClose={closeCrypto} singleItem={selectedItem} />
     </div>
   )
 }

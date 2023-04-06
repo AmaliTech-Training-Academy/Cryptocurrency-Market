@@ -1,11 +1,5 @@
-import React, {useState} from 'react'
-import Navibar from '../component'
-
-import Assetmodal from '../component/Assetmodal'
-// import Cryptomodal from '../component/Cryptomodal'
-import Filter from '../component/Filter'
-import Cryptolist from '../component/Cryptolist'
-import FilterPercent from '../component/FilterPercent'
+import React, {useState,useEffect} from 'react'
+import {NaviBar,Assetmodal,Filter,Cryptolist,FilterPercent,Cryptomodal} from '../component'
 import Name from "../assets/name.png"
 import { useSelector } from 'react-redux'
 
@@ -21,7 +15,7 @@ function ActiveCrypto() {
 
   
   const {data} = useSelector((store)=> store.data)
-  const all = data?.coins
+  const all = data.data?.coins
   
 
   const sortAlphabetically = () => {
@@ -45,7 +39,6 @@ function ActiveCrypto() {
   });
 
     setFilterPercent(filterPercent === 'ASC' ? 'DESC': 'ASC')
-    console.log(sortedAll)
     setAllData(sortedAll)    
   }
   
@@ -59,7 +52,7 @@ function ActiveCrypto() {
 
   return (
     <div>
-      <Navibar />
+      <NaviBar />
       <div className='container mx-auto mt-[30px] mb-[36.56px] shadow-sm'>
         <div className='h-[76.2px] pl-[41.3px] pr-[46.55px] flex justify-between items-center'>
           <span className='font-normal text-[29.4999px] text-[#101828] leading-9 '>Market</span>

@@ -8,7 +8,9 @@ import {
   Landingpage,
   ProtectedRoute,
   Password,
-  ActiveCrypto
+  ActiveCrypto,
+  Dashboard,
+  Modal
 } from "./pages";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -27,27 +29,21 @@ const dispatch = useDispatch()
 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <ProtectedRoute>
-              <ProfilePage />
-            </ProtectedRoute>
-          }
-        >
-          {/* <Route index element={<ProfilePage />} /> */}
-        <Route path="profile-page" element={<ProfilePage />} />
-        </Route>
-        <Route path="/landing" element={<Landingpage />} />
-        <Route path="/signUp" element={<SignUp />} />
-       <Route path="/" element={<Homepage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="*" element={<Error />} />
-        
-      </Routes>
-      <ToastContainer position="top-center" />
-    </BrowserRouter>
+    <Routes>
+      <Route element={<PrivateRoutes />}>
+        <Route element={<ProfilePage />} path="/" exact />
+        <Route element={<Password />} path="/password" exact />
+        <Route element={<Dashboard />} path="/dashboard" exact />
+        <Route element={<ActiveCrypto />} path="/active-crypto" exact />
+        <Route element={<Modal />} path="/modal" exact />
+      </Route>
+      <Route element={<Landingpage />} path="/landing" />
+      <Route path="/signUp" element={<SignUp />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="*" element={<Error />} />
+    </Routes>
+    <ToastContainer position="top-center" />
+  </BrowserRouter>
   );
 };
 

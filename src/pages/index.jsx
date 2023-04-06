@@ -9,6 +9,7 @@ import Dashboard from "./dashboard";
 import ActiveCrypto from "./activecrypto"
 
 import Password from "./Password";
+import Modal from "./Modal";
 
 export {
   Landingpage,
@@ -20,19 +21,8 @@ export {
   Homepage,
   Password,
   Dashboard,
-  ActiveCrypto
+  ActiveCrypto,
+  Modal
 };
 
 
-export{
-    Landingpage,
-    ProfilePage,
-    Error,
-    Login,
-    SignUp,
-    ProtectedRoute,
-    Homepage,
-    Password,
-    ActiveCrypto
-
-}
