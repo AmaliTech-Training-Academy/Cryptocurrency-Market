@@ -4,7 +4,7 @@ import bnb from '../assets/BNB.png'
 const Viewarea = () => {
   return (
     <div className=''>
-        <div className='w-[1208px] h-[433px] bg-[#e4e7ec] shadow ml-[130px] mb-[50px] rounded '>
+        <div className='w-[1208px] h-[231px] bg-[#e4e7ec] shadow ml-[130px] rounded '>
             <div className='ml-4'>
                 <div className='flex mr-[83px]'>
                    <div className='flex mt-4'>
