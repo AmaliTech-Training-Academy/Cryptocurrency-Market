@@ -14,6 +14,7 @@ function activeCrypto() {
     <div>
       <Navibar />
       {/* <div className='w-full h-[69px] bg-green-400'></div> */}
+
       <div className='container mx-auto h-[885.44px] mt-[30px] mb-[36.56px]'>
         <div className='h-[76.2px] pl-[41.3px] pr-[46.55px] flex justify-between'>
           <span className='font-normal text-[29.4999px] text-[#101828] leading-9 pt-[20.06px]'>Market</span>
