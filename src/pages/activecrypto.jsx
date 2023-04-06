@@ -1,8 +1,5 @@
-import React, {useState} from 'react'
-import Navibar from '../component/Navibar'
-import Assetmodal from '../component/Assetmodal'
-import Filter from '../component/Filter'
-import Cryptolist from '../component/Cryptolist'
+import React from 'react'
+// import Navibar from '../component/Navibar'
 
 function activeCrypto() {
   const [showModal, setShowModal] = useState(false)
@@ -49,8 +46,6 @@ function activeCrypto() {
         </div> 
         <Cryptolist visible={addCrypto}/>
       </div>
-      <Filter visible={showFilter} onClose={closeFilter}/>
-      <Assetmodal visible={showModal} onClose={closeModal}/>
     </div>
   )
 }
