@@ -45,7 +45,7 @@ const dispatch = useDispatch()
   useEffect(()=>{
     if (user) {
       setTimeout(() => {
-       navigate('/profile-page')
+       navigate('/')
      }, 3000);
     }
    },[user])

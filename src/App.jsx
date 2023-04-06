@@ -1,47 +1,45 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
-  Homepage,
   Error,
   ProfilePage,
   SignUp,
   Login,
   Landingpage,
-  ProtectedRoute,
   Password,
   Dashboard,
 } from "./pages";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Select } from "./component";
+import PrivateRoutes from "./utils/PrivateRoute";
+import { useDispatch } from "react-redux";
+import { getData } from "./features/crypto/cryptoSlice";
+
 
 
 const App = () => {
+  
+const dispatch = useDispatch()
+  useEffect(()=>{
+  dispatch(getData())
+  },[dispatch])
+
   return (
     <>
-    <BrowserRouter>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <ProtectedRoute>
-              <Dashboard/>
-            </ProtectedRoute>
-          }
-        >
-          <Route index element={<ProfilePage />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-        </Route>
-        <Route path="/landing" element={<Landingpage />} />
-        <Route path="/signUp" element={<SignUp />} />
-       <Route path="/" element={<Homepage />} />
-        <Route path="/login" element={<Login />} />
-
-        <Route path="*" element={<Error />} />
-        
-      </Routes>
-    <ToastContainer position="top-center" />
-    </BrowserRouter>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<PrivateRoutes />}>
+            <Route element={<ProfilePage />} path="/" exact />
+            <Route element={<Password />} path="/password" exact />
+            <Route element={<Dashboard />} path="/dashboard" exact />
+          </Route>
+          <Route element={<Landingpage />} path="/landing" />
+          <Route path="/signUp" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
+        <ToastContainer position="top-center" />
+      </BrowserRouter>
     </>
   );
 };
