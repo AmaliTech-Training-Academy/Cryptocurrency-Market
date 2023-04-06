@@ -20,6 +20,7 @@ import { getData } from "./features/crypto/cryptoSlice";
 
 
 
+
 const App = () => {
   
 const dispatch = useDispatch()
