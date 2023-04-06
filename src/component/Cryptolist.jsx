@@ -29,10 +29,10 @@ function Cryptolist({ allData, setAllData }) {
 
   return (
     <div>
-      {allData && allData.map((item)=>{
+      {allData && allData.map((item, index)=>{
         return(
           <>
-            <div className='pl-[24.8px] flex items-center mt-5 relative h-10 hover:bg-gray-100 cursor-pointer'>
+            <div key={index} className='pl-[24.8px] flex items-center mt-5 relative h-10 cursor-pointer'>
               <div onClick={() => setAddCrypto(true)}>
                 <span className='font-normal text-[18.8799px] text-[#101828] flex gap-[15.34px]'>
                   <img src={item.iconUrl} alt="" className='w-[27.14px] h-[27.14px]'/>
