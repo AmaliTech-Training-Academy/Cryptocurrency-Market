@@ -13,16 +13,17 @@ function ActiveCrypto() {
   const [showFilterPercent, setShowFilterPercent] = useState(false)
   const [addCrypto, setAddCrypto] = useState(false)
   const [filterOrder, setFilterOrder] = useState('ASC')
+  const [filterPercent, setFilterPercent] = useState('ASC')
+
   const [allData, setAllData] = useState([])
 
   
   const {data} = useSelector((store)=> store.data)
   const all = data?.coins
-  console.log(all)
   
 
   const sortAlphabetically = () => {
-    const modall = [...(all || [])]
+    const modall = [...all ]
     const sortAll = modall?.sort((a, b) => {
       if(a.name > b.name) return filterOrder === 'ASC' ? 1 : -1
       else if(a.name < b.name) return filterOrder === 'ASC' ? -1 : 1
@@ -30,9 +31,20 @@ function ActiveCrypto() {
     });
 
     setFilterOrder(filterOrder === 'ASC' ? 'DESC': 'ASC')
-    console.log(sortAll)
     setAllData(sortAll)    
-    // .sort((a, b) => b.percentage - a.percentage)
+  }
+
+  const sortPercent = () => {
+    const perall = [...(all || [])]
+    const sortedAll = perall?.sort((a, b) => {
+      if(a.change > b.change) return filterPercent === 'ASC' ? 1 : -1
+      else if(a.change < b.change) return filterPercent === 'ASC' ? -1 : 1
+      return 0
+  });
+
+    setFilterPercent(filterPercent === 'ASC' ? 'DESC': 'ASC')
+    console.log(sortedAll)
+    setAllData(sortedAll)    
   }
   
   useEffect(() => {
@@ -46,20 +58,9 @@ function ActiveCrypto() {
   return (
     <div>
       <Navibar />
-      <div className='container mx-auto mt-[30px] mb-[36.56px]'>
+      <div className='container mx-auto mt-[30px] mb-[36.56px] shadow-sm'>
         <div className='h-[76.2px] pl-[41.3px] pr-[46.55px] flex justify-between items-center'>
           <span className='font-normal text-[29.4999px] text-[#101828] leading-9 '>Market</span>
-          <div className='w-[336px] h-[47.88] '>
-            {/* <button 
-            onClick={() => setShowFilter(true)}
-            className='w-[134.52px] h-[47.88px] bg-white border border-[#D0D5DD] rounded-[9.43997px] text-[18.8799px] 
-              shadow-[0px_1.18px_2.35999px_rgba(16, 24, 40, 0.05)] font-sans flex items-center justify-center gap-[35px]'>
-              Filter
-              <svg width="30" height="27" viewBox="0 0 28 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10.94 10L14 13.093L17.06 10L18 10.9569L14 15L10 10.9569L10.94 10Z" fill="black"/>
-              </svg>
-            </button> */}
-          </div>
           <button 
             onClick={() => setShowModal(true)}
             className='w-[118.77px] h-[44.54px] bg-[rgba(12,76,49,0.81)] rounded-[4.68106px] text-white font-sans font-normal'>
@@ -89,7 +90,7 @@ function ActiveCrypto() {
         <Cryptolist visible={addCrypto} allData={allData} setAllData={setAllData}/>
       </div>
         <Filter visible={showFilter} onClose={closeFilter} filter={sortAlphabetically}/>
-        <FilterPercent visible={showFilterPercent} onClose={closeFilterPercent}/>
+        <FilterPercent visible={showFilterPercent} onClose={closeFilterPercent} filter={sortPercent}/>
         <Assetmodal visible={showModal} onClose={closeModal}/>
     </div>
   )

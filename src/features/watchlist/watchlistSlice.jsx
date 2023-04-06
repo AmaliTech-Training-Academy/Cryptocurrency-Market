@@ -11,7 +11,6 @@ const initialState = {
     initialState,
     reducers: {
       storeWatchList: (state,{payload})=>{
-        console.log(payload);
         state.data.push(payload);
       }
     },
