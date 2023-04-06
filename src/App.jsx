@@ -10,6 +10,7 @@ import {
   Password,
   ActiveCrypto,
   Dashboard,
+  Viewcrypto,
   Modal
 } from "./pages";
 import { ToastContainer } from "react-toastify";
