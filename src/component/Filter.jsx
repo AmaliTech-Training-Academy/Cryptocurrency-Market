@@ -3,11 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
 
-<<<<<<< HEAD
 function Filter({ visible, onClose }) {
-=======
-function Filter({ visible, onclose }) {
->>>>>>> 8151e00 (feature: created component to display active crypto)
   const [checkboxStates, setCheckboxStates] = useState([false, false, false, false, false]);
   if(!visible) return null
 
@@ -29,18 +25,11 @@ function Filter({ visible, onclose }) {
             id="check-box-1"
             checked={checkboxStates[0]}
             onChange={() => handleCheckboxChange(0)}
-<<<<<<< HEAD
             onClick={onClose}
-=======
->>>>>>> 8151e00 (feature: created component to display active crypto)
             className="appearance-none w-[22px] h-[22px] border-[1px] border-[#32D583] relative"
           />
           <FontAwesomeIcon
             icon={faCheck}
-<<<<<<< HEAD
-=======
-            onClick={onclose}
->>>>>>> 8151e00 (feature: created component to display active crypto)
             className={`h-[8.43px] w-[11px] absolute left-[5px] top-[3px] text-8xl transition ${
               checkboxStates[0] ? 'opacity-100' : 'opacity-0'
             }`}
@@ -58,10 +47,7 @@ function Filter({ visible, onclose }) {
             id="check-box-2"
             checked={checkboxStates[1]}
             onChange={() => handleCheckboxChange(1)}
-<<<<<<< HEAD
             onClick={onClose}
-=======
->>>>>>> 8151e00 (feature: created component to display active crypto)
             className="appearance-none w-[22px] h-[22px] border-[1px] border-[#32D583] relative"
           />
           <FontAwesomeIcon
@@ -83,10 +69,7 @@ function Filter({ visible, onclose }) {
             id="check-box-3"
             checked={checkboxStates[2]}
             onChange={() => handleCheckboxChange(2)}
-<<<<<<< HEAD
             onClick={onClose}
-=======
->>>>>>> 8151e00 (feature: created component to display active crypto)
             className="appearance-none w-[22px] h-[22px] border-[1px] border-[#32D583] relative"
           />
           <FontAwesomeIcon
@@ -108,10 +91,7 @@ function Filter({ visible, onclose }) {
             id="check-box-4"
             checked={checkboxStates[3]}
             onChange={() => handleCheckboxChange(3)}
-<<<<<<< HEAD
             onClick={onClose}
-=======
->>>>>>> 8151e00 (feature: created component to display active crypto)
             className="appearance-none w-[22px] h-[22px] border-[1px] border-[#32D583] relative"
           />
           <FontAwesomeIcon
@@ -133,10 +113,7 @@ function Filter({ visible, onclose }) {
             id="check-box-5"
             checked={checkboxStates[4]}
             onChange={() => handleCheckboxChange(4)}
-<<<<<<< HEAD
             onClick={onClose}
-=======
->>>>>>> 8151e00 (feature: created component to display active crypto)
             className="appearance-none w-[22px] h-[22px] border-[1px] border-[#32D583] relative"
           />
           <FontAwesomeIcon

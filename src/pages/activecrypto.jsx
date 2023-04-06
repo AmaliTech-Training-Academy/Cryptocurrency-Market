@@ -53,7 +53,6 @@ function activeCrypto() {
       </div>
       <Filter visible={showFilter} onClose={closeFilter}/>
       <Assetmodal visible={showModal} onClose={closeModal}/>
-      {/* <Cryptomodal /> */}
     </div>
   )
 }
