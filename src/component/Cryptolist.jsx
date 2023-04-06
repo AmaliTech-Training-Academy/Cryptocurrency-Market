@@ -6,26 +6,34 @@ import { useSelector } from 'react-redux'
 import AddWatchlist from '../component/AddWatchlist'
 
 
-function Cryptolist() {
+function Cryptolist({ allData, setAllData }) {
   const [showWatchlist, setShowWatchlist] = useState(false)
-
-  const closeWatchlist = () => setShowWatchlist(false)
-
-  const {data} = useSelector((store)=> store.data)
-  const all = data?.coins
-  // console.log(all);
-
+  const [selectedItem, setSelecteditem] = useState({})
   const [addCrypto, setAddCrypto] = useState(false)
 
+  const handleSetWatchList = (item) => {
+    console.log("yes")
+    const {uuid,price,name} = item
+    setSelecteditem({
+      uuid,
+      name,
+      price: Number(item.price).toFixed(2)
+    })
+    setShowWatchlist(true)
+  }
+
+  const closeWatchlist = () => setShowWatchlist(false)
   const closeCrypto = () => setAddCrypto(false)
+
+  // console.log(all);
 
   return (
     <div>
-      {all && all.map((item)=>{
+      {allData && allData.map((item)=>{
         return(
           <>
-            <div onClick={() => setAddCrypto(true)} className='pl-[24.8px] flex items-center mt-5 relative h-10 hover:bg-gray-100 cursor-pointer'>
-              <div>
+            <div className='pl-[24.8px] flex items-center mt-5 relative h-10 hover:bg-gray-100 cursor-pointer'>
+              <div onClick={() => setAddCrypto(true)}>
                 <span className='font-normal text-[18.8799px] text-[#101828] flex gap-[15.34px]'>
                   <img src={item.iconUrl} alt="" className='w-[27.14px] h-[27.14px]'/>
                   {item.name}
@@ -54,16 +62,15 @@ function Cryptolist() {
               </div>
               <div>
                 <span className='absolute right-[25px] top-2 2xl:right-[25px] font-normal text-[18.8799px] text-[#101828] flex'>
-                  ${item.marketCap.slice(0,7)}M <span onClick={() => setShowWatchlist(true)} className='pl-2'>+</span>
+                  ${item.marketCap.slice(0,7)}M <span onClick={() => handleSetWatchList(item)} className='pl-2'>+</span>
                 </span>
+              {((showWatchlist) && (selectedItem.uuid === item.uuid)) && <AddWatchlist visible={showWatchlist} onClose={closeWatchlist} item={selectedItem}/>}
               </div>
             </div>
-            <Cryptomodal visible={addCrypto} onClose={closeCrypto}/>
-            <AddWatchlist visible={showWatchlist} onClose={closeWatchlist}/>
           </>
         )
       }) }
-      
+      <Cryptomodal visible={addCrypto} onClose={closeCrypto}/>
     </div>
   )
 }
