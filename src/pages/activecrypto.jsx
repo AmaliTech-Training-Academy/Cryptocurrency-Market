@@ -1,24 +1,47 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import Navibar from '../component/Navibar'
 import Assetmodal from '../component/Assetmodal'
 import Filter from '../component/Filter'
 import Cryptolist from '../component/Cryptolist'
 import FilterPercent from '../component/FilterPercent'
-import AddWatchlist from "../component/AddWatchlist"
 import Name from "../assets/name.png"
+import { useSelector } from 'react-redux'
 
-function activeCrypto() {
+function ActiveCrypto() {
   const [showModal, setShowModal] = useState(false)
   const [showFilter, setShowFilter] = useState(false)
   const [showFilterPercent, setShowFilterPercent] = useState(false)
   const [addCrypto, setAddCrypto] = useState(false)
+  const [filterOrder, setFilterOrder] = useState('ASC')
+  const [allData, setAllData] = useState([])
 
+  
+  const {data} = useSelector((store)=> store.data)
+  const all = data?.coins
+  console.log(all)
+  
 
+  const sortAlphabetically = () => {
+    const modall = [...(all || [])]
+    const sortAll = modall?.sort((a, b) => {
+      if(a.name > b.name) return filterOrder === 'ASC' ? 1 : -1
+      else if(a.name < b.name) return filterOrder === 'ASC' ? -1 : 1
+      return 0
+    });
+
+    setFilterOrder(filterOrder === 'ASC' ? 'DESC': 'ASC')
+    console.log(sortAll)
+    setAllData(sortAll)    
+    // .sort((a, b) => b.percentage - a.percentage)
+  }
+  
+  useEffect(() => {
+    setAllData(all);
+  }, [all])
+  
   const closeModal = () => setShowModal(false)
   const closeFilter = () => setShowFilter(false)
   const closeFilterPercent = () => setShowFilterPercent(false)
-
-
 
   return (
     <div>
@@ -37,11 +60,11 @@ function activeCrypto() {
               </svg>
             </button> */}
           </div>
-            <button 
+          <button 
             onClick={() => setShowModal(true)}
             className='w-[118.77px] h-[44.54px] bg-[rgba(12,76,49,0.81)] rounded-[4.68106px] text-white font-sans font-normal'>
               Add Assets
-            </button>
+          </button>
         </div>
         <div className='h-[45px] mt-[10px] pl-[24.8px] pr-[46.55px] pt-[11.8px] border-b-[0.235999px]'>
           <ul className='flex justify-between font-normal text-[18.8799px] text-[#101828] leading-[23px]'>
@@ -63,13 +86,13 @@ function activeCrypto() {
             <li>Market Cap</li>
           </ul>
         </div> 
-        <Cryptolist visible={addCrypto}/>
+        <Cryptolist visible={addCrypto} allData={allData} setAllData={setAllData}/>
       </div>
-      <Filter visible={showFilter} onClose={closeFilter}/>
-      <FilterPercent visible={showFilterPercent} onClose={closeFilterPercent}/>
-      <Assetmodal visible={showModal} onClose={closeModal}/>
+        <Filter visible={showFilter} onClose={closeFilter} filter={sortAlphabetically}/>
+        <FilterPercent visible={showFilterPercent} onClose={closeFilterPercent}/>
+        <Assetmodal visible={showModal} onClose={closeModal}/>
     </div>
   )
 }
 
-export default activeCrypto
+export default ActiveCrypto
