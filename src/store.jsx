@@ -1,10 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userSlice from "./features/user/userSlice";
-import cryptoSlice from "./features/crypto/cryptoSlice";
+import cryptoSlice, { getData } from "./features/crypto/cryptoSlice";
 
-export const store = configureStore({
+ const store = configureStore({
   reducer: {
     user:userSlice,
     data:cryptoSlice,
   },
 });
+
+store.dispatch(getData())
+
+export default store
