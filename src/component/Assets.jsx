@@ -2,7 +2,7 @@ import React from 'react'
 
 const Assets = () => {
   return (
-    <div className=' ml-[130px]'>
+    <div className=' ml-[10px]'>
         <div className='mt-[48px] w-[1208px]'>
           <h6 className='text-[25px] font-bold text-[#101828]'>My Assets</h6>
         </div>

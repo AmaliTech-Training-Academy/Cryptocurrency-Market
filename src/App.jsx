@@ -44,7 +44,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/profile-page" element={<ProfilePage />} />
         <Route path="/password" element={<Password />} />
-        <Route path="/viewcrypto" element={<Viewcrypto />} />
+        <Route path="/viewcrypto/:id" element={<Viewcrypto />} />
         <Route path="/viewarea" element={<Viewarea />} />
         <Route path="password" element={<Password />} />
           <Route path="viewcrypto" element={<Viewcrypto />} />
