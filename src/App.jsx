@@ -8,6 +8,7 @@ import {
   Landingpage,
   Password,
   Dashboard,
+  ActiveCrypto
 } from "./pages";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -32,6 +33,7 @@ const dispatch = useDispatch()
             <Route element={<ProfilePage />} path="/" exact />
             <Route element={<Password />} path="/password" exact />
             <Route element={<Dashboard />} path="/dashboard" exact />
+            <Route path="/active-crypto" element={<ActiveCrypto />} />
           </Route>
           <Route element={<Landingpage />} path="/landing" />
           <Route path="/signUp" element={<SignUp />} />

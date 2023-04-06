@@ -6,6 +6,7 @@ import SignUp from "./signUp";
 import ProtectedRoute from "./ProctedRoute";
 import Homepage from "./homepage";
 import Dashboard from "./dashboard";
+import ActiveCrypto from "./activecrypto"
 
 import Password from "./Password";
 
@@ -19,4 +20,6 @@ export {
   Homepage,
   Password,
   Dashboard,
+  ActiveCrypto
 };
+
