@@ -15,12 +15,7 @@ import {
 } from "./pages";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import PrivateRoutes from "./utils/PrivateRoute";
-import { useDispatch } from "react-redux";
-import { getData } from "./features/crypto/cryptoSlice";
-
-
-
+import { Select } from "./component";
 
 const App = () => {
   
@@ -31,21 +26,26 @@ const dispatch = useDispatch()
 
   return (
     <BrowserRouter>
-    <Routes>
-      <Route element={<PrivateRoutes />}>
-        <Route element={<ProfilePage />} path="/" exact />
-        <Route element={<Password />} path="/password" exact />
-        <Route element={<Dashboard />} path="/dashboard" exact />
-        <Route element={<ActiveCrypto />} path="/active-crypto" exact />
-        <Route element={<Modal />} path="/modal" exact />
-      </Route>
-      <Route element={<Landingpage />} path="/landing" />
-      <Route path="/signUp" element={<SignUp />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="*" element={<Error />} />
-    </Routes>
-    <ToastContainer position="top-center" />
-  </BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <Select />
+            </ProtectedRoute>
+          }
+        ></Route>
+        <Route path="/landing" element={<Landingpage />} />
+        <Route path="/signUp" element={<SignUp />} />
+       <Route path="/" element={<Homepage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/profile-page" element={<ProfilePage />} />
+        <Route path="/password" element={<Password />} />
+        <Route path="*" element={<Error />} />
+        
+      </Routes>
+      <ToastContainer position="top-center" />
+    </BrowserRouter>
   );
 };
 
