@@ -3,7 +3,7 @@ import userSlice from "./features/user/userSlice";
 import cryptoSlice, { getData } from "./features/crypto/cryptoSlice";
 import watchListSlice from "./features/watchlist/watchlistSlice";
 
- const store = configureStore({
+export const store = configureStore({
   reducer: {
     user:userSlice,
     data:cryptoSlice,
