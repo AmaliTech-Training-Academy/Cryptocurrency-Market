@@ -11,6 +11,7 @@ import Assetmodal from "./Assetmodal"
 import Filter from "./Filter"
 import Cryptolist from "./Cryptolist"
 
+<<<<<<< HEAD
 export {
   Navbar,
   Footer,
@@ -20,3 +21,15 @@ export {
   NaviBar,
   Select,
 };
+=======
+export{
+    Navbar,
+    Footer,
+    Input,
+    Cryptomodal,
+    Assetmodal,
+    Filter,
+    Cryptolist
+    
+}
+>>>>>>> 8151e00 (feature: created component to display active crypto)

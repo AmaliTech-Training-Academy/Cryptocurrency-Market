@@ -3,6 +3,7 @@ import React, {useState} from 'react'
 import Assetmodal from '../component/Assetmodal'
 // import Cryptomodal from '../component/Cryptomodal'
 import Filter from '../component/Filter'
+import Cryptolist from '../component/Cryptolist'
 
 function activeCrypto() {
   const [showModal, setShowModal] = useState(false)
@@ -50,7 +51,7 @@ function activeCrypto() {
         </div> 
         <Cryptolist visible={addCrypto}/>
       </div>
-      <Filter />
+      <Filter visible={showFilter} onClose={closeFilter}/>
       <Assetmodal visible={showModal} onClose={closeModal}/>
       {/* <Cryptomodal /> */}
     </div>
