@@ -35,17 +35,17 @@ function NaviBar() {
           <img src={Img1} alt="" />
         </div>
         <ul className="flex justify-between  w-[353px] items-center text-[14.8px] font-normal text-[#101828]">
-          <NavLink to={"/profile-page"} id="nav-links">
+          <NavLink to={"/dashboard"} id="nav-links">
             Home
           </NavLink>
-          <NavLink to={"/password"} id="nav-links">
+          <NavLink to={"/view-crypto"} id="nav-links">
             Portfolio
           </NavLink>
-          <NavLink to={"/markets"} id="nav-links">
+          <NavLink to={"/active-crypto"} id="nav-links">
             Markets
           </NavLink>
           <NavLink to={"/faqs"} id="nav-links">
-            FAQs
+            Watchlist
           </NavLink>
           <NavLink to={"/developers"} id="nav-links">
             Developers

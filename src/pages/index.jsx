@@ -10,7 +10,7 @@ import ActiveCrypto from "./activecrypto"
 
 import Password from "./Password";
 import Modal from "./Modal";
-
+import Viewcrypto from "./Viewcrypto";
 export {
   Landingpage,
   ProfilePage,
@@ -22,7 +22,8 @@ export {
   Password,
   Dashboard,
   ActiveCrypto,
-  Modal
+  Modal,
+  Viewcrypto,
 };
 
 

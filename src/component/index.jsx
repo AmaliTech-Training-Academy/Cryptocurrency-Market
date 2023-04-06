@@ -3,31 +3,34 @@ import Footer from "./Footer";
 import Input from "./Input";
 import NaviBar from "./NaviBar";
 import Select from "./Select";
-import Cryptomodal from "./Cryptomodal";
+import Watchlist from "./Watchlist";
+import Statistics from "./Statistics";
+import Popular from "./Popular";
+import Trending from "./Trending";
+import Viewarea from "./Viewarea";
+import Assets from "./Assets";
 import Assetmodal from "./Assetmodal";
-import Filter from "./Filter";
-import Cryptolist from "./Cryptolist";
-import Watchlist from "./Watchlist"
-import Statistics from "./Statistics"
-import Popular from "./Popular"
-import Trending from "./Trending"
+import Cryptolist from "./Cryptolist"
+import Cryptomodal from "./Cryptomodal"
+import Filter from "./Filter"
 import FilterPercent from "./FilterPercent"
-import AddWatchlist from "./AddWatchlist"
+
 
 export {
   Navbar,
+  NaviBar,
   Footer,
   Input,
-  Cryptomodal,
-  Assetmodal,
-  NaviBar,
   Select,
-  Filter,
-  Cryptolist,
+  Viewarea,
   Watchlist,
   Statistics,
   Popular,
   Trending,
-  FilterPercent,
-  AddWatchlist,
+  Assets,
+  Assetmodal,
+  Cryptolist,
+  Cryptomodal,Filter,FilterPercent,
 };
+
+
