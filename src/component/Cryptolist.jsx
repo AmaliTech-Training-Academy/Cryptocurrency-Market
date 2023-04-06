@@ -33,7 +33,7 @@ function Cryptolist({ allData, setAllData }) {
         return(
           <>
             <div key={index} className='pl-[24.8px] flex items-center mt-5 relative h-10 cursor-pointer'>
-              <div onClick={() => setAddCrypto(true)}>
+              <div onClick={() => setAddCrypto(true)} className='w-[250px] flex flex-wrap'>
                 <span className='font-normal text-[18.8799px] text-[#101828] flex gap-[15.34px]'>
                   <img src={item.iconUrl} alt="" className='w-[27.14px] h-[27.14px]'/>
                   {item.name}
