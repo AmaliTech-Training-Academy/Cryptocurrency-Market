@@ -42,7 +42,6 @@ const dispatch = useDispatch()
         <Route path="/signUp" element={<SignUp />} />
        <Route path="/" element={<Homepage />} />
         <Route path="/login" element={<Login />} />
-
         <Route path="*" element={<Error />} />
         
       </Routes>
