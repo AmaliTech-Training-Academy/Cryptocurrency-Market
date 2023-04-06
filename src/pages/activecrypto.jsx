@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 // import Navibar from '../component/Navibar'
+import Assetmodal from '../component/Assetmodal'
 
 function activeCrypto() {
   const [showModal, setShowModal] = useState(false)
@@ -47,6 +48,7 @@ function activeCrypto() {
         </div> 
         <Cryptolist visible={addCrypto}/>
       </div>
+      <Assetmodal />
     </div>
   )
 }
