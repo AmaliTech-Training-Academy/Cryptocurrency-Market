@@ -23,7 +23,7 @@ function activeCrypto() {
             className='w-[134.52px] h-[47.88px] bg-white border border-[#D0D5DD] rounded-[9.43997px] text-[18.8799px] 
               shadow-[0px_1.18px_2.35999px_rgba(16, 24, 40, 0.05)] font-sans flex items-center justify-center gap-[35px]'>
               Filter
-              <svg width="30" height="27" viewBox="0 0 28 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg width="30" height="27" viewBox="0 0 28 25" fill="none" xmlns="http://www.w3.org/2000/svg" onClick={() => setShowFilter(true)}>
               <path d="M10.94 10L14 13.093L17.06 10L18 10.9569L14 15L10 10.9569L10.94 10Z" fill="black"/>
               </svg>
             </button>
