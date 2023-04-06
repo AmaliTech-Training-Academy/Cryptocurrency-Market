@@ -11,7 +11,6 @@ import ActiveCrypto from "./activecrypto"
 import Password from "./Password";
 import Modal from "./Modal";
 
-import Assets from "../component/Assets"
 export {
   Landingpage,
   ProfilePage,
