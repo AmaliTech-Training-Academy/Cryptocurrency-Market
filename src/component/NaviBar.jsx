@@ -38,7 +38,7 @@ function NaviBar() {
           <NavLink to={"/dashboard"} id="nav-links">
             Home
           </NavLink>
-          <NavLink to={"/viewcrypto"} id="nav-links">
+          <NavLink to={"/view-crypto"} id="nav-links">
             Portfolio
           </NavLink>
           <NavLink to={"/active-crypto"} id="nav-links">

@@ -6,7 +6,7 @@ if (!visible) return null
 const navigate = useNavigate()
 
 const handleSubmit = () =>{
- navigate(`/modal?id=${singleItem.uuid}`)
+ navigate(`/view-crypto?id=${singleItem.uuid}`)
 }
 
   return (

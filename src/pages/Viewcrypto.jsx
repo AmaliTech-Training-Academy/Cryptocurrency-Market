@@ -1,14 +1,11 @@
 import React from 'react'
 import { Assets, NaviBar, Viewarea } from '../component'
-import { useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux';
 
 const Viewcrypto = () => {
-    /* const {id} = useParams();
-   const {data} =  useSelector((store)=>store.data)
-
-   const exactItem = data.find((item) => item.uuid === id) */
-
+    const search = new URLSearchParams(useLocation().search)
+    const id = search.get('id')
   return (
     <div className='bg-[#FCFCFD]'>
             <NaviBar />
@@ -32,7 +29,7 @@ const Viewcrypto = () => {
         </div>
                 </div>
             <div>
-                <Viewarea />
+                <Viewarea id={id} />
             </div>
 
             <div>
