@@ -6,19 +6,26 @@ import btc from "../assets/btc.png";
 import { useSelector } from 'react-redux'
 const Watchlist = () => {
   const {data} = useSelector((store)=>store.watchList)
+  console.log(data);
 
-  return (
-    <div className="p-[40px] pt-[10px] mb-[42px] shadow">
+  return (<>
+       <div className="p-[40px] pt-[10px] mb-[42px] shadow">
       <h1 className="text-[25px] mb-[24px]">Watchlist</h1>
+   { data.map((item)=>{
+     return(
       <div className="flex justify-between items-baseline mb-[32px]">
         <div className="w-[70px] flex justify-between">
-          <img src={bnb} alt="" />
-          <h1>BNB</h1>
+          <img src={btc} alt="" />
+          <h1>{item.name}</h1>
         </div>
-        <h1>$41,650,00</h1>
-      </div>
+        <h1>${item.price}</h1>
     
     </div>
+    )
+  })
+}
+  </div>
+</>
   );
 };
 
