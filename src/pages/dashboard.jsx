@@ -1,5 +1,5 @@
 import React,{useEffect} from "react";
-import { Popular, Statistics, Trending, Watchlist } from "../component";
+import { NaviBar, Popular, Statistics, Trending, Watchlist } from "../component";
 import { useDispatch,useSelector } from "react-redux";
 import { getData } from "../features/crypto/cryptoSlice";
 
@@ -9,6 +9,8 @@ const dashboard = () => {
    
 
    return (
+    <>
+    <NaviBar/>
     <div className="flex justify-between p-[45px]">
       <div className="w-[70%]  flex flex-col" >
         <Statistics />
@@ -22,6 +24,7 @@ const dashboard = () => {
         <Popular />
       </div>
     </div>
+    </>
   );
 };
 

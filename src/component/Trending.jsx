@@ -10,7 +10,7 @@ const Trending = () => {
   const all = data.data?.coins;
 
   return (
-    <div className="pl-[35px] pr-[67px] pt-[48px] pb-[10px] shadow overflow-y-auto h-[569px] ">
+    <div className="pl-[35px] pr-[67px] pt-[48px] pb-[10px] shadow overflow-y-auto h-[778px] ">
       <div className="flex justify-between items-baseline mb-[22px]">
         <h1 className="text-[25px] mb-[10px]">Trending Market</h1>
         <Link className="text-[blue]">View more market</Link>

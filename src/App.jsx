@@ -15,7 +15,7 @@ import {
 } from "./pages";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Select } from "./component";
+import { NaviBar, Select } from "./component";
 import { useDispatch } from "react-redux";
 import PrivateRoutes from "./utils/PrivateRoute"
 import { getData } from "./features/crypto/cryptoSlice";
@@ -30,7 +30,9 @@ const dispatch = useDispatch()
   return (
     <BrowserRouter>
        <Routes>
+
       <Route element={<PrivateRoutes />}>
+        
         <Route element={<ProfilePage />} path="/" exact />
         <Route element={<Password />} path="/password" exact />
         <Route element={<Dashboard />} path="/dashboard" exact />
