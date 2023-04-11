@@ -63,15 +63,8 @@ function NaviBar() {
             />
           </div>
           <div className="flex justify-between w-[15rem] px-[10px] items-center" ref={menuRef}>
-            {
-              <img
-                src={notification}
-                alt=""
-                className="w-[18px] h-[18.67px] "
-              />
-            }
             {<img src={Pimg} alt="" className="w-[31px] h-[31px]" />}
-            <div className="w-[5rem] text-[10px]">Smith Johnson</div>
+            <div className="w-[5rem] text-[10px] mr-6">Smith Johnson</div>
             <img
               src={Down}
               alt=""
@@ -81,11 +74,10 @@ function NaviBar() {
               onClick={toggleFunc}
             />
             {toggleMenu && <div>
-        <div className='w-[240px]  h-[120px] border border-[1px solid #F2F4F7] bg-[white] shadow absolute right-[2%] top-[10%] z-50'>
+        <div className='w-[240px]  h-[80px] border border-[1px solid #F2F4F7] bg-[white] shadow absolute right-[2%] top-[10%] z-50'>
            <NavLink to="/">
            <div className='border-b h-[40px] py-[10px] px-[12px] hover:bg-[#F2F4F7]'>Account Settings</div>
            </NavLink>
-           <div className='border-b h-[40px] py-[10px] px-[12px]'>Notification Settings</div>
            <div className='border-b h-[40px] py-[10px] px-[12px]'>Logout</div>
         </div>
     </div>}
