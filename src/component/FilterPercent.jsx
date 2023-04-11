@@ -1,6 +1,6 @@
 import React from 'react';
 import Asc from "../assets/asc.png"
-import Desc from "../assets/Desc.png"
+import Desc from "../assets/desc.png"
 
 
 

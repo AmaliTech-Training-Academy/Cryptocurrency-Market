@@ -1,9 +1,11 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router'
 
 function Cryptomodal({ visible, onClose,singleItem}) {
 if (!visible) return null
 const navigate = useNavigate()
+
 
 const handleSubmit = () =>{
  navigate(`/view-crypto?id=${singleItem.uuid}`)
