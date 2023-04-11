@@ -13,19 +13,51 @@ import { basicSchema } from "../schema";
 import { Link, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser, storeUser, updateUserProfile } from "../features/user/userSlice";
-
+import axios from "axios";
+// import React,{useState} from 'react'
+import {fill} from "@cloudinary/url-gen/actions/resize";
+import {Cloudinary} from '@cloudinary/url-gen';
+import {AdvancedImage} from '@cloudinary/react';
 
 const profile = () => {
   const [value, setValue] = useState();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
 
+  const [imageSelected, setImageSelected] = useState('')
+  const [images, setImages] = useState([])
+  const uploadImage = () => {
+    const formData = new FormData();
+    formData.append("file", imageSelected);
+    formData.append("upload_preset", "x3pud7wu");
+    
+    axios
+    .post("https://api.cloudinary.com/v1_1/dwhufzqgk/image/upload", formData)
+    .then((response) => {
+      console.log(response);
+      setImages(response.data?.secure_url) 
+    } 
+    )
+  };
+
+  const cld = new Cloudinary({
+    cloud: {
+      cloudName: 'dwhufzqgk'
+    }
+  });
+
+  const myImage = cld.image(images);
+  myImage.resize(fill().width(250).height(250));
+  
+
   const onSubmit = async (values, actions) => {
-   const resp =  await dispatch(updateUserProfile(values))
+   const resp =  await dispatch(updateUserProfile(values,image))
    if (resp.payload.success) {
     dispatch(getUser())
    }
   };
+
+  
 
   // Image upload
   const reader = new FileReader();
@@ -48,28 +80,19 @@ const profile = () => {
       lastName: "",
       mobileNumber: "",
       gender: "",
-      email: user.email,
+      email: user.data.email,
+      image:images,
     },
     validationSchema: basicSchema,
     onSubmit,
   });
 
-  // Image Upload
-  const fileUpload = useRef(null);
-  const [previewImage, setPreviewImage] = useState(null);
-  const imageUpload = (event) => {
-    const file = event.target.files[0];
-    setFieldValue("image", file);
-    setPreviewImage(URL.createObjectURL(file));
-  };
-
-  const handleClick = (e) => {
-    fileUpload.current.click();
-  };
+  console.log(images);
+  console.log(values);
 
 
 
-
+ 
 
   return (
     <div className="bg-[#FCFCFD] w-full ">
@@ -127,7 +150,7 @@ const profile = () => {
                 <div className=" w-[127px] h-[127px] rounded-full relative">
                   <div className=" w-[127px] h-[127px] rounded-full relative overflow-hidden bg-profile bg-no-repeat bg-cover">
                     <img
-                      src={previewImage}
+                      src={images}
                       alt=""
                       className="w-[127px] h-[127px]"
                     />
@@ -135,27 +158,20 @@ const profile = () => {
                   <div className="absolute flex justify-center align-middle right-[8px] bottom-[10px] w-6 h-6 bg-white rounded-full">
                     <img src={Epi} alt="" className="w-4" />
                   </div>
+                <input className="w-[95px] h-[39px] bg-transparent mt-2 border border-none " value={values.image} type="file" accept="image/*" name="image" onBlur={handleBlur}    onChange={(e)=>setImageSelected(e.target.files[0])}/>
                 </div>
                 <div className="flex flex-row items-start  gap-10">
                   <div className="w-[141px] h-[39px] bg-[#0C3C4C] ml-[90px] flex justify-center rounded">
                     <button
                       className="text-[#FFFFFF] text-base font-normal text-center"
-                      onClick={handleClick}
+                      onClick={uploadImage}
                     >
-                      <input
-                        type="file"
-                        accept="image/*"
-                        hidden
-                        name="image"
-                        id="iamge"
-                        value={undefined}
-                        onBlur={handleBlur}
-                        onChange={imageUpload}
-                        ref={fileUpload}
-                      />
                       Upload New
                     </button>
                   </div>
+                </div>
+                <div>
+     
                 </div>
                 <div className="flex flex-row items-start  gap-10">
                   <div className="w-[149px] h-[39px] bg-[#E4E7EC] flex justify-center rounded">
