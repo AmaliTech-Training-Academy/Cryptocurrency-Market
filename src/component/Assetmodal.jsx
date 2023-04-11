@@ -61,11 +61,11 @@ function Assetmodal({ visible, onClose }) {
             </div>
           </form>
         </div>
-        <button className='w-[217.38px] h-[40.46px] absolute bottom-[26.54px] right-[107px] bg-[rgba(12,76,49,0.81)] rounded-[4.68px] text-white
+        <button type='submit' className='w-[217.38px] h-[40.46px] absolute bottom-[26.54px] right-[107px] bg-[rgba(12,76,49,0.81)] rounded-[4.68px] text-white
         font-normal text-[18.6293px] leading-[23px]'>Add Asset</button>
       </div>
     </div>
   )
 }
 
-export default Assetmodal
+export default Assetmodal 
