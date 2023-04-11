@@ -10,11 +10,11 @@ const Watchlist = () => {
 
   return (
     <>
-      <div className="p-[40px] pt-[10px] mb-[42px]  shadow overflow-y-auto h-[560px]">
+      <div className="p-[40px] pt-[10px] mb-[42px]  shadow overflow-y-auto h-[560px] ">
         <h1 className="text-[25px] mb-[24px]">Watchlist</h1>
         {data.map((item) => {
           return (
-            <div className="flex justify-between items-baseline mb-[32px]">
+            <div className="flex justify-between items-center mb-[32px]">
               <div className="w-[30%]   flex justify-between items-center">
                 <img src={item.iconUrl} alt="" className="w-9" />
                 <h1 className="text-right">{item.name}</h1>
