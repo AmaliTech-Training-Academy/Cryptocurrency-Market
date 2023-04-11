@@ -23,7 +23,7 @@ const Viewcrypto = () => {
             <li>Symbol</li>
             <li>Price</li>
             <li>24H Change</li>
-            <li>Total Supply</li>
+            <li>Listed At</li>
             <li>Market Cap</li>
           </ul>
         </div>

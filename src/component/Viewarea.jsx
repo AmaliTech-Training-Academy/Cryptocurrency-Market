@@ -37,8 +37,8 @@ const deleteCrypto = (id) => {
                     <img src={Up} alt="" className='absolute left-[580px] 2xl:left-[740px] top-5'/>
                     <span className='absolute left-[610px] 2xl:left-[770px] top-4 text-[#32D583] '>{item.change}%</span>
                   </div>
-                  {<div className='absolute right-[300px] 2xl:right-[355px]'>$715,650M</div>}
-                  {<div className='absolute right-[55px] '>$715,650M</div>}
+                  <div className='absolute right-[275px] 2xl:right-[320px]'>{item.listedAt}</div>
+                  <div className='absolute right-[55px] '>{item.marketCap.slice(0,7)}M</div>
                 </div>
                 <div className="" onClick={()=>deleteCrypto(item.uuid)} >
                 <img src={del} alt="" className='absolute right-0 top-5 cursor-pointer ' />

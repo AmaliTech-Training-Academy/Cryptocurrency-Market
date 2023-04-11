@@ -70,7 +70,7 @@ function NaviBar() {
               alt=""
               className={`${
                 toggleMenu && "rotate-[180deg]"
-              } w-[2rem] cursor-pointer`}
+              } w-[2rem] cursor-pointer `}
               onClick={toggleFunc}
             />
             {toggleMenu && <div>
