@@ -1,9 +1,10 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import userSlice from "./features/user/userSlice";
-import cryptoSlice, { getData } from "./features/crypto/cryptoSlice";
+import cryptoSlice from "./features/crypto/cryptoSlice";
 import watchlistSlice from "./features/watchlist/watchlistSlice";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import portfolio from "./features/portfolio/portfolioSlice";
 
 const persistConfig = {
   key:'root',
@@ -13,7 +14,8 @@ const persistConfig = {
 const reducer = combineReducers({
   user:userSlice,
   data:cryptoSlice,
-  watchList:watchlistSlice 
+  watchList:watchlistSlice, 
+  portfolio:portfolio
 })
 
 const persistedReducer = persistReducer(persistConfig,reducer)
