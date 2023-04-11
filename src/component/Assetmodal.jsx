@@ -46,9 +46,9 @@ function Assetmodal({ visible, onClose }) {
                   </svg>
                 </span>
               </label>
-              <select type="text" className='w-[102.81px] h-[30.8px] mt-[5.11px] rounded-[3.62343px] border-[0.226464px] border-[#C1C1C1] p-3'></select>
+              <input type="text" className='w-[102.81px] h-[30.8px] mt-[5.11px] rounded-[3.62343px] border-[0.226464px] border-[#C1C1C1] p-3'></input>
             </div>
-            <div className='flex flex-col absolute top-[201.68px] right-[50px]'>
+            <div className='flex flex-col absolute top-[201.68px] right-[48px]'>
               <label className='font-normal text-[14.1892px] text-[#101828] leading-[17px] flex'>
                 Purchase Price
                 <span className='flex items-center ml-2'>
