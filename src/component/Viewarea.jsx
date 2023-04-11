@@ -11,7 +11,6 @@ const Viewarea = ({id}) => {
   const {data} =useSelector((store)=>store.data)
   const portfolio = useSelector(store => store.portfolio.data)
   const all = data.data?.coins
-  console.log(portfolio);
 
 
 const dispatch = useDispatch()
