@@ -19,7 +19,7 @@ const landingPage = () => {
     <div>
       <Navbar/>
       <main>
-        <div className='h-[663.91px] pl-[109px] pt-[86.91px] relative w-full perfect_niche'>
+        <div className='h-[663.91px] pl-[109px] pt-[86.91px] relative w-full perfect_niche 2xl:pl-[330px]'>
           <h1 className='w-[795px] h-[74px] font-bold text-white text-[61.04px] leading-[74px]'>Finding Your Perfect Niche</h1>
           <h4 className='w-[823px] h-[164px] font-normal text-white text-[25px] leading-[41px] mt-[34px] '>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
           incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4>
@@ -30,7 +30,7 @@ const landingPage = () => {
               Watch video
             </button>
           </div>
-          <img src={Hero} alt="" className='absolute top-0 right-0'/>
+          <img src={Hero} alt="" className='absolute top-0 right-0 2xl:right-[200px]'/>
         </div>
         <div className='px-[89px] pt-[70px] w-full flex flex-col justify-center items-center '>
           <div className='flex justify-center w-full xl-[1440px]:gap-[89px]'>

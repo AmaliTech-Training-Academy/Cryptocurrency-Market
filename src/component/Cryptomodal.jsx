@@ -8,6 +8,7 @@ if (!visible) return null
 const navigate = useNavigate()
 const dispatch = useDispatch()
 
+
 const handleSubmit = () =>{
 dispatch(storePortfolio(singleItem))
  navigate(`/view-crypto?id=${singleItem.uuid}`)

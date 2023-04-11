@@ -79,7 +79,7 @@ function ActiveCrypto() {
                 <img src={Name} alt=""  className='w-3 h-2.5 hover:cursor-pointer'/>
               </span>
             </li>
-            <li>Total Supply</li>
+            <li>Listed At</li>
             <li>Market Cap</li>
           </ul>
         </div> 
