@@ -12,6 +12,7 @@ function AddWatchlist({ visible, onClose, item }) {
     const findWatchList = watchList.filter((ele) => ele.uuid === item.uuid);
     if(findWatchList.length > 0) {
       alert("Item already in Watchlist")
+      onClose()
     } else {
       dispatch(storeWatchList(item))
       onClose()
