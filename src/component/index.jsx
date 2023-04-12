@@ -10,11 +10,11 @@ import Trending from "./Trending";
 import Viewarea from "./Viewarea";
 import Assets from "./Assets";
 import Assetmodal from "./Assetmodal";
-import Cryptolist from "./Cryptolist"
-import Cryptomodal from "./Cryptomodal"
-import Filter from "./Filter"
-import FilterPercent from "./FilterPercent"
-
+import Cryptolist from "./Cryptolist";
+import Cryptomodal from "./Cryptomodal";
+import Filter from "./Filter";
+import FilterPercent from "./FilterPercent";
+import ViewStat from "./ViewStat";
 
 export {
   Navbar,
@@ -30,7 +30,8 @@ export {
   Assets,
   Assetmodal,
   Cryptolist,
-  Cryptomodal,Filter,FilterPercent,
+  Cryptomodal,
+  Filter,
+  FilterPercent,
+  ViewStat,
 };
-
-

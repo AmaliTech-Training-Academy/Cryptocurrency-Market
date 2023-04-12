@@ -1,12 +1,8 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import AreaChartComponent from "./AreaCharrt";
-import { useSelector } from "react-redux";
-
-const Statistics = () => {
-
+import axios from "axios";
+const ViewStat = () => {
  
-
     const [data,setData] = useState()
     const [rate,setRate] = useState()
     const [price,setPrice] = useState()
@@ -18,6 +14,7 @@ const Statistics = () => {
         const data =  response.data.data.coins[0].sparkline.slice(0,12)
         setRate(response.data.data.coins[0].change)
         setPrice(response.data.data.coins[0].price)
+
         setData(data.map((items, index)=>{
             return {hr: index * 2  , price: parseFloat(items)}
           }))
@@ -34,9 +31,9 @@ const Statistics = () => {
           <h2 className="text-[21px]">Bitcoin</h2>
           <p>BTC/USD</p>
         </div>
-        <div className="flex  w-[220px] justify-between items-center">
+        <div className="flex  w-[220px] justify-between items-center ">
           <h2 className="text-[21px]">US${Number(price).toFixed(2)}</h2>
-          <p className="text-[red]">{rate}</p>
+          <p className="text-[red]">{rate}%</p>
         </div>
       </div>
       <div className="border-b mb-10"></div>
@@ -45,5 +42,4 @@ const Statistics = () => {
   );
 };
 
-export default Statistics;
-
+export default ViewStat
