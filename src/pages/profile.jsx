@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import { NaviBar, Select } from "../component";
-import Pimg from "../assets/Profile-picture.png";
 import Epi from "../assets/edit picture.svg";
 import Home from "../assets/home vector.svg";
 import Che from "../assets/chevron 1.svg";
