@@ -6,6 +6,8 @@ const ViewStat = () => {
     const [data,setData] = useState()
     const [rate,setRate] = useState()
     const [price,setPrice] = useState()
+    const [name,setName] = useState()
+    const [img,setImg] = useState()
   useEffect(() => {
     const fetchdata = async () => {
       const response = await axios.get(
@@ -14,18 +16,23 @@ const ViewStat = () => {
         const data =  response.data.data.coins[0].sparkline.slice(0,12)
         setRate(response.data.data.coins[0].change)
         setPrice(response.data.data.coins[0].price)
-
+        setName(response.data.data.coins[0].name)
+        setImg(response.data.data.coins[0].iconUrl)
         setData(data.map((items, index)=>{
             return {hr: index * 2  , price: parseFloat(items)}
           }))
     };
     fetchdata()
-  },[data]);
+  },[]);
+  console.log(data);
   
 
   return ( 
     <div className="pl-[36px] pr-[51px] pt-[13px] pb-[10px] mb-[69px] shadow">
-      <h1 className="text-[25px] mb-[10px]">Statistics</h1>
+        <div className="w-[140px] flex justify-between items-center mb-[10px]">
+            <img className="w-9" src={img} alt="" />
+      <h1 className="text-[25px] ">{name}</h1>
+        </div>
       <div className="flex justify-between mb-4">
         <div className="flex w-[170px] justify-between items-baseline">
           <h2 className="text-[21px]">Bitcoin</h2>

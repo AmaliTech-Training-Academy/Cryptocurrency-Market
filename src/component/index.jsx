@@ -15,6 +15,7 @@ import Cryptomodal from "./Cryptomodal";
 import Filter from "./Filter";
 import FilterPercent from "./FilterPercent";
 import ViewStat from "./ViewStat";
+import ViewStatInfo from "./viewStatInfo";
 
 export {
   Navbar,
@@ -34,4 +35,5 @@ export {
   Filter,
   FilterPercent,
   ViewStat,
+  ViewStatInfo,
 };
