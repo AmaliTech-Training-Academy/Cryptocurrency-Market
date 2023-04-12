@@ -10,11 +10,9 @@ function Assetmodal({ visible, onClose }) {
   const dispatch = useDispatch()
   
   const onSubmit = async(values, actions) => {
-    // console.log(values)
-    // console.log("Submitted")
-    // await new Promise((resolve) => setTimeout(resolve, 1000))
-    // actions.resetForm()
- dispatch(storeAsset(values))
+    await new Promise((resolve) => setTimeout(resolve, 1000))
+    actions.resetForm()
+    dispatch(storeAsset(values))
   }
   
   const {values, errors, touched, isSubmitting, handleBlur, handleChange, handleSubmit } = useFormik({
