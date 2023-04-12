@@ -153,3 +153,15 @@ body {
   border-radius: 0.25rem;
   padding-left: 10px;
 }
+
+.asset {
+  @apply w-[102.81px] h-[30.8px] mt-[5.11px] rounded-[3.62343px] border-[0.226464px] border-[#C1C1C1] p-3
+}
+
+.input-error {
+  @apply border-[#FDA29B];
+}
+
+button:disabled {
+  opacity: 0.8;
+}

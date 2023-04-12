@@ -14,3 +14,11 @@ export const passswordSchema = yup.object().shape({
   confirmPassword: yup.string().oneOf([yup.ref("newPassword"), null], "Passwords must match").required("Passwords must match")
  
 })
+
+
+export const assetSchema = yup.object().shape({
+  assetName: yup.string().required("This field is required"),
+  symbol: yup.string().required("This field is required"),
+  quantity: yup.number().positive().integer().required("This field is required"),
+  purchasePrice: yup.number().positive().integer().required("This field is required"),
+})
