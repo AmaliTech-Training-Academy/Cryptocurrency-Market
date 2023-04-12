@@ -37,7 +37,7 @@ function Assetmodal({ visible, onClose }) {
         <span className='font-normal text-[31.25px] text-[#101828] leading-[38px] absolute top-[52.69px] left-[60px]'>Add Assets</span>
 
         <div className=' relative'>
-          <form onSubmit={handleSubmit} action="">
+          <form onSubmit={handleSubmit} autoComplete="off">
             <div className='flex flex-col absolute top-[128.46px] left-[60.46px]'>
               <label className='font-normal text-[14.1892px] text-[#101828] leading-[17px] flex'>
                 Asset Name 
