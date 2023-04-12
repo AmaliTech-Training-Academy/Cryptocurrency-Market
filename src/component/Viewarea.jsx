@@ -34,8 +34,8 @@ const deleteCrypto = (id) => {
                   <div className='absolute left-[210px] 2xl:left-[260px]'>{item.symbol}</div>
                   <div className=' absolute left-[380px] 2xl:left-[495px]'>${Number(item.price).toFixed(2)}</div>
                   <div >
-                    <img src={Up} alt="" className='absolute left-[580px] 2xl:left-[740px] top-5'/>
-                    <span className='absolute left-[610px] 2xl:left-[770px] top-4 text-[#32D583] '>{item.change}%</span>
+                    <img src={Up} alt="" className='absolute left-[620px] 2xl:left-[775px] top-5'/>
+                    <span className='absolute left-[640px] 2xl:left-[800px] top-4 text-[#32D583]'>{item.change}%</span>
                   </div>
                   <div className='absolute right-[275px] 2xl:right-[320px]'>{item.listedAt}</div>
                   <div className='absolute right-[55px] '>{item.marketCap.slice(0,7)}M</div>

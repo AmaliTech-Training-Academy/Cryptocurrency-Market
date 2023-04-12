@@ -17,13 +17,8 @@ const reducer = combineReducers({
   user:userSlice,
   data:cryptoSlice,
   watchList:watchlistSlice, 
-<<<<<<< HEAD
   portfolio:portfolio,
   asset:asset
-=======
-  portfolio:portfolio
-  
->>>>>>> 8180bf2 (feature:style readjustment)
 })
 
 const persistedReducer = persistReducer(persistConfig,reducer)
