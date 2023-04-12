@@ -51,26 +51,16 @@ function NaviBar() {
             Developers
           </NavLink>
         </ul>
-        <div className=" h-[36px] flex justify-between">
-          <div className="relative w-[304px] h-[36px] ">
-            <div className="absolute top-0 left-0 h-full ">
-              <img src={Search} alt="" className="h-full pl-[20px]" />
-            </div>
-            <input
-              type="text"
-              placeholder="Search..."
-              className="h-full border-[1px] bg-[#FFFFFF] rounded pl-[63px] "
-            />
-          </div>
+        <div className=" h-[36px] flex ">
           <div className="flex justify-between w-[15rem] px-[10px] items-center" ref={menuRef}>
-            {<img src={Pimg} alt="" className="w-[31px] h-[31px]" />}
-            <div className="w-[5rem] text-[10px] mr-6">Smith Johnson</div>
+            {<img src={Pimg} alt="" className="w-[31px] h-[31px] mr-2" />}
+            <div className="w-[5rem] text-[10px] ">Smith Johnson</div>
             <img
               src={Down}
               alt=""
               className={`${
                 toggleMenu && "rotate-[180deg]"
-              } w-[2rem] cursor-pointer `}
+              } w-[2rem] cursor-pointer mr-20`}
               onClick={toggleFunc}
             />
             {toggleMenu && <div>
