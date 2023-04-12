@@ -8,8 +8,7 @@ function Assetmodal({ visible, onClose }) {
   
   const onSubmit = async(values, actions) => {
     console.log(values)
-    console.log(actions)
-    console.log('submitted')
+    console.log("Submitted")
     await new Promise((resolve) => setTimeout(resolve, 1000))
     actions.resetForm()
   }
@@ -24,9 +23,6 @@ function Assetmodal({ visible, onClose }) {
     validationSchema: assetSchema,
     onSubmit,
   })
-
-  // console.log(errors)
-
 
   return (
     <div className='fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex items-center justify-center'>
@@ -55,8 +51,8 @@ function Assetmodal({ visible, onClose }) {
               onBlur={handleBlur}
               id='assetName'
               type="text" 
-              className={`asset errors.assetName && touched.assetName ? "input-error" : ""`} />
-              {errors.assetName && touched.assetName && <span className='text-[#F04438] text-[9.76555px] pt-1'>{errors.assetName}</span>}
+              className={`asset ${errors.assetName && touched.assetName ? 'input-error' : ''}`} />
+              {errors.assetName && touched.assetName && <span className='text-[#F04438] text-[8.76555px] pt-1'>{errors.assetName}</span>}
             </div>
             <div className='flex flex-col absolute top-[128.46px] right-[57.51px]'>
               <label className='font-normal text-[14.1892px] text-[#101828] leading-[17px] flex'>
@@ -73,8 +69,8 @@ function Assetmodal({ visible, onClose }) {
               onBlur={handleBlur}
               id='symbol'
               type="text" 
-              className={`asset errors.symbol && touched.symbol ? "input-error" : ""`} />
-              {errors.symbol && touched.symbol && <span className='text-[#F04438] text-[9.76555px] pt-1'>{errors.symbol}</span>}
+              className={`asset ${errors.symbol && touched.symbol ? 'input-error' : ''}`} />
+              {errors.symbol && touched.symbol && <span className='text-[#F04438] text-[8.76555px] pt-1'>{errors.symbol}</span>}
             </div>
             <div className='flex flex-col absolute top-[201.68px] left-[60.46px]'>
               <label className='font-normal text-[14.1892px] text-[#101828] leading-[17px] flex'>
@@ -91,8 +87,8 @@ function Assetmodal({ visible, onClose }) {
               onBlur={handleBlur}
               id='quantity'
               type="text" 
-              className={`asset errors.quantity && touched.quantity ? "input-error" : ""`}/>
-              {errors.quantity && touched.quantity && <span className='text-[#F04438] text-[9.76555px] pt-1'>{errors.quantity}</span>}
+              className={`asset ${errors.quantity && touched.quantity ? 'input-error' : ''}`}/>
+              {errors.quantity && touched.quantity && <span className='text-[#F04438] text-[8.76555px] pt-1'>{errors.quantity}</span>}
             </div>
             <div className='flex flex-col absolute top-[201.68px] right-[48px]'>
               <label className='font-normal text-[14.1892px] text-[#101828] leading-[17px] flex'>
@@ -109,8 +105,8 @@ function Assetmodal({ visible, onClose }) {
               onBlur={handleBlur}
               id='purchasePrice'
               type="text" 
-              className={`asset errors.purchasePrice && touched.purchasePrice ? "input-error" : ""`} />
-              {errors.purchasePrice && touched.purchasePrice && <span className='text-[#F04438] text-[9.76555px] pt-1'>{errors.purchasePrice}</span>}
+              className={`asset ${errors.purchasePrice && touched.purchasePrice ? 'input-error' : ''}`} />
+              {errors.purchasePrice && touched.purchasePrice && <span className='text-[#F04438] text-[8.76555px] pt-1'>{errors.purchasePrice}</span>}
             </div>
             <button 
             disabled={isSubmitting}
