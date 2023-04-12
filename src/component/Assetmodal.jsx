@@ -1,16 +1,20 @@
 import React from 'react'
 import { useFormik } from 'formik'
 import { assetSchema } from '../schema'
+import { useDispatch } from 'react-redux'
+import { storeAsset } from '../features/asset/assetSlice'
 
 function Assetmodal({ visible, onClose }) {
   if(!visible) return null
 
+  const dispatch = useDispatch()
   
   const onSubmit = async(values, actions) => {
-    console.log(values)
-    console.log("Submitted")
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-    actions.resetForm()
+    // console.log(values)
+    // console.log("Submitted")
+    // await new Promise((resolve) => setTimeout(resolve, 1000))
+    // actions.resetForm()
+ dispatch(storeAsset(values))
   }
   
   const {values, errors, touched, isSubmitting, handleBlur, handleChange, handleSubmit } = useFormik({

@@ -5,6 +5,7 @@ import watchlistSlice from "./features/watchlist/watchlistSlice";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import portfolio from "./features/portfolio/portfolioSlice";
+import asset from "./features/asset/assetSlice"
 
 const persistConfig = {
   key:'root',
@@ -15,7 +16,8 @@ const reducer = combineReducers({
   user:userSlice,
   data:cryptoSlice,
   watchList:watchlistSlice, 
-  portfolio:portfolio
+  portfolio:portfolio,
+  asset:asset
 })
 
 const persistedReducer = persistReducer(persistConfig,reducer)
