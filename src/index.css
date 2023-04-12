@@ -153,3 +153,7 @@ body {
   border-radius: 0.25rem;
   padding-left: 10px;
 }
+
+.height{
+  height: calc(100vh - 77px);
+}

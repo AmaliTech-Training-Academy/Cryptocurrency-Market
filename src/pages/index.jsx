@@ -11,6 +11,7 @@ import ActiveCrypto from "./activecrypto"
 import Password from "./Password";
 import Modal from "./Modal";
 import Viewcrypto from "./Viewcrypto";
+import WatchList from "./WatchList";
 export {
   Landingpage,
   ProfilePage,
@@ -24,6 +25,7 @@ export {
   ActiveCrypto,
   Modal,
   Viewcrypto,
+  WatchList,
 };
 
 
