@@ -1,8 +1,31 @@
 import React from 'react'
+import { useFormik } from 'formik'
+import { assetSchema } from '../schema'
+import { useDispatch } from 'react-redux'
+import { storeAsset } from '../features/asset/assetSlice'
 
 function Assetmodal({ visible, onClose }) {
   if(!visible) return null
+
+  const dispatch = useDispatch()
   
+  const onSubmit = async(values, actions) => {
+    await new Promise((resolve) => setTimeout(resolve, 1000))
+    actions.resetForm()
+    dispatch(storeAsset(values))
+  }
+  
+  const {values, errors, touched, isSubmitting, handleBlur, handleChange, handleSubmit } = useFormik({
+    initialValues: {
+      assetName: "",
+      symbol: "",
+      quantity: "",
+      purchasePrice: "",
+    },
+    validationSchema: assetSchema,
+    onSubmit,
+  })
+
   return (
     <div className='fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex items-center justify-center'>
       <div className='w-[433px] h-[366px] border-2 rounded-[15px] relative bg-white'>
@@ -13,8 +36,8 @@ function Assetmodal({ visible, onClose }) {
         </div>
         <span className='font-normal text-[31.25px] text-[#101828] leading-[38px] absolute top-[52.69px] left-[60px]'>Add Assets</span>
 
-        <div className='bg-green-500 relative'>
-          <form action="">
+        <div className=' relative'>
+          <form onSubmit={handleSubmit} autoComplete="off">
             <div className='flex flex-col absolute top-[128.46px] left-[60.46px]'>
               <label className='font-normal text-[14.1892px] text-[#101828] leading-[17px] flex'>
                 Asset Name 
@@ -24,7 +47,14 @@ function Assetmodal({ visible, onClose }) {
                   </svg>
                 </span>
               </label>
-              <input type="text" className='w-[102.81px] h-[30.8px] mt-[5.11px] rounded-[3.62343px] border-[0.226464px] border-[#C1C1C1] p-3' />
+              <input 
+              value={values.assetName}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              id='assetName'
+              type="text" 
+              className={`asset ${errors.assetName && touched.assetName ? 'input-error' : ''}`} />
+              {errors.assetName && touched.assetName && <span className='text-[#F04438] text-[8.76555px] pt-1'>{errors.assetName}</span>}
             </div>
             <div className='flex flex-col absolute top-[128.46px] right-[57.51px]'>
               <label className='font-normal text-[14.1892px] text-[#101828] leading-[17px] flex'>
@@ -35,7 +65,14 @@ function Assetmodal({ visible, onClose }) {
                   </svg>
                 </span>
               </label>
-              <input type="text" className='w-[102.81px] h-[30.8px] mt-[5.11px] rounded-[3.62343px] border-[0.226464px] border-[#C1C1C1] p-3' />
+              <input 
+              value={values.symbol}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              id='symbol'
+              type="text" 
+              className={`asset ${errors.symbol && touched.symbol ? 'input-error' : ''}`} />
+              {errors.symbol && touched.symbol && <span className='text-[#F04438] text-[8.76555px] pt-1'>{errors.symbol}</span>}
             </div>
             <div className='flex flex-col absolute top-[201.68px] left-[60.46px]'>
               <label className='font-normal text-[14.1892px] text-[#101828] leading-[17px] flex'>
@@ -46,7 +83,14 @@ function Assetmodal({ visible, onClose }) {
                   </svg>
                 </span>
               </label>
-              <input type="text" className='w-[102.81px] h-[30.8px] mt-[5.11px] rounded-[3.62343px] border-[0.226464px] border-[#C1C1C1] p-3'></input>
+              <input 
+              value={values.quantity}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              id='quantity'
+              type="text" 
+              className={`asset ${errors.quantity && touched.quantity ? 'input-error' : ''}`}/>
+              {errors.quantity && touched.quantity && <span className='text-[#F04438] text-[8.76555px] pt-1'>{errors.quantity}</span>}
             </div>
             <div className='flex flex-col absolute top-[201.68px] right-[48px]'>
               <label className='font-normal text-[14.1892px] text-[#101828] leading-[17px] flex'>
@@ -57,12 +101,22 @@ function Assetmodal({ visible, onClose }) {
                   </svg>
                 </span>
               </label>
-              <input type="text" className='w-[102.81px] h-[30.8px] mt-[5.11px] rounded-[3.62343px] border-[0.226464px] border-[#C1C1C1] p-3' />
+              <input 
+              value={values.purchasePrice}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              id='purchasePrice'
+              type="text" 
+              className={`asset ${errors.purchasePrice && touched.purchasePrice ? 'input-error' : ''}`} />
+              {errors.purchasePrice && touched.purchasePrice && <span className='text-[#F04438] text-[8.76555px] pt-1'>{errors.purchasePrice}</span>}
             </div>
+            <button 
+            disabled={isSubmitting}
+            type='submit' 
+            className='w-[217.38px] h-[40.46px] absolute top-[299px] right-[107px] bg-[rgba(12,76,49,0.81)] rounded-[4.68px] text-white
+            font-normal text-[18.6293px] leading-[23px]'>Add Asset</button>
           </form>
         </div>
-        <button type='submit' className='w-[217.38px] h-[40.46px] absolute bottom-[26.54px] right-[107px] bg-[rgba(12,76,49,0.81)] rounded-[4.68px] text-white
-        font-normal text-[18.6293px] leading-[23px]'>Add Asset</button>
       </div>
     </div>
   )
