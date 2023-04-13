@@ -5,7 +5,6 @@ import { getData } from "../features/crypto/cryptoSlice";
 
 
 const dashboard = () => {
-  const { data } = useSelector((store) => store.data);
    
 
    return (

@@ -1,7 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import plus from "../assets/plus.png";
-import { useDispatch,useSelector } from "react-redux";
+import {useSelector } from "react-redux";
 
 const Trending = () => {
   const { data } = useSelector((store) => store.data);
@@ -12,7 +11,6 @@ const Trending = () => {
     <div className="pl-[35px] pr-[67px] pt-[48px] pb-[10px] shadow overflow-y-auto h-[778px] ">
       <div className="flex justify-between items-baseline mb-[22px]">
         <h1 className="text-[25px] mb-[10px]">Trending Market</h1>
-        <Link className="text-[blue]">View more market</Link>
       </div>
       <div className="flex justify-between mb-4">
         <h2>Name</h2>
