@@ -40,7 +40,7 @@ const Navbar = () => {
           <button className='w-[62px] h-[39px] border border-[#0C3C4C] rounded-lg text-base text-[#0C3C4C] font-normal'>Login</button>
         </Link>
         <Link to="/signup">
-          <button className='w-[83px] h-[39px] border border-[#0C3C4C] rounded-lg text-base bg-[#0C3C4C] font-normal text-white'>Register</button>
+          <button className='w-[83px] h-[39px] border border-[#0C3C4C] rounded-lg text-base bg-[#0C3C4C] font-normal text-white hover:opacity-90'>Register</button>
         </Link>
       </div>
     </nav>
