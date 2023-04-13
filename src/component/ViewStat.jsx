@@ -5,7 +5,7 @@ import { useParams,  } from "react-router-dom";
 
 const ViewStat = () => {
   const { id } = useParams();
-  const coin = id.toLowerCase()
+  const coin = id?.toLowerCase() 
     const [data,setData] = useState()
     const [rate,setRate] = useState()
     const [price,setPrice] = useState()
