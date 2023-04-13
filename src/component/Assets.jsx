@@ -30,6 +30,7 @@ const Assets = () => {
           <div className='absolute left-[610px] 2xl:left-[610px]'>${item.purchasePrice}</div>
         </div>
       </Link>
+
     )
  })
 }

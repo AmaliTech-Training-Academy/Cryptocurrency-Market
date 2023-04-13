@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import CryptoMart from '../assets/logo crypto.svg'
+import { NavLink } from "react-router-dom";
+
 
 const Navbar = () => {
   const [activePage, setActivePage] = useState("home")
@@ -16,21 +18,21 @@ const Navbar = () => {
       </div>
       <div className='w-[414px] h-[38px] ml-[-180px] p-[10px]'>
         <ul className='flex justify-between items-center text-[14.8px] font-normal text-[#101828]'>
-          <li className={`${activePage === "home" ? "border-[#93FCEC] border-b-2" : "" }`} onClick={() => handlePageChange("home")}>
-            Home
-          </li>
-          <li className={`${activePage === "portfolio" ? "border-[#93FCEC] border-b-2" : ""}`} onClick={() => handlePageChange("portfolio")}>
-            Portfolio
-          </li> 
-          <li className={`${activePage === "markets" ? "border-[#93FCEC] border-b-2" : ""}`} onClick={() => handlePageChange("markets")}>
-            Markets
-          </li>
-          <li className={`${activePage === "faqs" ? "border-[#93FCEC] border-b-2" : ""}`} onClick={() => handlePageChange("faqs")}>
-            FAQs
-          </li>
-          <li className={`${activePage === "developers" ? "border-[#93FCEC] border-b-2" : ""}`} onClick={() => handlePageChange("developers")}>
-            Developers
-          </li>
+          <NavLink to={"/dashboard"} id="nav-links">
+              Home
+            </NavLink>
+            <NavLink to={"/view-crypto"} id="nav-links">
+              Portfolio
+            </NavLink>
+            <NavLink to={"/active-crypto"} id="nav-links">
+              Markets
+            </NavLink>
+            <NavLink to={"/faqs"} id="nav-links">
+              Watchlist
+            </NavLink>
+            <NavLink to={"/developers"} id="nav-links">
+              Developers
+            </NavLink>
         </ul>
       </div>
       <div className='w-[171px] h-[39px]  flex justify-between'>
@@ -38,7 +40,7 @@ const Navbar = () => {
           <button className='w-[62px] h-[39px] border border-[#0C3C4C] rounded-lg text-base text-[#0C3C4C] font-normal'>Login</button>
         </Link>
         <Link to="/signup">
-          <button className='w-[83px] h-[39px] border border-[#0C3C4C] rounded-lg text-base bg-[#0C3C4C] font-normal text-white'>Register</button>
+          <button className='w-[83px] h-[39px] border border-[#0C3C4C] rounded-lg text-base bg-[#0C3C4C] font-normal text-white hover:opacity-90'>Register</button>
         </Link>
       </div>
     </nav>

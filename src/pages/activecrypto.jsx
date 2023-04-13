@@ -59,7 +59,7 @@ function ActiveCrypto() {
           <span className='font-normal text-[29.4999px] text-[#101828] leading-9 '>Market</span>
           <button 
             onClick={() => setShowModal(true)}
-            className='w-[118.77px] h-[44.54px] bg-[rgba(12,76,49,0.81)] rounded-[4.68106px] text-white font-sans font-normal'>
+            className='w-[118.77px] h-[44.54px] bg-[rgba(12,76,49,0.81)] rounded-[4.68106px] text-white font-sans font-normal hover:opacity-90'>
               Add Assets
           </button>
         </div>

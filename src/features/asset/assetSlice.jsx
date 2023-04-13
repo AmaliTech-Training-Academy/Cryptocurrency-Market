@@ -11,7 +11,7 @@ const initialState = {
     reducers: {
       storeAsset: (state,{payload})=>{
         console.log(payload);
-        state.data.push(payload);
+        state.data.unshift(payload);
       }
     },
 })
