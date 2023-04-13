@@ -19,14 +19,14 @@ const Assets = () => {
 
     
 {
- data && data.map((item)=>{
-  console.log(item);
+  data && data.map((item)=>{
     return(
       <div className='mt-[30px] ml-8 w-[772px] h-[60px] flex items-center relative hover:bg-[rgba(217,217,217,0.28)] p-[20px] cursor-pointer mb-10'>
-        <div className=' '>{item.assetName}</div>
+        <Link to ={'/view-stats'}><div className=' '>{item.assetName}</div>
         <div className=' absolute left-[210px] 2xl:left-[210px] '>{item.symbol}</div>
         <div className='absolute left-[420px] 2xl:left-[420px] '>{item.quantity}</div>
         <div className='absolute left-[590px] 2xl:left-[590px]'>${item.purchasePrice}</div>
+        </Link>
       </div>
     )
  })
