@@ -7,6 +7,7 @@ import storage from "redux-persist/lib/storage";
 import portfolio from "./features/portfolio/portfolioSlice";
 import asset from "./features/asset/assetSlice"
 
+
 const persistConfig = {
   key:'root',
   storage

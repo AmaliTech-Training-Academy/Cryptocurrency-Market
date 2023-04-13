@@ -2,6 +2,7 @@ import React from 'react'
 import bnb from '../assets/BNB.png'
 import del from "../assets/delete.png"
 import Up from "../assets/uparrow.png"
+import Down from "../assets/redarrow.png"
 import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react'
 import { useEffect } from 'react'
@@ -33,10 +34,13 @@ const deleteCrypto = (id) => {
                    </div>
                   <div className='absolute left-[210px] 2xl:left-[260px]'>{item.symbol}</div>
                   <div className=' absolute left-[380px] 2xl:left-[495px]'>${Number(item.price).toFixed(2)}</div>
-                  <div >
-                    <img src={Up} alt="" className='absolute left-[580px] 2xl:left-[740px] top-5'/>
-                    <span className='absolute left-[610px] 2xl:left-[770px] top-4 text-[#32D583] '>{item.change}%</span>
-                  </div>
+                  <div>
+                <img src={item.change > 0 ? Up : Down} alt="" className='absolute left-[640px] top-3 2xl:left-[790px]'/>
+                <span className={`absolute left-[665px] top-2 2xl:left-[820px] font-normal text-[18.8799px] text-[#32D583] flex gap-[12.98px]
+                ${item.change > 0 ? 'text-[#32D583]' : 'text-red-600'}`}>
+                  {item.change}%
+                </span>
+              </div>
                   <div className='absolute right-[275px] 2xl:right-[320px]'>{item.listedAt}</div>
                   <div className='absolute right-[55px] '>{item.marketCap.slice(0,7)}M</div>
                 </div>
