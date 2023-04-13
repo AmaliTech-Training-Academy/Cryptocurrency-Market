@@ -12,6 +12,7 @@ import {
   Dashboard,
   Viewcrypto,
   Modal,
+  WatchList
   ViewStatistics,
 } from "./pages";
 import { ToastContainer } from "react-toastify";
@@ -39,6 +40,7 @@ const dispatch = useDispatch()
         <Route element={<Dashboard />} path="/dashboard" exact />
         <Route element={<ActiveCrypto />} path="/active-crypto" exact />
         <Route element={<Viewcrypto />} path="/view-crypto" exact />
+        <Route element={<WatchList />} path="/watchlist" exact />
         <Route element={<ViewStatistics />} path="/view-stats/:id" exact />
       </Route>
       <Route element={<Landingpage />} path="/landing" />

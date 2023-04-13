@@ -10,10 +10,13 @@ import Trending from "./Trending";
 import Viewarea from "./Viewarea";
 import Assets from "./Assets";
 import Assetmodal from "./Assetmodal";
-import Cryptolist from "./Cryptolist";
-import Cryptomodal from "./Cryptomodal";
-import Filter from "./Filter";
-import FilterPercent from "./FilterPercent";
+import Cryptolist from "./Cryptolist"
+import Cryptomodal from "./Cryptomodal"
+import Filter from "./Filter"
+import FilterPercent from "./FilterPercent"
+import CryptoGraphs from "./cryptoGraphs";
+import SelectedCrypto from "./SelectedCrypto";
+import CryptoInfo from "./CryptoInfo";
 import ViewStat from "./ViewStat";
 import ViewStatInfo from "./viewStatInfo";
 
@@ -31,9 +34,11 @@ export {
   Assets,
   Assetmodal,
   Cryptolist,
-  Cryptomodal,
-  Filter,
-  FilterPercent,
-  ViewStat,
+  Cryptomodal,Filter,FilterPercent,
+  CryptoGraphs,
+  SelectedCrypto,
+  CryptoInfo,
+   ViewStat,
   ViewStatInfo,
+
 };

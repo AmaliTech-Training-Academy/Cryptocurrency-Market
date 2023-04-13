@@ -11,6 +11,7 @@ import ActiveCrypto from "./activecrypto"
 import Password from "./Password";
 import Modal from "./Modal";
 import Viewcrypto from "./Viewcrypto";
+import WatchList from "./WatchList";
 import ViewStatistics from "./viewStatistics";
 
 export {
@@ -25,6 +26,8 @@ export {
   Dashboard,
   ActiveCrypto,
   Modal,
+  Viewcrypto,
+  WatchList,
   Viewcrypto,ViewStatistics,
 };
 
