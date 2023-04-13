@@ -10,7 +10,6 @@ function Cryptolist({ allData, setAllData }) {
   const [addCrypto, setAddCrypto] = useState(false)
 
   const handleSetWatchList = (item) => {
-    console.log(item)
     const {uuid,price,name,iconUrl} = item
     setSelecteditem({
       uuid,

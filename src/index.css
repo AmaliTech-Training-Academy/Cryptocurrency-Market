@@ -171,5 +171,5 @@ button:disabled {
   outline-color : blue !important;
   }
 .height{
-  height: calc(100vh - 77px);
+  height: calc(100vh - 82px);
 }
