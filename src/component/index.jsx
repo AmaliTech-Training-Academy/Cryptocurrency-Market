@@ -14,7 +14,7 @@ import Cryptolist from "./Cryptolist"
 import Cryptomodal from "./Cryptomodal"
 import Filter from "./Filter"
 import FilterPercent from "./FilterPercent"
-
+import CryptoGraphs from "./cryptoGraphs";
 
 export {
   Navbar,
@@ -31,6 +31,7 @@ export {
   Assetmodal,
   Cryptolist,
   Cryptomodal,Filter,FilterPercent,
+  CryptoGraphs,
 };
 
 
