@@ -106,7 +106,7 @@ const landingPage = () => {
                       </div>
                       <span className='usd_value'>{item.symbol}</span>
                       <span className='absolute top-16 left-[150px] font-normal text-[19px] text-white leading-[19px]'>{Number(item.marketCap).toString().slice(0,8)}</span>
-                      <div className=' font-normal text-[19px] text-white leading-[19px] absolute top-16 left-[320px] flex items-center gap-5'>
+                      <div className=' font-normal text-[19px] text-white leading-[19px] absolute top-16 left-[315px] flex items-center gap-5'>
                         <img src={item.change > 0 ? Inc : Dec} alt="" />
                         {item.change}%
                       </div>
