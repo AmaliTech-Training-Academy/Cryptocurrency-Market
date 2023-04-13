@@ -11,7 +11,7 @@ const initialState = {
     initialState,
     reducers: {
       storePortfolio: (state,{payload})=>{
-        state.data.push(payload);
+        state.data.unshift(payload);
       },
       deletePortfolio:(state,{payload})=>{
         state.data = state.data.filter((item)=>item.uuid !== payload)
