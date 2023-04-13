@@ -13,6 +13,7 @@ function Assetmodal({ visible, onClose }) {
     await new Promise((resolve) => setTimeout(resolve, 1000))
     actions.resetForm()
     dispatch(storeAsset(values))
+    onClose()
   }
   
   const {values, errors, touched, isSubmitting, handleBlur, handleChange, handleSubmit } = useFormik({

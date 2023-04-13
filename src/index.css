@@ -68,11 +68,11 @@ body {
 }
 
 .last {
-  @apply font-normal text-[25px] text-white leading-[30px] absolute top-3 right-2;
+  @apply font-normal text-[25px] text-white leading-[30px] absolute top-3 right-5;
 }
 
 .usd_value {
-  @apply font-normal text-[19px] text-white leading-[19px] absolute top-16 left-4;
+  @apply font-normal text-[19px] text-white leading-[19px] absolute top-16 left-8;
 }
 
 .perfect_niche {

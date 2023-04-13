@@ -10,6 +10,7 @@ const watchListSlice = createSlice({
   reducers: {
     storeWatchList: (state, { payload }) => {
       state.data.unshift(payload);
+
     },
     deleteWatchList: (state, { payload }) => {
       state.data = state.data.filter((item) => item.uuid !== payload);
