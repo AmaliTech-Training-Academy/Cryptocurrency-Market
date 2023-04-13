@@ -39,7 +39,11 @@ const dispatch = useDispatch()
         <Route element={<Dashboard />} path="/dashboard" exact />
         <Route element={<ActiveCrypto />} path="/active-crypto" exact />
         <Route element={<Viewcrypto />} path="/view-crypto" exact />
+<<<<<<< HEAD
         <Route element={<ViewStatistics />} path="/view-stats/:id" exact />
+=======
+        <Route element={<ViewStatistics />} path="/view-stats" exact />
+>>>>>>> 7537810a5276b957e3dabce09db7a6b86d96f4d0
       </Route>
       <Route element={<Landingpage />} path="/landing" />
       <Route path="/signUp" element={<SignUp />} />
