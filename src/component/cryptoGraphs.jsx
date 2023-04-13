@@ -59,6 +59,7 @@ const cryptoGraphs = ({ item }) => {
   const select = info.filter((item) => item.uuid === id);
   return (
     <div className="mb-[41px] shadow p-4">
+      
       <ResponsiveContainer width="100%" height={400}>
         <AreaChart data={data} margin={{ top: 5 }}>
           <defs>
