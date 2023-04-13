@@ -1,7 +1,6 @@
 import React from 'react'
 import { Assets, NaviBar, Viewarea } from '../component'
-import { useLocation, useParams } from 'react-router-dom'
-import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom'
 
 const Viewcrypto = () => {
     const search = new URLSearchParams(useLocation().search)

@@ -6,7 +6,6 @@ import btc from "../assets/btc.png";
 import { useSelector } from "react-redux";
 const Watchlist = () => {
   const { data } = useSelector((store) => store.watchList);
-  console.log(data);
 
   return (
     <>

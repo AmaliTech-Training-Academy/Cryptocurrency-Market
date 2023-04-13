@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import AreaChartComponent from "./AreaCharrt";
-import { useSelector } from "react-redux";
 
 const Statistics = () => {
 
