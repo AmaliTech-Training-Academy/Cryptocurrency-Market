@@ -1,6 +1,4 @@
-import React,{useState, useEffect} from "react";
-import { Link } from "react-router-dom";
-import bnb from "../assets/BNB.png";
+import React from "react";
 import plus from "../assets/plus.png";
 import down from "../assets/negative.png";
 import { useSelector } from "react-redux";
@@ -68,9 +66,8 @@ const Trending = () => {
 
 export default Trending;
 
-
-
-{/* <div className="flex justify-between items-baseline mb-[30px]">
+{
+  /* <div className="flex justify-between items-baseline mb-[30px]">
       <div className="w-[75px] flex justify-between items-center ">
         <img src={bnb} alt="" />
         <h2>BNB</h2>
@@ -95,4 +92,5 @@ export default Trending;
         <h2>+45.74%</h2>
       </div>
       <h2>$715,650M</h2>
-    </div> */}
+    </div> */
+}
