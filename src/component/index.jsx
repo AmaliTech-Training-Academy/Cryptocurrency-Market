@@ -15,7 +15,8 @@ import Cryptomodal from "./Cryptomodal"
 import Filter from "./Filter"
 import FilterPercent from "./FilterPercent"
 import CryptoGraphs from "./cryptoGraphs";
-
+import SelectedCrypto from "./SelectedCrypto";
+import CryptoInfo from "./CryptoInfo";
 export {
   Navbar,
   NaviBar,
@@ -32,6 +33,8 @@ export {
   Cryptolist,
   Cryptomodal,Filter,FilterPercent,
   CryptoGraphs,
+  SelectedCrypto,
+  CryptoInfo,
 };
 
 

@@ -30,8 +30,9 @@ const cryptoGraphs = () => {
     };
     fetchdata()
   },[]);
-  console.log(data);
+
   return (
+    <div className='mb-[71px] shadow'>
          <ResponsiveContainer  width="100%" height={400}>
       <AreaChart data={data} margin={{ top: 5 }}>
         <defs>
@@ -44,16 +45,54 @@ const cryptoGraphs = () => {
 
         <YAxis
           dataKey=""
-          domain={[27000, 28800]}
+          domain={[29000, 30800]}
           axisLine={false}
           tickLine={true}
           tickCount={8}
-        />
+          />
         <XAxis dataKey="hr" />
         <Tooltip />
-        <CartesianGrid opacity={0.1} />
+        <CartesianGrid opacity={0.2} />
       </AreaChart>
     </ResponsiveContainer>
+
+<div className=" flex justify-between">
+
+    <div className="w-[160px] flex justify-between items-center">
+        <h1 className='text-[#7C7D7D]'>Mkt Cap</h1>
+        <div className="flex justify-between items-center">
+        <p>1,456.22</p>
+        <div className="h-10 bg-[#7C7D7D] text-[#7C7D7D] w-[0.5px] ml-2"></div>
+        </div>
+        
+</div>
+<div className="w-[160px] flex justify-between items-center">
+        <h1 className='text-[#7C7D7D]'>Vol</h1>
+        <div className="flex justify-between items-center">
+        <p>1,456.22</p>
+        <div className="h-10 bg-[#7C7D7D] text-[#7C7D7D] w-[0.5px] ml-2"></div>
+        </div>
+        
+</div>
+<div className="w-[160px] flex justify-between items-center">
+        <h1 className='text-[#7C7D7D]'>52W H</h1>
+        <div className="flex justify-between items-center">
+        <p>2,727.50</p>
+        <div className="h-10 bg-[#7C7D7D] text-[#7C7D7D] w-[0.5px] ml-2"></div>
+        </div>
+        
+</div>
+<div className="w-[160px] flex justify-between items-center">
+        <h1 className='text-[#7C7D7D]'>Low volume</h1>
+        <div className="flex justify-between items-center">
+        <p>False</p>
+        <div className="h-10 bg-[#7C7D7D] text-[#7C7D7D] w-[0.5px] ml-2"></div>
+        </div>
+        
+</div>
+
+    </div>
+          </div>
   )
 }
 
