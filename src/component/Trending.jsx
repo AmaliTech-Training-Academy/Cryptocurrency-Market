@@ -3,6 +3,7 @@ import plus from "../assets/plus.png";
 import down from "../assets/negative.png";
 import { useSelector } from "react-redux";
 
+
 const Trending = () => {
   const { data } = useSelector((store) => store.data);
 

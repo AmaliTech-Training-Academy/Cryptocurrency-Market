@@ -12,6 +12,7 @@ const Watchlist = () => {
           return (
             <Link key={index} to={'/watchlist'}>
             <div  className="flex justify-between items-center mb-[32px]">
+
               <div className="w-[30%]   flex justify-between items-center">
                 <img src={item.iconUrl} alt="" className="w-9" />
                 <h1 className="text-right">{item.name}</h1>

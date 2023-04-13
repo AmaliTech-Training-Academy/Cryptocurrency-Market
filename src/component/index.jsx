@@ -17,6 +17,9 @@ import FilterPercent from "./FilterPercent"
 import CryptoGraphs from "./cryptoGraphs";
 import SelectedCrypto from "./SelectedCrypto";
 import CryptoInfo from "./CryptoInfo";
+import ViewStat from "./ViewStat";
+import ViewStatInfo from "./viewStatInfo";
+
 export {
   Navbar,
   NaviBar,
@@ -35,6 +38,7 @@ export {
   CryptoGraphs,
   SelectedCrypto,
   CryptoInfo,
+   ViewStat,
+  ViewStatInfo,
+
 };
-
-
