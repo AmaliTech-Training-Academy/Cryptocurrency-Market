@@ -9,7 +9,7 @@ const Viewcrypto = () => {
   return (
     <div className='bg-[#FCFCFD]'>
             <NaviBar />
-        <div className='container mx-auto h-[800px]'>
+        <div className='container mx-auto h-[900px] 2xl:min-h-screen '>
             <div className='mt-[65px] ml-[10px] w-[1178px]'>
                 <div className=' flex justify-between'>
                     <h6 className='text-[#101828] text-[25px] font-bold'>My Portfolio</h6>

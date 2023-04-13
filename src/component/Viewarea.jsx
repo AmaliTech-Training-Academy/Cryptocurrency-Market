@@ -33,10 +33,10 @@ const deleteCrypto = (id) => {
                       <span >{item.name}</span>
                    </div>
                   <div className='absolute left-[210px] 2xl:left-[260px]'>{item.symbol}</div>
-                  <div className=' absolute left-[380px] 2xl:left-[495px]'>${Number(item.price).toFixed(2)}</div>
+                  <div className=' absolute left-[390px] 2xl:left-[500px]'>${Number(item.price).toFixed(2)}</div>
                   <div>
-                <img src={item.change > 0 ? Up : Down} alt="" className='absolute left-[640px] top-3 2xl:left-[790px]'/>
-                <span className={`absolute left-[665px] top-2 2xl:left-[820px] font-normal text-[18.8799px] text-[#32D583] flex gap-[12.98px]
+                <img src={item.change > 0 ? Up : Down} alt="" className='absolute left-[610px] top-3 2xl:left-[760px] w-[16.52px] h-[16.52px]'/>
+                <span className={`absolute left-[635px] top-2 2xl:left-[790px] font-normal text-[18.8799px] text-[#32D583] flex gap-[12.98px]
                 ${item.change > 0 ? 'text-[#32D583]' : 'text-red-600'}`}>
                   {item.change}%
                 </span>
