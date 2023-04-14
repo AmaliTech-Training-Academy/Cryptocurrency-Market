@@ -11,6 +11,30 @@ body {
   font-family: "Inter";
 }
 
+@layer utilities{
+  .scrollbar::-webkit-scrollbar {
+    width: 0px;
+    height: 20px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: #f7f4ed;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #e0cbcb;
+    border-radius: 100vh;
+    border: 10px solid #f6f7ed;
+  }
+
+  .scrollbar::-webkit-scrollbar {
+    background: #ffffff;
+  }
+
+
+}
+
 .square {
   @apply w-[351.53px] h-[332.95px] relative border-2 border-[#93FCEC];
 }
@@ -74,6 +98,8 @@ body {
 .usd_value {
   @apply font-normal text-[19px] text-white leading-[19px] absolute top-16 left-8;
 }
+
+
 
 .perfect_niche {
   background: linear-gradient(

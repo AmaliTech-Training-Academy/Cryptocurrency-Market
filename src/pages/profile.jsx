@@ -79,7 +79,7 @@ const profile = () => {
       lastName: "",
       mobileNumber: "",
       gender: "",
-      email: user.data.email,
+      email: user.data?.email,
       image:images,
     },
     validationSchema: basicSchema,
@@ -113,7 +113,7 @@ const profile = () => {
             <div className="flex flex-col">
               <NavLink
                 id="settings"
-                to="/profile-page"
+                to="/"
                 className="py-[0.5rem] mt-[20px] "
               >
                 <div className="flex items-center w-[268px] pl-8">
