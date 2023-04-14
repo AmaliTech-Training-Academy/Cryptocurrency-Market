@@ -3,8 +3,9 @@ import { toast } from "react-toastify";
 import {
   addUserToLocalStorage,
   getUserFromLocalStorage,
+  removeUserFromLocalStorage,
 } from "../../utils/localStorage";
-import { getUserThunk, loginUserThunk, registerUserThunk } from "./userThunk";
+import { loginUserThunk, registerUserThunk } from "./userThunk";
 import { changePasswordThunk, updateUserProfileThunk } from "./userThunk";
 
 const initialState = {
@@ -40,12 +41,6 @@ export const updatePassword = createAsyncThunk(
   }
 );
 
-// export const getUser = createAsyncThunk(
-//   "user/getUser",
-//   async (user, thunkAPI) => {
-//     return getUserThunk("/auth/find-user", user, thunkAPI);
-//   }
-// );
 
 const userSlice = createSlice({
   name: "user",
@@ -55,6 +50,10 @@ const userSlice = createSlice({
       console.log(payload);
       state.user = { ...payload };
     },
+    logoutUser: (state,) => {
+      state.user = null;
+      removeUserFromLocalStorage();
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -108,6 +107,7 @@ const userSlice = createSlice({
         state.isLoading = false;
         toast.success("Password Denied");
       })
+    
       
   },
 });
