@@ -14,10 +14,26 @@ import { useSelector } from "react-redux";
 const cryptoGraphs = ({ item,uuid }) => {
   const { data: all } = useSelector((store) => store.data);
   const [data, setData] = useState([
-    
+    { hr: 0, price: 30011.57671544483 },
+    { hr: 2, price: 30037.025489540047 },
+    { hr: 4, price: 30021.06624566177 },
+    { hr: 6, price: 30077.045943389778 },
+    { hr: 8, price: 30087.50856024927 },
+    { hr: 10, price: 30203.622670676137 },
+    { hr: 12, price: 30227.729380240813 },
+    { hr: 14, price: 30163.03998563174 },
+    { hr: 16, price: 29999.935625202892 },
+    { hr: 18, price: 30021.246109989163 },
+
+    { hr: 20, price: 30041.065903291463 },
+
+    { hr: 22, price: 30023.08321747515 },
   ]);
   const [selected, setSelected] = useState({
-   
+    uuid: "Qwsogvtv82FCd",
+    iconUrl: "https://cdn.coinranking.com/bOabBYkcX/bitcoin_btc.svg",
+    name: "Bitcoin",
+    price: "30140.82",
   });
   const id = selected?.uuid;
 
