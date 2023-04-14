@@ -12,7 +12,7 @@ import {
   Dashboard,
   Viewcrypto,
   Modal,
-  WatchList
+  WatchList,
   ViewStatistics,
 } from "./pages";
 import { ToastContainer } from "react-toastify";

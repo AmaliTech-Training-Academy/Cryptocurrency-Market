@@ -28,7 +28,7 @@ export {
   Modal,
   Viewcrypto,
   WatchList,
-  Viewcrypto,ViewStatistics,
+  ViewStatistics,
 };
 
 
