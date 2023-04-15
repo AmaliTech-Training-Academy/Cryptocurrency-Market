@@ -11,10 +11,11 @@ function Cryptolist({ allData, setAllData }) {
   const [addCrypto, setAddCrypto] = useState(false)
 
   const handleSetWatchList = (item) => {
-    const {uuid,price,name,iconUrl} = item
+    const {uuid,price,name,iconUrl,change} = item
     setSelecteditem({
       uuid,
       iconUrl,
+      change,
       name,
       price: Number(item.price).toFixed(2)
     })
