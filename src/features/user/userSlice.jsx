@@ -81,9 +81,9 @@ const userSlice = createSlice({
         addUserToLocalStorage(data);
         toast.success(`Welcome back ${data.firstName}`);
       })
-      .addCase(loginUser.rejected, (state, { payload }) => {
+      .addCase(loginUser.rejected, (state, ) => {
         state.isLoading = false;
-        toast.error(payload);
+        toast.error('Invalid Email or Passsword');
       })
       .addCase(updateUserProfile.pending, (state) => {
         state.isLoading = true;

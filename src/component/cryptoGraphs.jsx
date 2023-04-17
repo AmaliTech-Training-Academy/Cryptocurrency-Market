@@ -24,9 +24,7 @@ const cryptoGraphs = ({ item,uuid }) => {
     { hr: 14, price: 30163.03998563174 },
     { hr: 16, price: 29999.935625202892 },
     { hr: 18, price: 30021.246109989163 },
-
     { hr: 20, price: 30041.065903291463 },
-
     { hr: 22, price: 30023.08321747515 },
   ]);
   const [selected, setSelected] = useState({
@@ -50,13 +48,15 @@ const cryptoGraphs = ({ item,uuid }) => {
       );
     };
     fetchdata();
-  }, [id]);
+  }, [id,item]);
 
   useEffect(() => {
     setSelected(item);
   }, [item]);
+
+  const allID =  id || uuid
   const info = all.data?.coins;
-  const select = info.filter((item) => item.uuid === id);
+  const select = info.filter((item) => item.uuid === allID );
   return (
     <div className=" shadow p-4 mb-10">
       <div className="flex flex-col  ">

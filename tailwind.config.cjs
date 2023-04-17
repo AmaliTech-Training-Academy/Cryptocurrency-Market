@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "profile": "url('./src/assets/Profile-picture.png')",
+        "profile": "url('./src/assets/avat.png')",
       },
     },
   },

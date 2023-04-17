@@ -13,9 +13,6 @@ const dashboard = () => {
     <div className="flex justify-between p-[45px]">
       <div className="w-[70%]  flex flex-col" >
         <Statistics />
-        {
-          
-        }
         <Trending/>
       </div>
       <div className="w-[26%]  flex flex-col">

@@ -81,7 +81,6 @@ const login = () => {
                 </Link>
                 <div className="mt-[46px]  h-[42px] text-center  ">
                   <button
-                    // disabled={isSubmitting}
                     type="submit"
                     className=" h-[42px] w-[268px] rounded-lg bg-[#0c3c4cce] font-normal text-white text-[17px] mb-[16px]"
                   >

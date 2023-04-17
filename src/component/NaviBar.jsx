@@ -1,15 +1,17 @@
 import React, { useState,useRef,useEffect } from "react";
 import Img1 from "../assets/logo crypto.svg";
 import notification from "../assets/Notification icon.svg";
-import Pimg from "../assets/Profile-picture.png";
+import avat from "../assets/avat.png";
 import Down from "../assets/chevron.svg";
 import Search from "../assets/search icon.svg";
 import { NavLink } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { logoutUser } from "../features/user/userSlice";
 
 
 function NaviBar() {
+  const { user } = useSelector((state) => state.user);
+
   const [toggleMenu, setToggleMenu] = useState(false);
   const dispatch = useDispatch();
 
@@ -58,20 +60,20 @@ function NaviBar() {
             Developers
           </NavLink>
         </ul>
-        <div className=" h-[36px] flex ">
-          <div className="flex justify-between w-[15rem] px-[10px] items-center" ref={menuRef}>
-            {<img src={Pimg} alt="" className="w-[31px] h-[31px] mr-2" />}
-            <div className="w-[5rem] text-[10px] ">Smith Johnson</div>
+        <div className=" h-[36px] flex   ">
+          <div className="flex justify-between w-[12rem] px-[10px] items-center " ref={menuRef}>
+            {<img src={`${user.image ? user.image: avat}`} alt="" className=" h-[31px] rounded-full" />}
+            <div className=" text-[11px] font-semibold ">{user.firstName} {user.lastName}</div>
             <img
               src={Down}
               alt=""
               className={`${
-                toggleMenu && "rotate-[180deg]"
-              } w-[2rem] cursor-pointer mr-20`}
+                toggleMenu && " rotate-[180deg]"
+              } cursor-pointer `}
               onClick={toggleFunc}
             />
             {toggleMenu && <div>
-        <div className='w-[240px]  h-[80px] border border-[1px solid #F2F4F7] bg-[white] shadow absolute right-[2%] top-[10%] z-50'>
+        <div className='w-[240px]  h-[80px] border border-[1px solid #F2F4F7] bg-[white] shadow-lg absolute right-[2%] top-[7%] z-50'>
            <NavLink to="/">
            <div className='border-b h-[40px] py-[10px] px-[12px] hover:bg-[#F2F4F7]'>Account Settings</div>
            </NavLink>
@@ -80,9 +82,7 @@ function NaviBar() {
     </div>}
           </div>
         </div>
-        {/* <DropdownMenu /> */}
       </nav>
-      {/* {toggleMenu && <DropdownMenu/>} */}
     </>
   );
 }

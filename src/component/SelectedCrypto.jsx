@@ -40,14 +40,14 @@ const SelectedCrypto = ({ id }) => {
           {data.map((item, index) => {
             return (
               <div key={index}>
-                <div className="flex justify-center items-center">
+                <div className="flex justify-center items-center cursor-pointer"  onClick={() => {
+                      handleDelete(item.uuid);
+                    }} >
                   <img
-                    className={`mr-5 mb-6 ${toggle ? "visible" : "hidden"}`}
+                    className={`mr-5 mb-6  ${toggle ? "visible" : "hidden"}`}
                     src={del}
                     alt=""
-                    onClick={() => {
-                      handleDelete(item.uuid);
-                    }}
+                   
                   />
                   <div
                     className="flex justify-between items-center w-full mb-3 cursor-pointer"
