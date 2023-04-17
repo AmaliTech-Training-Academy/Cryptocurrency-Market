@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         "profile": "url('./src/assets/avat.png')",
+        "pro":"url('./src/assets/wallcrypt.png')"
       },
     },
   },
