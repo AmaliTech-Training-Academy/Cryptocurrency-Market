@@ -21,7 +21,7 @@ const deleteCrypto = (id) => {
 }
   return (
     <div className=''>
-        <div className='container mx-auto h-[231px] bg-[#e4e7ec] shadow  rounded overflow-y-auto'>
+        <div className='container mx-auto h-[231px] bg-[#e4e7ec] shadow  rounded overflow-y-auto scrollbar'>
        
           {
             portfolio && portfolio?.map((item)=>{
