@@ -77,7 +77,7 @@ const uploadImage = async() => {
 
 
   return (
-    <div className="bg-[#FCFCFD] w-full ">
+    <div className="w-full ">
         <NaviBar />
 <form onSubmit={handleSubmit} autoComplete="off">
         <div className="ml-[43px] ">
@@ -92,6 +92,7 @@ const uploadImage = async() => {
               Account settings
             </h6>
           </div>
+
           <div className="flex mt-[36px] ">
             <div className="w-[268px] h-[213px] bg-[rgba(255,255,255,0.05)] shadow   ">
               <div className="flex flex-col">

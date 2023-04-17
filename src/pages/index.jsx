@@ -27,7 +27,8 @@ export {
   ActiveCrypto,
   Modal,
   WatchList,
-  Viewcrypto,ViewStatistics,
+  Viewcrypto,
+  ViewStatistics,
 };
 
 

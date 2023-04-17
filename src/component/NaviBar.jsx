@@ -72,7 +72,7 @@ function NaviBar() {
             />
             {toggleMenu && <div>
         <div className='w-[240px]  h-[80px] border border-[1px solid #F2F4F7] bg-[white] shadow absolute right-[2%] top-[10%] z-50'>
-           <NavLink to="/">
+           <NavLink to="/" id="settings">
            <div className='border-b h-[40px] py-[10px] px-[12px] hover:bg-[#F2F4F7]'>Account Settings</div>
            </NavLink>
            <div className='border-b h-[40px] py-[10px] px-[12px] hover:bg-[#F2F4F7] cursor-pointer' onClick={clearUser} >Logout</div>
