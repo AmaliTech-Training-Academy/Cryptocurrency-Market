@@ -12,8 +12,8 @@ import {
 
 const AreaChartComponent = ({ data }) => {
   return (
-    <ResponsiveContainer width="100%" height={400}>
-      <AreaChart data={data} margin={{ top: 5 }}>
+    <ResponsiveContainer width="100%" height={400} >
+      <AreaChart data={data} margin={{ top: 5 }} >
         <defs>
           <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#32D583" stopOpacity={0.5} />

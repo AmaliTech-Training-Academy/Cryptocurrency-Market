@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import AreaChartComponent from "./AreaCharrt";
 import axios from "axios";
-import { useParams,  } from "react-router-dom";
 
-const ViewStat = () => {
-  const { id } = useParams();
+const ViewStat = ({id}) => {
   const coin = id?.toLowerCase() 
     const [data,setData] = useState()
     const [rate,setRate] = useState()
