@@ -6,7 +6,7 @@ export const basicSchema = yup.object().shape({
     email: yup.string().email().required("Please enter email"),
    mobileNumber: yup.number().required("Please enter mobile number"),
     gender: yup.string().required("Please select your gender"),
-    image:yup.string().required("Required"),
+    image:yup.string(),
 })
 
 export const passswordSchema = yup.object().shape({

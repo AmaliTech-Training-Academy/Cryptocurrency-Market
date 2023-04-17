@@ -6,7 +6,6 @@ import Che from "../assets/chevron 1.svg";
 import Psi from "../assets/Vector.svg";
 import Plok from "../assets/lock vector.svg";
 import notification from "../assets/Notification icon.svg";
-import "react-phone-input-2/lib/style.css";
 import { useFormik } from "formik";
 import { basicSchema } from "../schema";
 import { Link, NavLink } from "react-router-dom";
@@ -22,7 +21,6 @@ const profile = () => {
   
   const dispatch = useDispatch();
   const { user,isLoading } = useSelector((state) => state.user);
-  console.log(isLoading);
 
 
   const onSubmit = (values, actions) => {
@@ -138,7 +136,7 @@ const uploadImage = async() => {
                   <div className=" w-[127px] h-[127px] rounded-full relative">
                     <div className=" w-[127px] h-[127px] rounded-full relative overflow-hidden bg-profile bg-no-repeat bg-cover">
                       <img
-                        src={`${user.image ? user.image: images}`}
+                        src={`${user.image ? user.image : images}`}
                         alt=""
                         className="w-[127px] h-[127px]"
                       />

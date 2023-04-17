@@ -10,7 +10,7 @@ const Trending = () => {
   const all = data.data?.coins;
 
   return (
-    <div className="pl-[35px] pr-[67px] pt-[48px] pb-[10px] shadow overflow-y-auto h-[778px] ">
+    <div className="pl-[35px] pr-[67px] pt-[48px] pb-[10px] shadow overflow-y-auto h-[762px] scrollbar ">
       <div className="flex justify-between items-baseline mb-[22px]">
         <h1 className="text-[25px] mb-[10px]">Trending Market</h1>
       </div>
@@ -40,13 +40,13 @@ const Trending = () => {
                     {items.name}
                   </span>
                 </div>
-                <h2 className=" absolute left-[100px] top-0 2xl:left-[260px] xl:left-[100px] font-normal text-[18.8799px] text-[#101828 ">
+                <h2 className=" absolute left-[185px] top-0 2xl:left-[260px] font-normal text-[18.8799px] text-[#101828 ">
                   {items.symbol}
                 </h2>
-                <h2 className=" absolute left-[405px] top-0 2xl:left-[510px] font-normal text-[18.8799px] text-[#101828]">
+                <h2 className=" absolute left-[340px] top-0 2xl:left-[500px] font-normal text-[18.8799px] text-[#101828]">
                   ${Number(items.price).toFixed(2)}
                 </h2>
-                <div className="absolute left-[635px] top-0 2xl:left-[770px] font-normal text-[18.8799px]  flex gap-[12.98px]  justify-around items-center ">
+                <div className="absolute left-[530px] top-0 2xl:left-[760px] font-normal text-[18.8799px]  flex gap-[12.98px]  justify-around items-center ">
                   <img src={`${items.change > 0 ? plus : down}`} alt="" />
                   <h2
                     className={`${

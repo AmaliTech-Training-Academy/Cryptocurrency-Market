@@ -13,6 +13,7 @@ import { useSelector } from "react-redux";
 
 const cryptoGraphs = ({ item,uuid }) => {
   const { data: all } = useSelector((store) => store.data);
+  
   const [data, setData] = useState([
     { hr: 0, price: 30011.57671544483 },
     { hr: 2, price: 30037.025489540047 },
@@ -24,9 +25,7 @@ const cryptoGraphs = ({ item,uuid }) => {
     { hr: 14, price: 30163.03998563174 },
     { hr: 16, price: 29999.935625202892 },
     { hr: 18, price: 30021.246109989163 },
-
     { hr: 20, price: 30041.065903291463 },
-
     { hr: 22, price: 30023.08321747515 },
   ]);
   const [selected, setSelected] = useState({
@@ -36,11 +35,12 @@ const cryptoGraphs = ({ item,uuid }) => {
     price: "30140.82",
   });
   const id = selected?.uuid;
+  const allID =  id || uuid
 
   useEffect(() => {
     const fetchdata = async () => {
       const response = await axios.get(
-        `https://api.coinranking.com/v2/coins?uuids[]=${id || uuid}`
+        `https://api.coinranking.com/v2/coins?uuids[]=${allID}`
       );
       const data = response.data.data.coins[0]?.sparkline.splice(0, 12);
       setData(
@@ -50,13 +50,14 @@ const cryptoGraphs = ({ item,uuid }) => {
       );
     };
     fetchdata();
-  }, [id]);
+  }, [id,item]);
 
   useEffect(() => {
     setSelected(item);
   }, [item]);
+
   const info = all.data?.coins;
-  const select = info.filter((item) => item.uuid === id);
+  const select = info.filter((item) => item.uuid === allID );
   return (
     <div className=" shadow p-4 mb-10">
       <div className="flex flex-col  ">
@@ -64,11 +65,11 @@ const cryptoGraphs = ({ item,uuid }) => {
           select.map((item, index) => {
             return (
               <div key={index}>
-                <div className="flex w-[210px] justify-between items-center">
+                <div className="flex gap-10 items-center">
                   <h1 className="text-[25px] ">{item.symbol}</h1>
-                  <h2 className="text-[21px]">{item.name}</h2>
+                  <h2 className="text-[21px] ">{item.name}</h2>
                 </div>
-                <div className="flex w-[210px] justify-between items-center">
+                <div className="flex gap-10 items-center">
                   <p>${Number(item.price).toFixed(2)}</p>
                   <p
                     className={`${

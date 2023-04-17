@@ -1,10 +1,10 @@
 import React from "react";
 import {NaviBar, SelectedCrypto } from "../component";
-import { useLocation } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 
 const WatchList = () => {
-  const search = new URLSearchParams(useLocation().search)
-  const id = search.get('id')
+ 
+  const {id} =useParams()
   return (
     <div>
       <NaviBar />

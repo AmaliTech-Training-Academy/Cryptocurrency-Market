@@ -37,18 +37,22 @@ const SelectedCrypto = ({ id }) => {
           >
             Edit
           </button>
+          <div className="h-[320px] overflow-y-auto scrollbar">
           {data.map((item, index) => {
             return (
-              <div key={index}>
-                <div className="flex justify-center items-center">
+              <div key={index} >
+                <div className="flex justify-center items-center " >
+                  <div className="cursor-pointer "  onClick={() => {
+                      handleDelete(item.uuid);
+                    }} >
+
                   <img
-                    className={`mr-5 mb-6 ${toggle ? "visible" : "hidden"}`}
+                    className={`mr-5 mb-6  ${toggle ? "visible" : "hidden"}`}
                     src={del}
                     alt=""
-                    onClick={() => {
-                      handleDelete(item.uuid);
-                    }}
-                  />
+                    
+                    />
+                    </div>
                   <div
                     className="flex justify-between items-center w-full mb-3 cursor-pointer"
                     onClick={() => {
@@ -78,6 +82,7 @@ const SelectedCrypto = ({ id }) => {
               </div>
             );
           })}
+          </div>
         </div>
         <div className="bg-[#E4E7EC]   h-[59px] flex justify-evenly items-center">
           <div className="flex">
