@@ -94,7 +94,7 @@ const profile = () => {
  
 
   return (
-    <div className="bg-[#FCFCFD] w-full ">
+    <div className="w-full ">
       <NaviBar />
       <div className="ml-[43px] ">
         <div className="mt-2 flex items-center justify-center w-[261px] h-[30px]">
