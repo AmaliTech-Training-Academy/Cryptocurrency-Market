@@ -41,7 +41,9 @@ function NaviBar() {
     <>
       <nav className="w-full h-[77px]  flex items-center justify-between border-b pr-[100px] pl-[47px]">
         <div className=" h-[46px] flex justify-center items-center">
+          <NavLink to={"/dashboard"} id="nav-links">
           <img src={Img1} alt="" />
+          </NavLink>
         </div>
         <ul className="flex justify-between  w-[353px] items-center text-[14.8px] font-normal text-[#101828]">
           <NavLink to={"/dashboard"} id="nav-links">
