@@ -31,25 +31,24 @@ const Assets = () => {
       })
       }
       </div>   
+      {
+        data && data.map((item)=>{
+          console.log(item);
+          return(
+            <Link to ={`/view-stats/${item.assetName}`}>
+              <div className='mt-[20px] ml-8 w-[772px] h-[60px] flex items-center relative hover:bg-[rgba(217,217,217,0.28)] p-[20px] cursor-pointer mb-10 '>
+                <div className=' '>{item.assetName}</div>
+                <div className=' absolute left-[210px] 2xl:left-[210px]'>{item.symbol}</div>
+                <div className='absolute left-[425px] 2xl:left-[425px] '>{item.quantity}</div>
+                <div className='absolute left-[610px] 2xl:left-[610px]'>${item.purchasePrice}</div>
+              </div>
+            </Link>
+  
+          )
+      })
+      }
     </div>
   
-{
-  data && data.map((item)=>{
-    console.log(item);
-    return(
-      <Link to ={`/view-stats/${item.assetName}`}>
-        <div className='mt-[20px] ml-8 w-[772px] h-[60px] flex items-center relative hover:bg-[rgba(217,217,217,0.28)] p-[20px] cursor-pointer mb-10 '>
-          <div className=' '>{item.assetName}</div>
-          <div className=' absolute left-[210px] 2xl:left-[210px]'>{item.symbol}</div>
-          <div className='absolute left-[425px] 2xl:left-[425px] '>{item.quantity}</div>
-          <div className='absolute left-[610px] 2xl:left-[610px]'>${item.purchasePrice}</div>
-        </div>
-      </Link>
-
-    )
- })
-}
-    </div>
    
 
   )
