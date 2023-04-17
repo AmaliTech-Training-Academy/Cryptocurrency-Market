@@ -1,12 +1,15 @@
 import React from "react";
-import { CryptoGraphs, NaviBar, SelectedCrypto,CryptoInfo } from "../component";
+import {NaviBar, SelectedCrypto } from "../component";
+import { useLocation } from 'react-router-dom'
+
 const WatchList = () => {
-    
+  const search = new URLSearchParams(useLocation().search)
+  const id = search.get('id')
   return (
     <div>
       <NaviBar />
       <div className="">
-        <SelectedCrypto />
+        <SelectedCrypto id={id} />
        
       </div>
     </div>

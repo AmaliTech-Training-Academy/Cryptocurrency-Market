@@ -5,10 +5,13 @@ import Pimg from "../assets/Profile-picture.png";
 import Down from "../assets/chevron.svg";
 import Search from "../assets/search icon.svg";
 import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logoutUser } from "../features/user/userSlice";
 
 
 function NaviBar() {
   const [toggleMenu, setToggleMenu] = useState(false);
+  const dispatch = useDispatch();
 
   const toggleFunc = () => {
     setToggleMenu(!toggleMenu);
@@ -26,6 +29,10 @@ function NaviBar() {
       document.removeEventListener("mousedown", handler)
     }
   })
+
+  const clearUser = () =>{
+    dispatch(logoutUser())
+  }
 
 
   return (
@@ -68,7 +75,7 @@ function NaviBar() {
            <NavLink to="/" id="settings">
            <div className='border-b h-[40px] py-[10px] px-[12px] hover:bg-[#F2F4F7]'>Account Settings</div>
            </NavLink>
-           <div className='border-b h-[40px] py-[10px] px-[12px]'>Logout</div>
+           <div className='border-b h-[40px] py-[10px] px-[12px] hover:bg-[#F2F4F7] cursor-pointer' onClick={clearUser} >Logout</div>
         </div>
     </div>}
           </div>

@@ -1,6 +1,6 @@
 import { useFormik } from "formik";
 import React, { useEffect } from "react";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import icon from "../assets/CryptoMart.svg";
 import { Input } from "../component";
@@ -10,17 +10,12 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const signUp = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { user } = useSelector((store) => store.user);
-const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const onSubmit = (values, actions) => {
     dispatch(registerUser(values));
-    dispatch(storeUser(values))
-    // dispatch(storeUser({ email: values.email }));
-
-    
   };
-  
 
   const {
     values,
@@ -32,8 +27,8 @@ const dispatch = useDispatch()
     handleSubmit,
   } = useFormik({
     initialValues: {
-      firstName:"",
-      lastName:"",
+      firstName: "",
+      lastName: "",
       email: "",
       password: "",
     },
@@ -41,14 +36,13 @@ const dispatch = useDispatch()
     onSubmit,
   });
 
-  
-  useEffect(()=>{
+  useEffect(() => {
     if (user) {
       setTimeout(() => {
-       navigate('/')
-     }, 3000);
+        navigate("/");
+      }, 3000);
     }
-   },[user])
+  }, [user]);
 
   return (
     <div className="w-full flex justify-center items-center ">
@@ -68,7 +62,7 @@ const dispatch = useDispatch()
               </h1>
 
               <form onSubmit={handleSubmit} autoComplete="off">
-              <Input
+                <Input
                   label="First Name*"
                   type="firstName"
                   name="firstName"
@@ -114,7 +108,6 @@ const dispatch = useDispatch()
                   touch={touched.password}
                 />
 
-               
                 <div className="mt-[46px]  h-[42px] text-center  ">
                   <button
                     // disabled={isSubmitting}
