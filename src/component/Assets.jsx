@@ -1,7 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import {Link} from 'react-router-dom'
-
 const Assets = () => {
   const {data} = useSelector((store)=>store.asset)
   console.log(data);

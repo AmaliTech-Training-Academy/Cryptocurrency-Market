@@ -5,7 +5,8 @@ export const basicSchema = yup.object().shape({
     lastName: yup.string().required("Please enter last name"),
     email: yup.string().email().required("Please enter email"),
    mobileNumber: yup.number().required("Please enter mobile number"),
-    gender: yup.string().required("Please select your gender")
+    gender: yup.string().required("Please select your gender"),
+    image:yup.string().required("Required"),
 })
 
 export const passswordSchema = yup.object().shape({

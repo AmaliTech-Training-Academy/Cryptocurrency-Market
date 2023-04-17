@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { NaviBar, Select } from "../component";
 import Epi from "../assets/edit picture.svg";
 import Home from "../assets/home vector.svg";
@@ -6,64 +6,32 @@ import Che from "../assets/chevron 1.svg";
 import Psi from "../assets/Vector.svg";
 import Plok from "../assets/lock vector.svg";
 import notification from "../assets/Notification icon.svg";
-import 'react-phone-input-2/lib/style.css'
+import "react-phone-input-2/lib/style.css";
 import { useFormik } from "formik";
 import { basicSchema } from "../schema";
 import { Link, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getUser, storeUser, updateUserProfile } from "../features/user/userSlice";
+import {
+  storeUser,
+  updateUserProfile,
+} from "../features/user/userSlice";
 import axios from "axios";
-// import React,{useState} from 'react'
-import {fill} from "@cloudinary/url-gen/actions/resize";
-import {Cloudinary} from '@cloudinary/url-gen';
-import {AdvancedImage} from '@cloudinary/react';
+
 
 const profile = () => {
-  const [value, setValue] = useState();
+  
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.user);
+  const { user,isLoading } = useSelector((state) => state.user);
+  console.log(isLoading);
 
-  const [imageSelected, setImageSelected] = useState('')
-  const [images, setImages] = useState([])
-  const uploadImage = () => {
-    const formData = new FormData();
-    formData.append("file", imageSelected);
-    formData.append("upload_preset", "x3pud7wu");
+
+  const onSubmit = (values, actions) => {
+    dispatch(updateUserProfile(values));
+      dispatch(storeUser(values))
     
-    axios
-    .post("https://api.cloudinary.com/v1_1/dwhufzqgk/image/upload", formData)
-    .then((response) => {
-      console.log(response);
-      setImages(response.data?.secure_url) 
-    } 
-    )
   };
 
-  const cld = new Cloudinary({
-    cloud: {
-      cloudName: 'dwhufzqgk'
-    }
-  });
-
-  const myImage = cld.image(images);
-  myImage.resize(fill().width(250).height(250));
-  
-
-  const onSubmit = async (values, actions) => {
-   const resp =  await dispatch(updateUserProfile(values,image))
-   if (resp.payload.success) {
-    dispatch(getUser())
-   }
-  };
-
-  
-
-  // Image upload
-  const reader = new FileReader();
-  reader.onload = () => {
-    document.getElementById("image-preview").setAttribute("src", reader.result);
-  };
-
+ 
   const {
     values,
     errors,
@@ -75,114 +43,148 @@ const profile = () => {
     handleSubmit,
   } = useFormik({
     initialValues: {
-      firstName: "",
-      lastName: "",
-      mobileNumber: "",
-      gender: "",
-      email: user.data?.email,
-      image:images,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      mobileNumber:user.mobileNumber,
+      gender: user.gender,
+      email: user.email,
+      image: user.image,
     },
     validationSchema: basicSchema,
     onSubmit,
   });
 
-  console.log(images);
-  console.log(values);
 
+const [value, setValue] = useState();
 
+const [imageSelected, setImageSelected] = useState("");
+const [images, setImages] = useState('');
+const uploadImage = async() => {
+  const formData = new FormData();
+  formData.append("file", imageSelected);
+  formData.append("upload_preset", "x3pud7wu");
 
- 
+  axios
+    .post("https://api.cloudinary.com/v1_1/dwhufzqgk/image/upload", formData)
+    .then((response) => {
+
+      setFieldValue('image',response.data?.secure_url);
+      setImages(response.data?.secure_url);
+  
+
+    });
+};
+
 
   return (
     <div className="w-full ">
-      <NaviBar />
-      <div className="ml-[43px] ">
-        <div className="mt-2 flex items-center justify-center w-[261px] h-[30px]">
-          <Link to={'/dashboard'} className="mr-[25px]">
-            <img src={Home} alt="" className="w-[16px] h-[18px] " />
-          </Link>
-          <div className="mr-[12px]">
-            <img src={Che} alt="" className="w-[7px] h-[12px]" />
+        <NaviBar />
+<form onSubmit={handleSubmit} autoComplete="off">
+        <div className="ml-[43px] ">
+          <div className="mt-2 flex items-center justify-center w-[261px] h-[30px]">
+            <Link to={"/dashboard"} className="mr-[25px]">
+              <img src={Home} alt="" className="w-[16px] h-[18px] " />
+            </Link>
+            <div className="mr-[12px]">
+              <img src={Che} alt="" className="w-[7px] h-[12px]" />
+            </div>
+            <h6 className=" w-[200px] h-[30px] text-[25px] font-normal flex justify-center items-center">
+              Account settings
+            </h6>
           </div>
-          <h6 className=" w-[200px] h-[30px] text-[25px] font-normal flex justify-center items-center">
-            Account settings
-          </h6>
-        </div>
-        <div className="flex mt-[36px] ">
-          <div className="w-[268px] h-[213px] bg-[rgba(255,255,255,0.05)] shadow   ">
-            <div className="flex flex-col">
-              <NavLink
-                id="settings"
-                to="/"
-                className="py-[0.5rem] mt-[20px] "
-              >
-                <div className="flex items-center w-[268px] pl-8">
-                  <span className=" flex justify-center items-center w-[17px] h-[17px] border border-[#000000] rounded-full mr-8">
-                    <img src={Psi} alt="" />
-                  </span>
-                  Profile Settings
-                </div>
-              </NavLink>
-              <NavLink
-                id="settings"
-                to="/password"
-                className="mt-[20px] py-[0.5rem]"
-              >
-                <div className=" flex items-center pl-8">
+
+          <div className="flex mt-[36px] ">
+            <div className="w-[268px] h-[213px] bg-[rgba(255,255,255,0.05)] shadow   ">
+              <div className="flex flex-col">
+                <NavLink
+                  id="settings"
+                  to="/profile-page"
+                  className="py-[0.5rem] mt-[20px] "
+                >
+                  <div className="flex items-center w-[268px] pl-8">
+                    <span className=" flex justify-center items-center w-[17px] h-[17px] border border-[#000000] rounded-full mr-8">
+                      <img src={Psi} alt="" />
+                    </span>
+                    Profile Settings
+                  </div>
+                </NavLink>
+                <NavLink
+                  id="settings"
+                  to="/password"
+                  className="mt-[20px] py-[0.5rem]"
+                >
+                  <div className=" flex items-center pl-8">
+                    <span className=" flex justify-center items-center w-[17px] h-[17px]  mr-8">
+                      <img src={Plok} alt="" />
+                    </span>
+                    Password
+                  </div>
+                </NavLink>
+                <div className=" flex items-center pl-8 mt-[36px] mb-[35px]">
                   <span className=" flex justify-center items-center w-[17px] h-[17px]  mr-8">
-                    <img src={Plok} alt="" />
+                    <img
+                      src={notification}
+                      alt=""
+                      className="w-[15px] h-[15px]"
+                    />
                   </span>
-                  Password
+                  Notification
                 </div>
-              </NavLink>
-              <div className=" flex items-center pl-8 mt-[36px] mb-[35px]">
-                <span className=" flex justify-center items-center w-[17px] h-[17px]  mr-8">
-                  <img src={notification} alt="" className="w-[15px] h-[15px]" />
-                </span>
-                Notification
               </div>
             </div>
-          </div>
-          <div className="ml-[71px] w-[969px] h-fit  bg-[rgba(255,255,255,0.05)] shadow">
-            <div className="ml-[49px] mt-[32px]">
-              <div className="w-[525px] h-[127px] flex justify-between items-center">
-                <div className=" w-[127px] h-[127px] rounded-full relative">
-                  <div className=" w-[127px] h-[127px] rounded-full relative overflow-hidden bg-profile bg-no-repeat bg-cover">
-                    <img
-                      src={images}
-                      alt=""
-                      className="w-[127px] h-[127px]"
-                    />
-                  </div>
-                  <div className="absolute flex justify-center align-middle right-[8px] bottom-[10px] w-6 h-6 bg-white rounded-full">
-                    <img src={Epi} alt="" className="w-4" />
-                  </div>
-                <input className="w-[95px] h-[39px] bg-transparent mt-2 border border-none " value={values.image} type="file" accept="image/*" name="image" onBlur={handleBlur}    onChange={(e)=>setImageSelected(e.target.files[0])}/>
-                </div>
-                <div className="flex flex-row items-start  gap-10">
-                  <div className="w-[141px] h-[39px] bg-[#0C3C4C] ml-[90px] flex justify-center rounded">
-                    <button
-                      className="text-[#FFFFFF] text-base font-normal text-center"
-                      onClick={uploadImage}
-                    >
-                      Upload New
-                    </button>
-                  </div>
-                </div>
-                <div>
-     
-                </div>
-                <div className="flex flex-row items-start  gap-10">
-                  <div className="w-[149px] h-[39px] bg-[#E4E7EC] flex justify-center rounded">
-                    <button className="text-[#101828] text-base font-normal text-center">
-                      Delete avatar
-                    </button>
-                  </div>
-                </div>
-              </div>
+            <div className="ml-[71px] w-[969px] h-fit  bg-[rgba(255,255,255,0.05)] shadow">
+              <div className="ml-[49px] mt-[32px]">
+                <div className="w-[525px] h-[127px] flex justify-between items-center">
+                  <div className=" w-[127px] h-[127px] rounded-full relative">
+                    <div className=" w-[127px] h-[127px] rounded-full relative overflow-hidden bg-profile bg-no-repeat bg-cover">
+                      <img
+                        src={`${user.image ? user.image: images}`}
+                        alt=""
+                        className="w-[127px] h-[127px]"
+                      />
+                    </div>
+                      <label htmlFor="image" className="absolute flex justify-center align-middle right-[8px] bottom-[10px] w-6 h-6 bg-white rounded-full cursor-pointer">
 
-              {/* fields */}
-              <form onSubmit={handleSubmit} autoComplete="off">
+                      <img src={Epi} alt="" className="w-4" />
+                      </label>
+                    <input
+                      className="w-[95px] h-[39px] bg-transparent mt-2 border border-none hidden"
+                      type="file"
+                      name="image"
+                      id="image"
+                      onBlur={handleBlur}
+                      onChange={(e) => setImageSelected(e.target.files[0])}
+                    />
+                   
+                  </div>
+                  <div className="flex flex-row items-start  gap-10">
+                    <div className="w-[141px] h-[39px] bg-[#0C3C4C] ml-[90px] flex justify-center rounded">
+                      <button
+                      type="button"
+                        className="text-[#FFFFFF] text-base font-normal text-center"
+                        onClick={uploadImage}
+                      >
+                        Upload New
+                      </button>
+                    </div>
+                  </div>
+                  <div className="flex flex-row items-start  gap-10">
+                    <div className="w-[149px] h-[39px] bg-[#E4E7EC] flex justify-center rounded">
+                      <button className="text-[#101828] text-base font-normal text-center">
+                        Delete avatar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+        <input
+                      className="w-[95px] h-[39px] bg-red-600 mt-16 hidden "
+                      type="text"
+                      value={values.image}
+                      name="image"
+                      onBlur={handleBlur}
+                      onChange={handleChange}
+                    />
+                {/* fields */}
                 <div className="mt-[54px]">
                   <div className="flex ">
                     <div className="flex flex-col ">
@@ -255,40 +257,35 @@ const profile = () => {
                     <div className="flex flex-col">
                       <div className="mt-[49px] ">
                         <label className="ml-[10px] ">Mobile Number</label>
-                        <div className={` flex  rounded pl-[10px] ${errors.mobileNumber && touched.mobileNumber
-                            ? "border-[red]"
-                            : "border-[#53352d80]"}`}>
-                      
-                          {/* <PhoneInput 
-                          country="gh"
-                          onlyCountries={['gh', 'fr', 'us']}
-                            name="mobileNumber"
-                            type= "number"
-                            id="mobileNumber"
-                            placeholder=" 5678990"
-                            value={value}
-                            onChange={handleChange}
-                             onBlur={handleBlur} 
-                            error={value ? (isValidPhoneNumber(value) ? undefined : 'Invalid phone number') : 'Phone number required'}
-                          /> */}
+                        <div
+                          className={` flex  rounded pl-[10px] ${
+                            errors.mobileNumber && touched.mobileNumber
+                              ? "border-[red]"
+                              : "border-[#53352d80]"
+                          }`}
+                        >
                           <div className="flex justify-center items-center">
-                            <Select/>
-                            
-                          < input
-                          type="number"
-                          name="mobileNumber"
-                          placeholder="598 756 9870"
-                          className={` flex w-[285px] h-[46px] border mt-[18px] rounded pl-[10px] ${errors.mobileNumber && touched.mobileNumber
-                            ? "border-[red]"
-                            : "border-[#53352d80]"}`}
-                            value={values.mobileNumber}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
+                            <Select />
+
+                            <input
+                              type="number"
+                              name="mobileNumber"
+                              placeholder="598 756 9870"
+                              className={` flex w-[285px] h-[46px] border mt-[18px] rounded pl-[10px] ${
+                                errors.mobileNumber && touched.mobileNumber
+                                  ? "border-[red]"
+                                  : "border-[#53352d80]"
+                              }`}
+                              value={values.mobileNumber}
+                              onChange={handleChange}
+                              onBlur={handleBlur}
                             />
-                            </div>
+                          </div>
                         </div>
                         {errors.mobileNumber && touched.mobileNumber && (
-                          <p className="text-[red] ml-[70px]">{errors.mobileNumber}</p>
+                          <p className="text-[red] ml-[70px]">
+                            {errors.mobileNumber}
+                          </p>
                         )}
                       </div>
                     </div>
@@ -351,12 +348,12 @@ const profile = () => {
                     Save Changes
                   </button>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>
+    </form>
       </div>
-    </div>
   );
 };
 
