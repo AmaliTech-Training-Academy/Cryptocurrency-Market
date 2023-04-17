@@ -4,7 +4,7 @@ import notification from "../assets/Notification icon.svg";
 import avat from "../assets/avat.png";
 import Down from "../assets/chevron.svg";
 import Search from "../assets/search icon.svg";
-import { NavLink } from "react-router-dom";
+import { NavLink,Link } from "react-router-dom";
 import { useDispatch,useSelector } from "react-redux";
 import { logoutUser } from "../features/user/userSlice";
 
@@ -41,9 +41,9 @@ function NaviBar() {
     <>
       <nav className="w-full h-[77px]  flex items-center justify-between border-b pr-[100px] pl-[47px]">
         <div className=" h-[46px] flex justify-center items-center">
-          <NavLink to={"/dashboard"} id="nav-links">
+          <Link to={"/dashboard"} >
           <img src={Img1} alt="" />
-          </NavLink>
+          </Link>
         </div>
         <ul className="flex justify-between  w-[353px] items-center text-[14.8px] font-normal text-[#101828]">
           <NavLink to={"/dashboard"} id="nav-links">
@@ -64,7 +64,7 @@ function NaviBar() {
         </ul>
         <div className=" h-[36px] flex   ">
           <div className="flex justify-between w-[12rem] px-[10px] items-center " ref={menuRef}>
-            {<img src={`${user.image ? user.image: avat}`} alt="" className=" h-[31px] rounded-full" />}
+            {<img src={`${user.image ? user.image: avat}`} alt="" className=" h-[40px] w-[40px] rounded-full" />}
             <div className=" text-[11px] font-semibold ">{user.firstName} {user.lastName}</div>
             <img
               src={Down}

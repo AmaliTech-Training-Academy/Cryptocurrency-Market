@@ -13,7 +13,7 @@ import Modal from "./Modal";
 import Viewcrypto from "./Viewcrypto";
 import WatchList from "./WatchList";
 import ViewStatistics from "./viewStatistics";
-
+import Developers from "./developers";
 export {
   Landingpage,
   ProfilePage,
@@ -29,6 +29,7 @@ export {
   WatchList,
   Viewcrypto,
   ViewStatistics,
+  Developers,
 };
 
 
