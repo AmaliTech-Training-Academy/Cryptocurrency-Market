@@ -5,7 +5,8 @@ export const basicSchema = yup.object().shape({
     lastName: yup.string().required("Please enter last name"),
     email: yup.string().email().required("Please enter email"),
    mobileNumber: yup.number().required("Please enter mobile number"),
-    gender: yup.string().required("Please select your gender")
+    gender: yup.string().required("Please select your gender"),
+    image:yup.string(),
 })
 
 export const passswordSchema = yup.object().shape({
@@ -13,4 +14,12 @@ export const passswordSchema = yup.object().shape({
   newPassword: yup.string().min(6, "Password must be at least 6 characters").required("Enter new password"),
   confirmPassword: yup.string().oneOf([yup.ref("newPassword"), null], "Passwords must match").required("Passwords must match")
  
+})
+
+
+export const assetSchema = yup.object().shape({
+  assetName: yup.string().required("This field is required"),
+  symbol: yup.string().required("This field is required"),
+  quantity: yup.number().positive().integer().required("This field is required"),
+  purchasePrice: yup.number().positive().integer().required("This field is required"),
 })

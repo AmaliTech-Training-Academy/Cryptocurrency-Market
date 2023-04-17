@@ -1,12 +1,18 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router'
+import { storePortfolio } from '../features/portfolio/portfolioSlice'
 
 function Cryptomodal({ visible, onClose,singleItem}) {
 if (!visible) return null
 const navigate = useNavigate()
+const dispatch = useDispatch()
+
 
 const handleSubmit = () =>{
+dispatch(storePortfolio(singleItem))
  navigate(`/view-crypto?id=${singleItem.uuid}`)
+
 }
 
   return (

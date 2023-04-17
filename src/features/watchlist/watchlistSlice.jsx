@@ -1,21 +1,22 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-// import { getDataThunk } from "./cryptoThunk";
 
 const initialState = {
-    data: [],
-  };
+  data: [],
+};
 
+const watchListSlice = createSlice({
+  name: "watchList",
+  initialState,
+  reducers: {
+    storeWatchList: (state, { payload }) => {
+      state.data.unshift(payload);
 
-  const watchListSlice = createSlice({
-    name: "watchList",
-    initialState,
-    reducers: {
-      storeWatchList: (state,{payload})=>{
-        state.data.push(payload);
-      }
     },
-})
+    deleteWatchList: (state, { payload }) => {
+      state.data = state.data.filter((item) => item.uuid !== payload);
+    },
+  },
+});
 
-
-    export const {  storeWatchList } = watchListSlice.actions;
+export const { storeWatchList, deleteWatchList } = watchListSlice.actions;
 export default watchListSlice.reducer;

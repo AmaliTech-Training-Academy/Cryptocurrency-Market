@@ -1,34 +1,56 @@
 import React from 'react'
-
+import { useSelector } from 'react-redux'
+import {Link} from 'react-router-dom'
 const Assets = () => {
+  const {data} = useSelector((store)=>store.asset)
   return (
-    <div className=' ml-[10px]'>
-        <div className='mt-[48px] w-[1208px]'>
-          <h6 className='text-[25px] font-bold text-[#101828]'>My Assets</h6>
-        </div>
-    
-    <div className='mt-[19px] ml-8 w-[710px] border-b flex justify-center text-[18px] font-normal'>
-   <div className=' mr-[138px] '>Name</div>
-   <div className=' mr-[138px] '>Symbol</div>
-   <div className='mr-[100px]'>Quantity</div>
-   <div>Purchase Price</div>
+    <div className='mt-[70px] ml-[10px]  w-[750px]'>
+      <div className='mt-[50px] w-[750px]'>
+        <h6 className='text-[25px] font-bold static text-[#101828]'>My Assets</h6>
+      </div>
+          
+      <div className='mt-5 ml-8 w-[710px] border-b flex justify-center text-[18px] font-normal static'>
+        <div className=' mr-[138px] '>Name</div>
+        <div className=' mr-[138px] '>Symbol</div>
+        <div className='mr-[100px]'>Quantity</div>
+        <div>Purchase Price</div>
+      </div>
+      <div className='overflow-y-auto h-[200px] overflow-x-hidden scrollbar'>
+      {
+        data && data.map((item)=>{
+          return(
+            <Link to ='/view-stats'>
+              <div className='mt-[20px] ml-8 w-[772px] h-[60px] flex items-center relative hover:bg-[rgba(217,217,217,0.28)] p-[20px] cursor-pointer mb-10'>
+                <div className=' '>{item.assetName}</div>
+                <div className=' absolute left-[210px] 2xl:left-[210px]'>{item.symbol}</div>
+                <div className='absolute left-[425px] 2xl:left-[405px] '>{item.quantity}</div>
+                <div className='absolute left-[610px] 2xl:left-[580px]'>${item.purchasePrice}</div>
+              </div>
+            </Link>
+          )
+      })
+      }
+      </div>   
     </div>
-
-    <div className='mt-[30px] ml-8 w-[772px] h-[60px] flex items-center hover:bg-[rgba(217,217,217,0.28)] p-[20px] cursor-pointer'>
-     <div className=' mr-[130px] '>Bitcoin</div>
-     <div className=' mr-[170px] '>BTC</div>
-     <div className=' mr-[150px] ' >320</div>
-     <div>$715,650M</div>
+  
+{
+  data && data.map((item)=>{
+    console.log(item);
+    return(
+      <Link to ={`/view-stats/${item.assetName}`}>
+        <div className='mt-[20px] ml-8 w-[772px] h-[60px] flex items-center relative hover:bg-[rgba(217,217,217,0.28)] p-[20px] cursor-pointer mb-10 '>
+          <div className=' '>{item.assetName}</div>
+          <div className=' absolute left-[210px] 2xl:left-[210px]'>{item.symbol}</div>
+          <div className='absolute left-[425px] 2xl:left-[425px] '>{item.quantity}</div>
+          <div className='absolute left-[610px] 2xl:left-[610px]'>${item.purchasePrice}</div>
         </div>
+      </Link>
 
-        <div className='mt-[30px] ml-8 w-[772px] h-[60px] flex items-center  hover:bg-[rgba(217,217,217,0.28)] p-[20px] cursor-pointer mb-10'>
-     <div className=' mr-[138px] '>Terra</div>
-     <div className=' mr-[160px] '>LUNA</div>
-     <div className='mr-[150px] '>320</div>
-     <div>$715,650M</div>
-        </div>
-
+    )
+ })
+}
     </div>
+   
 
   )
 }

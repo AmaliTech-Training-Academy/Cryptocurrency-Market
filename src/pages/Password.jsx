@@ -1,6 +1,6 @@
 import React from "react";
 import { NaviBar } from "../component";
-import Pimg from "../assets/Profile-picture.png";
+import avat from "../assets/avat.png";
 import Epi from "../assets/edit picture.svg";
 import Home from "../assets/home vector.svg";
 import Che from "../assets/chevron 1.svg";
@@ -11,10 +11,12 @@ import Pv1 from "../assets/Password vector 1.svg";
 import { useFormik } from "formik";
 import { passswordSchema } from "../schema";
 import { Link, NavLink } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { updatePassword } from "../features/user/userSlice";
 
 const Password = () => {
+  const { user } = useSelector((state) => state.user);
+
   const dispatch = useDispatch();
   const onSubmit = async (values, actions) => {
     dispatch(updatePassword(values));
@@ -94,16 +96,16 @@ const Password = () => {
           <div className="ml-[71px] w-[969px] h-[748px] bg-[rgba(255,255,255,0.05)] shadow">
             <div className="ml-[280px] mt-[32px]">
               <div className="w-[525px] h-[127px] flex justify-between items-center">
-                <div className="h-[127px] rounded-full flex flex-row items-center  ">
-                  <img src={Pimg} alt="" className="w-[127px] " />
+                <div className="h-[127px] rounded-full flex flex-row items-center ">
+                  <img src={`${user.image ? user.image : avat}`} alt="" className="w-[127px] rounded-full " />
                   <div className="ml-[25px]">
                     <div>
                       <h6 className="text-[#344054] text-[25px] font-normal ">
-                        Smith Johnson
+                        {user.firstName} {user.lastName}
                       </h6>
                     </div>
                     <div className="text-[#7C7D7D] text-[14px] ">
-                      johnsonsmith@gmail.com
+                    {user.email}
                     </div>
                   </div>
                   <div className="absolute flex justify-center align-middle right-[8px] bottom-[10px] w-6 h-6"></div>

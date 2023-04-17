@@ -11,6 +11,30 @@ body {
   font-family: "Inter";
 }
 
+@layer utilities{
+  .scrollbar::-webkit-scrollbar {
+    width: 0px;
+    height: 20px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: #f7f4ed;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #e0cbcb;
+    border-radius: 100vh;
+    border: 10px solid #f6f7ed;
+  }
+
+  .scrollbar::-webkit-scrollbar {
+    background: #ffffff;
+  }
+
+
+}
+
 .square {
   @apply w-[351.53px] h-[332.95px] relative border-2 border-[#93FCEC];
 }
@@ -68,12 +92,14 @@ body {
 }
 
 .last {
-  @apply font-normal text-[25px] text-white leading-[30px] absolute top-3 right-2;
+  @apply font-normal text-[25px] text-white leading-[30px] absolute top-3 right-5;
 }
 
 .usd_value {
-  @apply font-normal text-[19px] text-white leading-[19px] absolute top-16 left-4;
+  @apply font-normal text-[19px] text-white leading-[19px] absolute top-16 left-8;
 }
+
+
 
 .perfect_niche {
   background: linear-gradient(
@@ -153,3 +179,27 @@ body {
   border-radius: 0.25rem;
   padding-left: 10px;
 }
+
+.asset {
+  @apply w-[102.81px] h-[30.8px] mt-[5.11px] rounded-[3.62343px] border-[0.226464px] border-[#C1C1C1] p-3 
+}
+
+.input-error {
+  @apply border-[#FDA29B];
+}
+
+button:disabled {
+  opacity: 0.8;
+}
+
+.form-line-active input:focus {
+  border : 4px solid yellow !important;
+  outline-color : blue !important;
+  }
+.height{
+  height: calc(100vh - 82px);
+}
+.height{
+  height: calc(100vh - 82px);
+}
+

@@ -12,10 +12,12 @@ import {
   Dashboard,
   Viewcrypto,
   Modal,
+  WatchList,
+  ViewStatistics,
 } from "./pages";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Select } from "./component";
+import { NaviBar, Select } from "./component";
 import { useDispatch } from "react-redux";
 import PrivateRoutes from "./utils/PrivateRoute"
 import { getData } from "./features/crypto/cryptoSlice";
@@ -30,12 +32,16 @@ const dispatch = useDispatch()
   return (
     <BrowserRouter>
        <Routes>
+
       <Route element={<PrivateRoutes />}>
+        
         <Route element={<ProfilePage />} path="/" exact />
         <Route element={<Password />} path="/password" exact />
         <Route element={<Dashboard />} path="/dashboard" exact />
         <Route element={<ActiveCrypto />} path="/active-crypto" exact />
         <Route element={<Viewcrypto />} path="/view-crypto" exact />
+        <Route element={<WatchList />} path="/watchlist/:id?" exact />
+        <Route element={<ViewStatistics />} path="/view-stats/:id?" exact />
       </Route>
       <Route element={<Landingpage />} path="/landing" />
       <Route path="/signUp" element={<SignUp />} />
