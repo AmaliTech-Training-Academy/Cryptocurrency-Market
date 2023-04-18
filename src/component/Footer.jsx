@@ -37,7 +37,7 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        <div className='w-[249.99px] h-[35.83px] absolute top-[292.58px] left-[89.75px] flex '>
+        <div className='w-[249.99px] h-[35.83px] absolute top-[292.58px] left-[73.75px] flex '>
           <img src={Instagram} alt="" />
           <img src={Facebook} alt="" className='ml-[36.64px] mr-[33.27px]' />
           <img src={Twitter} alt="" />
