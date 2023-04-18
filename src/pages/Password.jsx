@@ -97,7 +97,7 @@ const Password = () => {
             <div className="ml-[280px] mt-[32px]">
               <div className="w-[525px] h-[127px] flex justify-between items-center">
                 <div className="h-[127px] rounded-full flex flex-row items-center ">
-                  <img src={`${user.image ? user.image : avat}`} alt="" className="w-[127px] rounded-full " />
+                  <img src={`${user.image ? user.image : avat}`} alt="" className="w-[40px] hd-[40px] rounded-full " />
                   <div className="ml-[25px]">
                     <div>
                       <h6 className="text-[#344054] text-[25px] font-normal ">

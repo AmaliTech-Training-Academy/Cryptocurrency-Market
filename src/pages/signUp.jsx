@@ -31,6 +31,7 @@ const signUp = () => {
       lastName: "",
       email: "",
       password: "",
+      confirmPassword:"",
     },
     validationSchema: userSchema,
     onSubmit,
@@ -106,6 +107,17 @@ const signUp = () => {
                   onBlur={handleBlur}
                   error={errors.password}
                   touch={touched.password}
+                />
+                 <Input
+                  label="confirmPassword*"
+                  type="confirmPassword"
+                  name="confirmPassword"
+                  value={values.confirmPassword}
+                  handleChange={handleChange}
+                  placeholder="Repeat password "
+                  onBlur={handleBlur}
+                  error={errors.confirmPassword}
+                  touch={touched.confirmPassword}
                 />
 
                 <div className="mt-[46px]  h-[42px] text-center  ">

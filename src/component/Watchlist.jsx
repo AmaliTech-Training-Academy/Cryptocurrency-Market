@@ -20,7 +20,7 @@ const navigate = useNavigate()
 
               <div className="flex flex-wrap justify-between items-center">
                 <img src={item.iconUrl} alt="" className="w-9" />
-                <h1 className="pl-3">{item.name}</h1>
+                <h1 className="pl-3">{item.name.substring(0,15)}</h1>
               </div>
               <h1>${item.price}</h1>
             </div>

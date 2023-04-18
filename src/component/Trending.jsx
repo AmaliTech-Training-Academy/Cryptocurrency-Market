@@ -3,7 +3,6 @@ import plus from "../assets/plus.png";
 import down from "../assets/negative.png";
 import { useSelector } from "react-redux";
 
-
 const Trending = () => {
   const { data } = useSelector((store) => store.data);
 
@@ -30,23 +29,26 @@ const Trending = () => {
                 key={items.uuid}
                 className="flex justify-between items-baseline mb-[30px] relative"
               >
-                <div className="w-[15%]  flex justify-between items-center">
+                <div className="w-[7%]  flex justify-between items-center">
                   <span className="font-normal text-[18.8799px] text-[#101828] flex gap-[15.34px]">
                     <img
                       src={items.iconUrl}
                       alt=""
                       className="w-[27.14px] h-[27.14px]"
                     />
-                    {items.name}
+                    <h1 className="w-[200px] ">
+
+                    {items.name.substring(0, 11)}
+                    </h1>
                   </span>
                 </div>
-                <h2 className=" absolute left-[185px] top-0 2xl:left-[260px] font-normal text-[18.8799px] text-[#101828 ">
+                <h2 className=" w-[50px] text-left font-normal text-[18.8799px] text-[#101828 ">
                   {items.symbol}
                 </h2>
-                <h2 className=" absolute left-[340px] top-0 2xl:left-[500px] font-normal text-[18.8799px] text-[#101828]">
+                <h2 className=" font-normal text-[18.8799px] text-[#101828]">
                   ${Number(items.price).toFixed(2)}
                 </h2>
-                <div className="absolute left-[530px] top-0 2xl:left-[760px] font-normal text-[18.8799px]  flex gap-[12.98px]  justify-around items-center ">
+                <div className=" font-normal text-[18.8799px]  flex gap-[12.98px]  justify-around items-center ">
                   <img src={`${items.change > 0 ? plus : down}`} alt="" />
                   <h2
                     className={`${

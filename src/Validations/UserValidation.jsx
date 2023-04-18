@@ -9,4 +9,5 @@ export const userSchema = yup.object().shape({
     .min(6, "Password must be at least 5 characters")
     .max(15, "Password must be 12 characters or less")
     .required("Password is required"),
+    confirmPassword:yup.string().oneOf([yup.ref("password"), null], "Passwords must match").required("Passwords must match")
 });
