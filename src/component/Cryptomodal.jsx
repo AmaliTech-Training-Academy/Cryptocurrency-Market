@@ -26,7 +26,7 @@ dispatch(storePortfolio(singleItem))
         <span className='font-bold text-xl absolute top-[167px] left-[58.5px]'>Cryptocurrency has been added</span>
         <span className='w-[252px] h-[38px] font-normal text-base text-black leading-[19px] text-center absolute top-[202px] left-[90.5px]'>Now you can view your cryptocurrencies in your portfolio</span>
         <div>
-          <button className='w-[83px] h-[39px] bg-[rgba(108,233,166,0.5)] rounded-[30px] absolute top-[270px] left-[112px] font-bold text-base text-white' onClick={handleSubmit}>View</button>
+          <button className='w-[83px] h-[39px] rounded-[30px] absolute top-[270px] left-[112px] font-bold text-base text-[#32d583] border border-[#32d583]' onClick={handleSubmit}>View</button>
           <button onClick={onClose} className='w-[83px] h-[39px] bg-[#32d583] rounded-[30px] absolute top-[270px] left-[237px] font-bold text-base text-white'>Done</button>
         </div>
       </div>

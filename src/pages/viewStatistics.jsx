@@ -1,5 +1,5 @@
 import React from 'react'
-import { NaviBar, Popular, ViewStat, Watchlist,ViewStatInfo } from "../component";
+import { NaviBar, ViewStat, Watchlist,ViewPopular } from "../component";
 import { useParams,  } from "react-router-dom";
 
 const viewStatistics = () => {
@@ -8,13 +8,12 @@ const viewStatistics = () => {
     <>
     <NaviBar/>
     <div className="flex justify-between p-[45px]">
-      <div className="w-[70%]  flex flex-col" >
+      <div className="w-[70%]  " >
 <ViewStat id={id}/>
-    <ViewStatInfo/>
       </div>
       <div className="w-[26%]  flex flex-col">
         <Watchlist />
-        <Popular />
+        <ViewPopular />
       </div>
     </div>
     </>

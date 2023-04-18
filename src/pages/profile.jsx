@@ -20,7 +20,7 @@ import axios from "axios";
 const profile = () => {
   
   const dispatch = useDispatch();
-  const { user,isLoading } = useSelector((state) => state.user);
+  const { user } = useSelector((state) => state.user);
 
 
   const onSubmit = (values, actions) => {
@@ -53,7 +53,6 @@ const profile = () => {
   });
 
 
-const [value, setValue] = useState();
 
 const [imageSelected, setImageSelected] = useState("");
 const [images, setImages] = useState('');
@@ -268,7 +267,7 @@ const uploadImage = async() => {
                             <input
                               type="number"
                               name="mobileNumber"
-                              placeholder="598 756 9870"
+                              placeholder="5987569870"
                               className={` flex w-[285px] h-[46px] border mt-[18px] rounded pl-[10px] ${
                                 errors.mobileNumber && touched.mobileNumber
                                   ? "border-[red]"

@@ -41,7 +41,6 @@ export const updatePassword = createAsyncThunk(
   }
 );
 
-
 const userSlice = createSlice({
   name: "user",
   initialState,
@@ -50,10 +49,10 @@ const userSlice = createSlice({
       console.log(payload);
       state.user = { ...payload };
     },
-    logoutUser: (state,) => {
+    logoutUser: (state) => {
       state.user = null;
       removeUserFromLocalStorage();
-    }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -62,9 +61,9 @@ const userSlice = createSlice({
       })
 
       .addCase(registerUser.fulfilled, (state, { payload }) => {
-        const {data} = payload
+        const { data } = payload;
         state.isLoading = false;
-        state.user = data
+        state.user = data;
         addUserToLocalStorage(data);
       })
       .addCase(registerUser.rejected, (state) => {
@@ -74,16 +73,16 @@ const userSlice = createSlice({
       .addCase(loginUser.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(loginUser.fulfilled, (state,{payload}) => {
-        const {data} = payload
+      .addCase(loginUser.fulfilled, (state, { payload }) => {
+        const { data } = payload;
         state.isLoading = false;
-        state.user = data
+        state.user = data;
         addUserToLocalStorage(data);
         toast.success(`Welcome back ${data.firstName}`);
       })
-      .addCase(loginUser.rejected, (state, ) => {
+      .addCase(loginUser.rejected, (state) => {
         state.isLoading = false;
-        toast.error('Invalid Email or Passsword');
+        toast.error("Invalid Email or Passsword");
       })
       .addCase(updateUserProfile.pending, (state) => {
         state.isLoading = true;
@@ -96,19 +95,17 @@ const userSlice = createSlice({
         state.isLoading = false;
         toast.error(payload);
       })
-      .addCase(updatePassword.pending, (state, ) => {
+      .addCase(updatePassword.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(updatePassword.fulfilled, (state,) => {
+      .addCase(updatePassword.fulfilled, (state) => {
         state.isLoading = false;
         toast.success("Password Updated");
       })
       .addCase(updatePassword.rejected, (state) => {
         state.isLoading = false;
         toast.success("Password Denied");
-      })
-    
-      
+      });
   },
 });
 

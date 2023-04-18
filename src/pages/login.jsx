@@ -7,24 +7,23 @@ import { Input } from "../component";
 import { loginUser, storeUser } from "../features/user/userSlice";
 import { loginSchema } from "../Validations/UserLogin";
 
-
 const login = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate()
-  const {user} = useSelector((store) => store.user)
-  
+  const navigate = useNavigate();
+  const { user } = useSelector((store) => store.user);
+
   const onSubmit = (values, actions) => {
-       dispatch(loginUser(values));
+    dispatch(loginUser(values));
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     if (user) {
-     setTimeout(() => {
-       navigate('/')
-     }, 3000);
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
     }
-   },[user])
-   
+  }, [user]);
+
   const {
     values,
     errors,

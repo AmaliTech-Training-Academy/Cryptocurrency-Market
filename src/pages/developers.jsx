@@ -1,6 +1,6 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {Link} from "react-router-dom"
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const developers = () => {
   const { user } = useSelector((state) => state.user);
@@ -12,13 +12,11 @@ const developers = () => {
           Hello <span className="font-bold uppercase">{user.firstName}</span>
         </h1>
         <p className="mb-6">This page is currently unvailable</p>
-        <Link to={'/dashboard'}>
-        <button
-          className="h-[40px] w-[180px] p rounded-lg bg-[#0C3C4C] hover:opacity-90 text-white"
-          >
-          Back To Home
-        </button>
-            </Link>
+        <Link to={"/dashboard"}>
+          <button className="h-[40px] w-[180px] p rounded-lg bg-[#0C3C4C] hover:opacity-90 text-white">
+            Back To Home
+          </button>
+        </Link>
       </div>
     </div>
   );

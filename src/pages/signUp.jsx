@@ -4,10 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import icon from "../assets/CryptoMart.svg";
 import { Input } from "../component";
-import { registerUser, storeUser } from "../features/user/userSlice";
+import { registerUser } from "../features/user/userSlice";
 import { userSchema } from "../Validations/UserValidation";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 
 const signUp = () => {
   const navigate = useNavigate();
@@ -31,6 +30,7 @@ const signUp = () => {
       lastName: "",
       email: "",
       password: "",
+      confirmPassword: "",
     },
     validationSchema: userSchema,
     onSubmit,
@@ -106,6 +106,17 @@ const signUp = () => {
                   onBlur={handleBlur}
                   error={errors.password}
                   touch={touched.password}
+                />
+                <Input
+                  label="confirmPassword*"
+                  type="confirmPassword"
+                  name="confirmPassword"
+                  value={values.confirmPassword}
+                  handleChange={handleChange}
+                  placeholder="Repeat password "
+                  onBlur={handleBlur}
+                  error={errors.confirmPassword}
+                  touch={touched.confirmPassword}
                 />
 
                 <div className="mt-[46px]  h-[42px] text-center  ">

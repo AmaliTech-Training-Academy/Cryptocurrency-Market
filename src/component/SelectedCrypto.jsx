@@ -38,50 +38,56 @@ const SelectedCrypto = ({ id }) => {
             Edit
           </button>
           <div className="h-[320px] overflow-y-auto scrollbar">
-          {data.map((item, index) => {
-            return (
-              <div key={index} >
-                <div className="flex justify-center items-center " >
-                  <div className="cursor-pointer "  onClick={() => {
-                      handleDelete(item.uuid);
-                    }} >
-
-                  <img
-                    className={`mr-5 mb-6  ${toggle ? "visible" : "hidden"}`}
-                    src={del}
-                    alt=""
-                    
-                    />
-                    </div>
-                  <div
-                    className="flex justify-between items-center w-full mb-3 cursor-pointer"
-                    onClick={() => {
-                      handleSelectedCoin(item);
-                    }}
-                  >
-                    <div className="h-[35px] ">
-                      <h1>{item.name}</h1>
-                      <p className="text-[#7C7D7D] text-[12px]">
-                        {item.symbol}
-                      </p>
-                    </div>
-                    <img src={`${item.change > 0 ? graph : redgraph}`} alt="" />
-                    <div className="">
-                      <h1>${item.price}</h1>
-                      <p
-                        className={` w-[67px] h-[34px] rounded-xl  text-[12px] flex justify-center items-center ${
-                          item.change > 0 ? "bg-[#32D583]" : "bg-[#F04438]"
+            {data.map((item, index) => {
+              return (
+                <div key={index}>
+                  <div className="flex justify-center items-center ">
+                    <div
+                      className="cursor-pointer "
+                      onClick={() => {
+                        handleDelete(item.uuid);
+                      }}
+                    >
+                      <img
+                        className={`mr-5 mb-6  ${
+                          toggle ? "visible" : "hidden"
                         }`}
-                      >
-                        {item.change}%
-                      </p>
+                        src={del}
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      className="flex justify-between items-center w-full mb-3 cursor-pointer"
+                      onClick={() => {
+                        handleSelectedCoin(item);
+                      }}
+                    >
+                      <div className="h-[35px] ">
+                        <h1>{item.name}</h1>
+                        <p className="text-[#7C7D7D] text-[12px]">
+                          {item.symbol}
+                        </p>
+                      </div>
+                      <img
+                        src={`${item.change > 0 ? graph : redgraph}`}
+                        alt=""
+                      />
+                      <div className="">
+                        <h1>${item.price}</h1>
+                        <p
+                          className={` w-[67px] h-[34px] rounded-xl  text-[12px] flex justify-center items-center ${
+                            item.change > 0 ? "bg-[#32D583]" : "bg-[#F04438]"
+                          }`}
+                        >
+                          {item.change}%
+                        </p>
+                      </div>
                     </div>
                   </div>
+                  <div className="border mb-3"> </div>
                 </div>
-                <div className="border mb-3"> </div>
-              </div>
-            );
-          })}
+              );
+            })}
           </div>
         </div>
         <div className="bg-[#E4E7EC]   h-[59px] flex justify-evenly items-center">
