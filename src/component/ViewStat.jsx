@@ -4,6 +4,7 @@ import axios from "axios";
 
 const ViewStat = ({id}) => {
   const coin = id?.toLowerCase() 
+  const [loading, setLoading] = useState(true);
     const [data,setData] = useState()
     const [rate,setRate] = useState()
     const [price,setPrice] = useState()
@@ -12,10 +13,16 @@ const ViewStat = ({id}) => {
     const [symbol,setSymbol] = useState()
   useEffect(() => {
     const fetchdata = async () => {
+
       const response = await axios.get(
         `https://api.coinranking.com/v2/coins?search=${coin}`
         );
         const data =  response.data.data.coins[0].sparkline.slice(0,12)
+        if (data) {
+          setLoading(false);
+        } else {
+          setLoading(true);
+        }
         setRate(response.data.data.coins[0].change)
         setPrice(response.data.data.coins[0].price)
         setName(response.data.data.coins[0].name)
@@ -28,6 +35,13 @@ const ViewStat = ({id}) => {
     fetchdata()
   },[id]);
   
+  if (loading) {
+    return (
+      <div className="text-[40px] font-bold text-center mb-[69px] text-[#0C3C4C]      ">
+        Loading...
+      </div>
+    );
+  }
 
   return ( 
     <div className="pl-[36px] pr-[51px] pt-[13px] pb-[10px] mb-[69px] shadow">
