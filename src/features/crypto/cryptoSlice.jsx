@@ -2,42 +2,34 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { getDataThunk } from "./cryptoThunk";
 
 const initialState = {
-    isLoading: false,
-    data:[],
-  };
+  isLoading: false,
+  data: [],
+};
 
-  export const getData = createAsyncThunk(
-    "user/getData",
-    async ( thunkAPI) => {
-      return await getDataThunk("/coins", thunkAPI);
-    }
-  );
+export const getData = createAsyncThunk("user/getData", async (thunkAPI) => {
+  return await getDataThunk("/coins", thunkAPI);
+});
 
+const cryptoSlice = createSlice({
+  name: "data",
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(getData.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getData.fulfilled, (state, { payload }) => {
+        console.log(payload);
+        const { data } = payload;
+        state.isLoading = false;
+        state.data = payload;
+      })
+      .addCase(getData.rejected, (state) => {
+        state.isLoading = false;
+      });
+  },
+});
 
-  const cryptoSlice = createSlice({
-    name: "data",
-    initialState,
-    reducers: {
-    
-    },
-    extraReducers: (builder) => {
-        builder
-          .addCase(getData.pending, (state) => {
-            state.isLoading = true;
-          })
-          .addCase(getData.fulfilled, (state,{payload}) => {
-            const {data} = payload
-
-            state.isLoading = false;
-            state.data = payload         
-          })
-          .addCase(getData.rejected, (state, { payload }) => {
-            state.isLoading = false;
-          })
-          
-      },
-})
-
-
-    export const {  } = cryptoSlice.actions;
+export const {} = cryptoSlice.actions;
 export default cryptoSlice.reducer;

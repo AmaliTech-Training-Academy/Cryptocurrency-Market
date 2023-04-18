@@ -1,7 +1,6 @@
 import React from "react";
 import { NaviBar } from "../component";
 import avat from "../assets/avat.png";
-import Epi from "../assets/edit picture.svg";
 import Home from "../assets/home vector.svg";
 import Che from "../assets/chevron 1.svg";
 import Psi from "../assets/Vector.svg";
@@ -11,7 +10,7 @@ import Pv1 from "../assets/Password vector 1.svg";
 import { useFormik } from "formik";
 import { passswordSchema } from "../schema";
 import { Link, NavLink } from "react-router-dom";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updatePassword } from "../features/user/userSlice";
 
 const Password = () => {
@@ -46,7 +45,7 @@ const Password = () => {
       <NaviBar />
       <div className="ml-[43px]">
         <div className="mt-2 flex items-center justify-center w-[261px] h-[30px]">
-          <Link to={'/landing'} className="mr-[25px]">
+          <Link to={"/landing"} className="mr-[25px]">
             <img src={Home} alt="" className="w-[16px] h-[18px] " />
           </Link>
           <div className="mr-[12px]">
@@ -97,7 +96,11 @@ const Password = () => {
             <div className="ml-[280px] mt-[32px]">
               <div className="w-[525px] h-[127px] flex justify-between items-center">
                 <div className="h-[127px] rounded-full flex flex-row items-center ">
-                  <img src={`${user.image ? user.image : avat}`} alt="" className="w-[40px] hd-[40px] rounded-full " />
+                  <img
+                    src={`${user.image ? user.image : avat}`}
+                    alt=""
+                    className="w-[40px] hd-[40px] rounded-full "
+                  />
                   <div className="ml-[25px]">
                     <div>
                       <h6 className="text-[#344054] text-[25px] font-normal ">
@@ -105,7 +108,7 @@ const Password = () => {
                       </h6>
                     </div>
                     <div className="text-[#7C7D7D] text-[14px] ">
-                    {user.email}
+                      {user.email}
                     </div>
                   </div>
                   <div className="absolute flex justify-center align-middle right-[8px] bottom-[10px] w-6 h-6"></div>

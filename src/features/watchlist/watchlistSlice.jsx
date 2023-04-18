@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   data: [],
@@ -10,7 +10,6 @@ const watchListSlice = createSlice({
   reducers: {
     storeWatchList: (state, { payload }) => {
       state.data.unshift(payload);
-
     },
     deleteWatchList: (state, { payload }) => {
       state.data = state.data.filter((item) => item.uuid !== payload);

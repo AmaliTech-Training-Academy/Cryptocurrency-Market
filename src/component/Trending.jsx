@@ -37,8 +37,7 @@ const Trending = () => {
                       className="w-[27.14px] h-[27.14px]"
                     />
                     <h1 className="w-[200px] ">
-
-                    {items.name.substring(0, 11)}
+                      {items.name.substring(0, 11)}
                     </h1>
                   </span>
                 </div>

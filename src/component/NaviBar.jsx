@@ -1,9 +1,7 @@
 import React, { useState,useRef,useEffect } from "react";
 import Img1 from "../assets/logo crypto.svg";
-import notification from "../assets/Notification icon.svg";
 import avat from "../assets/avat.png";
 import Down from "../assets/chevron.svg";
-import Search from "../assets/search icon.svg";
 import { NavLink,Link } from "react-router-dom";
 import { useDispatch,useSelector } from "react-redux";
 import { logoutUser } from "../features/user/userSlice";

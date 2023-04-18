@@ -49,7 +49,7 @@ const Statistics = () => {
         </div>
         <div className="flex  w-[220px] justify-between items-center">
           <h2 className="text-[21px]">US${Number(price).toFixed(2)}</h2>
-          <p className="text-[red]">{rate}</p>
+          <p className={`${rate > 0 ? 'text-[#32D583]' : 'text-[red]'}`}>{rate}%</p>
         </div>
       </div>
       <div className="border-b mb-10"></div>

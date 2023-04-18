@@ -1,17 +1,12 @@
-import React from 'react'
-import { Cryptomodal } from '../component'
-import { useLocation } from 'react-router'
+import React from "react";
+import { useLocation } from "react-router";
 
 const Modal = () => {
-  const search = new URLSearchParams(useLocation().search)
-const id = search.get('id')
-console.log(id);
+  const search = new URLSearchParams(useLocation().search);
+  const id = search.get("id");
+  console.log(id);
 
-  return (
-    <div className="">
+  return <div className=""></div>;
+};
 
-    </div>
-  )
-}
-
-export default Modal
+export default Modal;

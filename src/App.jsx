@@ -17,7 +17,6 @@ import {
 } from "./pages";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { NaviBar, Select } from "./component";
 import { useDispatch } from "react-redux";
 import PrivateRoutes from "./utils/PrivateRoute"
 import { getData } from "./features/crypto/cryptoSlice";

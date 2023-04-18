@@ -19,7 +19,7 @@ import SelectedCrypto from "./SelectedCrypto";
 import CryptoInfo from "./CryptoInfo";
 import ViewStat from "./ViewStat";
 import ViewStatInfo from "./viewStatInfo";
-
+import ViewPopular from "./ViewPopular";
 export {
   Navbar,
   NaviBar,
@@ -38,7 +38,8 @@ export {
   CryptoGraphs,
   SelectedCrypto,
   CryptoInfo,
-   ViewStat,
+  ViewStat,
   ViewStatInfo,
+  ViewPopular,
 
 };
