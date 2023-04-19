@@ -5,31 +5,22 @@ import Home from "../assets/home vector.svg";
 import Che from "../assets/chevron 1.svg";
 import Psi from "../assets/Vector.svg";
 import Plok from "../assets/lock vector.svg";
-import notification from "../assets/Notification icon.svg";
 import { useFormik } from "formik";
 import { basicSchema } from "../schema";
 import { Link, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  storeUser,
-  updateUserProfile,
-} from "../features/user/userSlice";
+import { storeUser, updateUserProfile } from "../features/user/userSlice";
 import axios from "axios";
 
-
 const profile = () => {
-  
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
 
-
   const onSubmit = (values, actions) => {
     dispatch(updateUserProfile(values));
-      dispatch(storeUser(values))
-    
+    dispatch(storeUser(values));
   };
 
- 
   const {
     values,
     errors,
@@ -43,7 +34,7 @@ const profile = () => {
     initialValues: {
       firstName: user.firstName,
       lastName: user.lastName,
-      mobileNumber:user.mobileNumber,
+      mobileNumber: user.mobileNumber,
       gender: user.gender,
       email: user.email,
       image: user.image,
@@ -52,31 +43,25 @@ const profile = () => {
     onSubmit,
   });
 
+  const [imageSelected, setImageSelected] = useState("");
+  const [images, setImages] = useState("");
+  const uploadImage = async () => {
+    const formData = new FormData();
+    formData.append("file", imageSelected);
+    formData.append("upload_preset", "x3pud7wu");
 
-
-const [imageSelected, setImageSelected] = useState("");
-const [images, setImages] = useState('');
-const uploadImage = async() => {
-  const formData = new FormData();
-  formData.append("file", imageSelected);
-  formData.append("upload_preset", "x3pud7wu");
-
-  axios
-    .post("https://api.cloudinary.com/v1_1/dwhufzqgk/image/upload", formData)
-    .then((response) => {
-
-      setFieldValue('image',response.data?.secure_url);
-      setImages(response.data?.secure_url);
-  
-
-    });
-};
-
+    axios
+      .post("https://api.cloudinary.com/v1_1/dwhufzqgk/image/upload", formData)
+      .then((response) => {
+        setFieldValue("image", response.data?.secure_url);
+        setImages(response.data?.secure_url);
+      });
+  };
 
   return (
     <div className="w-full ">
-        <NaviBar />
-<form onSubmit={handleSubmit} autoComplete="off">
+      <NaviBar />
+      <form onSubmit={handleSubmit} autoComplete="off">
         <div className="ml-[43px] ">
           <div className="mt-2 flex items-center justify-center w-[261px] h-[30px]">
             <Link to={"/dashboard"} className="mr-[25px]">
@@ -91,7 +76,7 @@ const uploadImage = async() => {
           </div>
 
           <div className="flex mt-[36px] ">
-            <div className="w-[268px] h-[213px] bg-[rgba(255,255,255,0.05)] shadow   ">
+            <div className="w-[268px] h-[153px] bg-[rgba(255,255,255,0.05)] shadow   ">
               <div className="flex flex-col">
                 <NavLink
                   id="settings"
@@ -117,16 +102,6 @@ const uploadImage = async() => {
                     Password
                   </div>
                 </NavLink>
-                <div className=" flex items-center pl-8 mt-[36px] mb-[35px]">
-                  <span className=" flex justify-center items-center w-[17px] h-[17px]  mr-8">
-                    <img
-                      src={notification}
-                      alt=""
-                      className="w-[15px] h-[15px]"
-                    />
-                  </span>
-                  Notification
-                </div>
               </div>
             </div>
             <div className="ml-[71px] w-[969px] h-fit  bg-[rgba(255,255,255,0.05)] shadow">
@@ -140,10 +115,12 @@ const uploadImage = async() => {
                         className="w-[127px] h-[127px]"
                       />
                     </div>
-                      <label htmlFor="image" className="absolute flex justify-center align-middle right-[8px] bottom-[10px] w-6 h-6 bg-white rounded-full cursor-pointer">
-
+                    <label
+                      htmlFor="image"
+                      className="absolute flex justify-center align-middle right-[8px] bottom-[10px] w-6 h-6 bg-white rounded-full cursor-pointer"
+                    >
                       <img src={Epi} alt="" className="w-4" />
-                      </label>
+                    </label>
                     <input
                       className="w-[95px] h-[39px] bg-transparent mt-2 border border-none hidden"
                       type="file"
@@ -152,12 +129,11 @@ const uploadImage = async() => {
                       onBlur={handleBlur}
                       onChange={(e) => setImageSelected(e.target.files[0])}
                     />
-                   
                   </div>
                   <div className="flex flex-row items-start  gap-10">
                     <div className="w-[141px] h-[39px] bg-[#0C3C4C] ml-[90px] flex justify-center rounded">
                       <button
-                      type="button"
+                        type="button"
                         className="text-[#FFFFFF] text-base font-normal text-center"
                         onClick={uploadImage}
                       >
@@ -173,14 +149,14 @@ const uploadImage = async() => {
                     </div>
                   </div>
                 </div>
-        <input
-                      className="w-[95px] h-[39px] bg-red-600 mt-16 hidden "
-                      type="text"
-                      value={values.image}
-                      name="image"
-                      onBlur={handleBlur}
-                      onChange={handleChange}
-                    />
+                <input
+                  className="w-[95px] h-[39px] bg-red-600 mt-16 hidden "
+                  type="text"
+                  value={values.image}
+                  name="image"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                />
                 {/* fields */}
                 <div className="mt-[54px]">
                   <div className="flex ">
@@ -349,8 +325,8 @@ const uploadImage = async() => {
             </div>
           </div>
         </div>
-    </form>
-      </div>
+      </form>
+    </div>
   );
 };
 

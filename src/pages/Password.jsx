@@ -5,7 +5,6 @@ import Home from "../assets/home vector.svg";
 import Che from "../assets/chevron 1.svg";
 import Psi from "../assets/Vector.svg";
 import Plok from "../assets/lock vector.svg";
-import notification from "../assets/Notification icon.svg";
 import Pv1 from "../assets/Password vector 1.svg";
 import { useFormik } from "formik";
 import { passswordSchema } from "../schema";
@@ -56,11 +55,11 @@ const Password = () => {
           </h6>
         </div>
         <div className="flex mt-[36px] ">
-          <div className="w-[268px] h-[213px] bg-[rgba(255,255,255,0.05)] shadow   ">
+          <div className="w-[268px] h-[153px] bg-[rgba(255,255,255,0.05)] shadow   ">
             <div className="flex flex-col">
               <NavLink
                 id="settings"
-                to="/profile-page"
+                to="/"
                 className="py-[0.5rem] mt-[20px]"
               >
                 <div className="flex items-center w-[268px] pl-8">
@@ -82,12 +81,7 @@ const Password = () => {
                   Password
                 </div>
               </NavLink>
-              <div className=" flex items-center pl-8 mt-[36px] mb-[35px]">
-                <span className=" flex justify-center items-center w-[17px] h-[17px]  mr-8">
-                  <img src={notification} alt="" className="w-[15px] h[14px]" />
-                </span>
-                Notification
-              </div>
+              
             </div>
           </div>
 
@@ -99,7 +93,7 @@ const Password = () => {
                   <img
                     src={`${user.image ? user.image : avat}`}
                     alt=""
-                    className="w-[40px] hd-[40px] rounded-full "
+                    className="w-[70px] h-[70px] rounded-full "
                   />
                   <div className="ml-[25px]">
                     <div>
