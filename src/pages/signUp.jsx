@@ -95,7 +95,6 @@ const signUp = () => {
                   error={errors.email}
                   touch={touched.email}
                 />
-                {/* {errors.email && touched.email && <p className="text-[red]">{errors.email}</p>} */}
                 <Input
                   label="Password*"
                   type="password"
@@ -108,8 +107,8 @@ const signUp = () => {
                   touch={touched.password}
                 />
                 <Input
-                  label="confirmPassword*"
-                  type="confirmPassword"
+                  label="Confirm Password*"
+                  type="Password"
                   name="confirmPassword"
                   value={values.confirmPassword}
                   handleChange={handleChange}
@@ -121,7 +120,6 @@ const signUp = () => {
 
                 <div className="mt-[46px]  h-[42px] text-center  ">
                   <button
-                    // disabled={isSubmitting}
                     type="submit"
                     className=" h-[42px] w-[268px] rounded-lg bg-[#0c3c4cce] font-normal text-white text-[17px] mb-[16px]"
                   >
