@@ -14,7 +14,7 @@ const Trending = () => {
         <h1 className="text-[25px] mb-[10px]">Trending Market</h1>
       </div>
       <div className="flex justify-between mb-4">
-        <h2>Name</h2>
+        <h2 >Name</h2>
         <h2>Symbol</h2>
         <h2>Price</h2>
         <h2>24H Change</h2>
@@ -29,35 +29,35 @@ const Trending = () => {
                 key={items.uuid}
                 className="flex justify-between items-baseline mb-[30px] relative"
               >
-                <div className="w-[7%]  flex justify-between items-center">
+                <div className="flex-[1.43] flex justify-between items-center">
                   <span className="font-normal text-[18.8799px] text-[#101828] flex gap-[15.34px]">
                     <img
                       src={items.iconUrl}
                       alt=""
                       className="w-[27.14px] h-[27.14px]"
                     />
-                    <h1 className="w-[200px] ">
+                    <h1 className=" ">
                       {items.name.substring(0, 11)}
                     </h1>
                   </span>
                 </div>
-                <h2 className=" w-[50px] text-left font-normal text-[18.8799px] text-[#101828 ">
+                <h2 className="flex-[1.23] text-left font-normal text-[18.8799px] text-[#101828 ">
                   {items.symbol}
                 </h2>
-                <h2 className=" font-normal text-[18.8799px] text-[#101828]">
+                <h2 className="flex-[1.3] font-normal text-[18.8799px] text-[#101828]">
                   ${Number(items.price).toFixed(2)}
                 </h2>
-                <div className=" font-normal text-[18.8799px]  flex gap-[12.98px]  justify-around items-center ">
+                <div className="flex-[1.63] font-normal text-[18.8799px]  flex   items-center ">
                   <img src={`${items.change > 0 ? plus : down}`} alt="" />
                   <h2
-                    className={`${
+                    className={`ml-3 ${
                       items.change > 0 ? "text-[#32D583]" : "text-[red]"
                     }`}
                   >
                     {items.change}%
                   </h2>
                 </div>
-                <h2>${items.marketCap.slice(0, 7)}M</h2>
+                <h2 className="flex-[0.223]">${items.marketCap.slice(0, 7)}M</h2>
               </div>
             );
           })
