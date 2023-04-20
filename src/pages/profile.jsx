@@ -37,7 +37,7 @@ const profile = () => {
       mobileNumber: user.mobileNumber,
       gender: user.gender,
       email: user.email,
-      image: user.image,
+      picture: user.picture,
     },
     validationSchema: basicSchema,
     onSubmit,
@@ -53,7 +53,7 @@ const profile = () => {
     axios
       .post("https://api.cloudinary.com/v1_1/dwhufzqgk/image/upload", formData)
       .then((response) => {
-        setFieldValue("image", response.data?.secure_url);
+        setFieldValue("picture", response.data?.secure_url);
         setImages(response.data?.secure_url);
       });
   };
@@ -110,13 +110,13 @@ const profile = () => {
                   <div className=" w-[127px] h-[127px] rounded-full relative">
                     <div className=" w-[127px] h-[127px] rounded-full relative overflow-hidden bg-profile bg-no-repeat bg-cover">
                       <img
-                        src={`${user.image ? user.image : images}`}
+                        src={`${user.picture ? user.picture : images}`}
                         alt=""
                         className="w-[127px] h-[127px]"
                       />
                     </div>
                     <label
-                      htmlFor="image"
+                      htmlFor="picture"
                       className="absolute flex justify-center align-middle right-[8px] bottom-[10px] w-6 h-6 bg-white rounded-full cursor-pointer"
                     >
                       <img src={Epi} alt="" className="w-4" />
@@ -124,8 +124,8 @@ const profile = () => {
                     <input
                       className="w-[95px] h-[39px] bg-transparent mt-2 border border-none hidden"
                       type="file"
-                      name="image"
-                      id="image"
+                      name="picture"
+                      id="picture"
                       onBlur={handleBlur}
                       onChange={(e) => setImageSelected(e.target.files[0])}
                     />
@@ -152,8 +152,8 @@ const profile = () => {
                 <input
                   className="w-[95px] h-[39px] bg-red-600 mt-16 hidden "
                   type="text"
-                  value={values.image}
-                  name="image"
+                  value={values.picture}
+                  name="picture"
                   onBlur={handleBlur}
                   onChange={handleChange}
                 />

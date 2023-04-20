@@ -62,7 +62,7 @@ function NaviBar() {
         </ul>
         <div className=" h-[36px] flex   ">
           <div className="flex justify-between w-[12rem] px-[10px] items-center " ref={menuRef}>
-            {<img src={`${user.image ? user.image: avat}`} alt="" className=" h-[40px] w-[40px] rounded-full" />}
+            {<img src={`${user.picture ? user.picture: avat}`} alt="" className=" h-[40px] w-[40px] rounded-full" />}
             <div className=" text-[11px] font-semibold ">{user.firstName} {user.lastName}</div>
             <img
               src={Down}
