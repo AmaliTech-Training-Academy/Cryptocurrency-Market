@@ -27,7 +27,7 @@ const Navbar = () => {
             <NavLink to={"/active-crypto"} id="nav-links">
               Markets
             </NavLink>
-            <NavLink to={"/faqs"} id="nav-links">
+            <NavLink to={"/watchlist"} id="nav-links">
               Watchlist
             </NavLink>
             <NavLink to={"/developers"} id="nav-links">

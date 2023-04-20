@@ -75,7 +75,7 @@ const login = () => {
                   touch={touched.password}
                 />
 
-                <Link to="/signUp" className="text-[#0000ffb3] ml-[210px] ">
+                <Link to="" className="text-[#0000ffb3] ml-[210px] ">
                   Forgot password?
                 </Link>
                 <div className="mt-[46px]  h-[42px] text-center  ">
