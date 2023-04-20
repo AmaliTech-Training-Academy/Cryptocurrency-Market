@@ -17,7 +17,7 @@ const Password = () => {
 
   const dispatch = useDispatch();
   const onSubmit = async (values, actions) => {
-    dispatch(updatePassword(values));
+    dispatch(updatePassword(values.newPassword));
   };
 
   const {
@@ -37,7 +37,6 @@ const Password = () => {
     validationSchema: passswordSchema,
     onSubmit,
   });
-  console.log(values);
 
   return (
     <div className="bg-[#FCFCFD] ">

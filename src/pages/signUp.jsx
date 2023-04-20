@@ -12,6 +12,7 @@ const signUp = () => {
   const navigate = useNavigate();
   const { user } = useSelector((store) => store.user);
   const dispatch = useDispatch();
+
   const onSubmit = (values, actions) => {
     dispatch(registerUser(values));
   };
