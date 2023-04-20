@@ -49,7 +49,6 @@ const dispatch = useDispatch()
       <Route path="*" element={<Error />} />
     </Routes>
     <ToastContainer position="top-center" />
-      <ToastContainer position="top-center" />
     </BrowserRouter>
   );
 };

@@ -20,8 +20,6 @@ const cryptoSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getData.fulfilled, (state, { payload }) => {
-        console.log(payload);
-        const { data } = payload;
         state.isLoading = false;
         state.data = payload;
       })

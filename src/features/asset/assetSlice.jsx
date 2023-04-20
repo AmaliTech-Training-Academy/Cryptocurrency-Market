@@ -10,7 +10,6 @@ const initialState = {
     initialState,
     reducers: {
       storeAsset: (state,{payload})=>{
-        console.log(payload);
         state.data.unshift(payload);
       }
     },

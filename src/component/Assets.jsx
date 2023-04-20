@@ -18,7 +18,6 @@ const Assets = () => {
       <div className='overflow-y-auto h-[200px] overflow-x-hidden scrollbar'>
       {
   data && data.map((item)=>{
-    console.log(item);
     return(
       <Link to ={`/view-stats/${item.assetName}`}>
         <div className='mt-[20px] ml-8 w-[772px] h-[60px] flex items-center relative hover:bg-[rgba(217,217,217,0.28)] p-[20px] cursor-pointer mb-10 '>
