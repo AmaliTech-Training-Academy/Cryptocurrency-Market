@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Navbar, Footer } from "../component";
 import Play from "../assets/Play.svg";
 import Hero from "../assets/hero 1.png";
@@ -10,8 +10,12 @@ import Hero1 from "../assets/hero.png";
 import Dec from "../assets/arrow_down.png";
 import Inc from "../assets/arrow-up.png";
 import { useSelector } from "react-redux";
+import YouTube from 'react-youtube';
 
 const landingPage = () => {
+  const [playerSize, setPlayerSize] = useState({ width: 640, height: 360 });
+  const [modalVisible, setModalVisible] = useState(false);
+
   const { data } = useSelector((store) => store.data);
   const all = data.data?.coins;
   const indices = [0, 1, 4, 7];
@@ -19,6 +23,25 @@ const landingPage = () => {
     return indices.includes(index);
   });
 
+  const handleButtonClick = () => {
+    setModalVisible(!modalVisible);
+  };
+
+  const handleModalClose = () => {
+    setModalVisible(false);
+  };
+
+  const handlePlayerReady = (event) => {
+    const player = event.target;
+    const videoWidth = player.getVideoWidth();
+    const videoHeight = player.getVideoHeight();
+  
+    setPlayerSize({
+      width: Math.max(640, videoWidth),
+      height: Math.max(360, videoHeight),
+    });
+  };
+  
   return (
     <div>
       <Navbar />
@@ -38,14 +61,36 @@ const landingPage = () => {
               <button className="w-[243px] h-[86px] rounded-[10px] font-normal text-[31.25px] text-white text-center border border-[#93FCEC]">
                 Explore More
               </button>
-              <button className="w-[311px] h-[86px] rounded-lg font-normal text-[31.25px] text-white text-center bg-[rgba(12,60,76,0.722776)] border border-[#32D583] flex justify-center items-center gap-4">
-                <span className="w-[60px] h-[60px] rounded-full border border-[#93FCEC] flex justify-center items-center">
+              <button onClick={handleButtonClick} className="w-[311px] h-[86px] rounded-lg font-normal text-[31.25px] text-white text-center bg-[rgba(12,60,76,0.722776)] border border-[#32D583] flex justify-center items-center gap-4">
+                <span className="w-[60px] h-[60px] rounded-full border border-[#93FCEC] flex justify-center items-center" >
                   <img src={Play} alt="" className="w-[18px] h-[24.06px]" />{" "}
                 </span>
                 Watch video
               </button>
+             
             </div>
+            <div className="">
+ {modalVisible && (
+  <div className="w-full relative">
+
+  <div className="w-[690px] p-7 absolute -top-40 right-0 z-20" >
+    <h1 className="text-white font-bold text-right text-5xl cursor-pointer" onClick={handleModalClose} >X</h1>
+      <YouTube
+        videoId="1YyAzVmP9xQ"
+        onReady={handlePlayerReady}
+        opts={{
+          width: playerSize.width,
+          height: playerSize.height,
+          playerVars: {
+            autoplay: 1,
+          },
+        }}
+      />
+  </div>
+            </div>
+)}
             <img src={Hero} alt="" className="absolute top-0 right-0 " />
+            </div>
           </div>
           <div className="px-[89px] pt-[70px] w-full flex flex-col justify-center items-center">
             <div className="flex justify-center w-full gap-[89px]">
