@@ -4,13 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import icon from "../assets/CryptoMart.svg";
 import { Input } from "../component";
-import { loginUser, storeUser } from "../features/user/userSlice";
+import { loginUser,  } from "../features/user/userSlice";
 import { loginSchema } from "../Validations/UserLogin";
 
 const login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { user } = useSelector((store) => store.user);
+  const { user,isLoading } = useSelector((store) => store.user);
 
   const onSubmit = (values, actions) => {
     dispatch(loginUser(values));
@@ -81,7 +81,7 @@ const login = () => {
                 <div className="mt-[46px]  h-[42px] text-center  ">
                   <button
                     type="submit"
-                    className=" h-[42px] w-[268px] rounded-lg bg-[#0c3c4cce] font-normal text-white text-[17px] mb-[16px]"
+                    className=" h-[42px] w-[268px] rounded-lg bg-[#0c3c4cce] font-normal text-white text-[17px] mb-[16px] "
                   >
                     Login
                   </button>

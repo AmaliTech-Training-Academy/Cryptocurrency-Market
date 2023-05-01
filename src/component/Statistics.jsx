@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import AreaChartComponent from "./AreaCharrt";
+import Loader from "./Loader";
 
 const Statistics = () => {
   const [loading, setLoading] = useState(true);
@@ -34,7 +35,7 @@ const Statistics = () => {
   if (loading) {
     return (
       <div className="text-[40px] font-bold text-center mb-[69px] text-[#0C3C4C]      ">
-        Loading...
+        <Loader/>
       </div>
     );
   }

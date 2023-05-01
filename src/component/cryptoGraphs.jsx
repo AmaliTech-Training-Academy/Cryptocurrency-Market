@@ -56,6 +56,15 @@ const cryptoGraphs = ({ item,uuid }) => {
     setSelected(item);
   }, [item]);
 
+  const formatYAxis = (value) => {
+    if (value.toString().includes('.')) {
+      return parseFloat(value).toFixed(2);
+    } else {
+      return value;
+    }
+  }
+
+
   const info = all.data?.coins;
   const select = info.filter((item) => item.uuid === allID );
   return (
@@ -83,9 +92,11 @@ const cryptoGraphs = ({ item,uuid }) => {
             );
           })}
       </div>
-      <div className="border-b mb-10"></div>
-      <ResponsiveContainer width="100%" height={370}>
-        <AreaChart data={data} margin={{ top: 5 }}>
+      <div className="border-b mb-5"></div>
+      <h1 className="ml-1 mb-2  text-[15px] font-bold">Prices</h1>
+      <div className="relative">
+      <ResponsiveContainer width="99%" height={370}>
+        <AreaChart data={data} margin={{ top: 5, right:10 }}>
           <defs>
             <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="#32D583" stopOpacity={0.5} />
@@ -93,19 +104,23 @@ const cryptoGraphs = ({ item,uuid }) => {
             </linearGradient>
           </defs>
           <Area dataKey="price" stroke="#32D583" fill="url(#color)" />
-
           <YAxis
             dataKey=""
-            domain={[29000, 30800]}
+            domain={['auto', 'auto']}
             axisLine={false}
             tickLine={true}
             tickCount={8}
-          />
+            tickFormatter={formatYAxis}
+            />
           <XAxis dataKey="hr" />
           <Tooltip />
           <CartesianGrid opacity={0.2} />
         </AreaChart>
       </ResponsiveContainer>
+      <div className=" absolute -right-[63px] bottom-[60px]">
+      <h1 className="text-[15px] -rotate-90 font-bold">24HourChange</h1>
+      </div>
+            </div>
 
       {select &&
         select.map((item, index) => {
