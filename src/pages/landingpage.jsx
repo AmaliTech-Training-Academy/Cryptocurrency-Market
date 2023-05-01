@@ -17,6 +17,7 @@ const landingPage = () => {
   const [modalVisible, setModalVisible] = useState(false);
 
   const { data } = useSelector((store) => store.data);
+  
   const all = data.data?.coins;
   const indices = [0, 1, 4, 7];
   const filterCoins = all.filter((element, index) => {

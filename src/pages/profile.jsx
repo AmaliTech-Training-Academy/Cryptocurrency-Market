@@ -34,10 +34,10 @@ const profile = () => {
     initialValues: {
       firstName: user.firstName,
       lastName: user.lastName,
-      mobileNumber: user.mobileNumber,
+      phoneNumber: user.phoneNumber,
       gender: user.gender,
       email: user.email,
-      picture: user.picture,
+      image: user.image,
     },
     validationSchema: basicSchema,
     onSubmit,
@@ -53,7 +53,7 @@ const profile = () => {
     axios
       .post("https://api.cloudinary.com/v1_1/dwhufzqgk/image/upload", formData)
       .then((response) => {
-        setFieldValue("picture", response.data?.secure_url);
+        setFieldValue("image", response.data?.secure_url);
         setImages(response.data?.secure_url);
       });
   };
@@ -110,13 +110,13 @@ const profile = () => {
                   <div className=" w-[127px] h-[127px] rounded-full relative">
                     <div className=" w-[127px] h-[127px] rounded-full relative overflow-hidden bg-profile bg-no-repeat bg-cover">
                       <img
-                        src={`${user.picture ? user.picture : images}`}
+                        src={`${user.image ? user.image : images}`}
                         alt=""
                         className="w-[127px] h-[127px]"
                       />
                     </div>
                     <label
-                      htmlFor="picture"
+                      htmlFor="image"
                       className="absolute flex justify-center align-middle right-[8px] bottom-[10px] w-6 h-6 bg-white rounded-full cursor-pointer"
                     >
                       <img src={Epi} alt="" className="w-4" />
@@ -124,8 +124,8 @@ const profile = () => {
                     <input
                       className="w-[95px] h-[39px] bg-transparent mt-2 border border-none hidden"
                       type="file"
-                      name="picture"
-                      id="picture"
+                      name="image"
+                      id="image"
                       onBlur={handleBlur}
                       onChange={(e) => setImageSelected(e.target.files[0])}
                     />
@@ -152,8 +152,8 @@ const profile = () => {
                 <input
                   className="w-[95px] h-[39px] bg-red-600 mt-16 hidden "
                   type="text"
-                  value={values.picture}
-                  name="picture"
+                  value={values.image}
+                  name="image"
                   onBlur={handleBlur}
                   onChange={handleChange}
                 />
@@ -232,7 +232,7 @@ const profile = () => {
                         <label className="ml-[10px] ">Mobile Number</label>
                         <div
                           className={` flex  rounded pl-[10px] ${
-                            errors.mobileNumber && touched.mobileNumber
+                            errors.phoneNumber && touched.phoneNumber
                               ? "border-[red]"
                               : "border-[#53352d80]"
                           }`}
@@ -242,22 +242,22 @@ const profile = () => {
 
                             <input
                               type="number"
-                              name="mobileNumber"
+                              name="phoneNumber"
                               placeholder="5987569870"
                               className={` flex w-[285px] h-[46px] border mt-[18px] rounded pl-[10px] ${
-                                errors.mobileNumber && touched.mobileNumber
+                                errors.phoneNumber && touched.phoneNumber
                                   ? "border-[red]"
                                   : "border-[#53352d80]"
                               }`}
-                              value={values.mobileNumber}
+                              value={values.phoneNumber}
                               onChange={handleChange}
                               onBlur={handleBlur}
                             />
                           </div>
                         </div>
-                        {errors.mobileNumber && touched.mobileNumber && (
+                        {errors.phoneNumber && touched.phoneNumber && (
                           <p className="text-[red] ml-[70px]">
-                            {errors.mobileNumber}
+                            {errors.phoneNumber}
                           </p>
                         )}
                       </div>

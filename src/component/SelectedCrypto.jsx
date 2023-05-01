@@ -8,6 +8,7 @@ import { CryptoGraphs, CryptoInfo } from ".";
 import { useDispatch } from "react-redux";
 import { deleteWatchList } from "../features/watchlist/watchlistSlice";
 
+
 const SelectedCrypto = ({ id }) => {
   const [toggle, setToggle] = useState(false);
   const { data } = useSelector((store) => store.watchList);
@@ -89,13 +90,13 @@ const SelectedCrypto = ({ id }) => {
               );
             })}
           </div>
-        </div>
-        <div className="bg-[#E4E7EC]   h-[59px] flex justify-evenly items-center">
+        <div className="bg-[#E4E7EC] fixed bottom-0 left-0 w-[23.5%]   h-[59px] flex justify-evenly items-center ">
           <div className="flex">
             <img src={yahoo} alt="" />
             <span className="font-bold">finance</span>
           </div>
           <h1>Real Time Price</h1>
+        </div>
         </div>
       </div>
       <div className="w-[70%]  pr-5">

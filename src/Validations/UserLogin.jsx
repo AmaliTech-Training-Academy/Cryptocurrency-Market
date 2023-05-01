@@ -1,7 +1,7 @@
 import * as yup from "yup";
 
 export const loginSchema = yup.object().shape({
-  email: yup.string().email("Email is valid").required("Email is required"),
+  email: yup.string().email('Invalid email').matches(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,'Invalid email address').required("Please enter email"),
   password: yup
     .string()
     .min(6, "Password must be at least 6 characters")
