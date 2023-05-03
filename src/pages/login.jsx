@@ -19,7 +19,7 @@ const login = () => {
   useEffect(() => {
     if (user) {
       setTimeout(() => {
-        navigate("/");
+        navigate("/dashboard");
       }, 3000);
     }
   }, [user]);
