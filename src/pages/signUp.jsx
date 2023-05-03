@@ -40,7 +40,7 @@ const signUp = () => {
   useEffect(() => {
     if (user) {
       setTimeout(() => {
-        navigate("//dashboard");
+        navigate("/dashboard");
       }, 3000);
     }
   }, [user]);
