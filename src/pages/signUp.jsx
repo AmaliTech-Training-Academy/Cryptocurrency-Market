@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 const signUp = () => {
   const navigate = useNavigate();
-  const { user } = useSelector((store) => store.user);
+  const { done } = useSelector((store) => store.user);
   const dispatch = useDispatch();
 
   const onSubmit = (values, actions) => {
@@ -38,12 +38,12 @@ const signUp = () => {
   });
 
   useEffect(() => {
-    if (user) {
+    if (done) {
       setTimeout(() => {
-        navigate("/dashboard");
+        navigate("/login");
       }, 3000);
     }
-  }, [user]);
+  }, [done]);
 
   return (
     <div className="w-full flex justify-center items-center ">
