@@ -4,9 +4,9 @@ export const basicSchema = yup.object().shape({
   firstName: yup.string().required("Please enter first name"),
   lastName: yup.string().required("Please enter last name"),
   email: yup.string().email().matches(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,'Invalid email address').required("Please enter email"),
-  phoneNumber: yup.number().required("Please enter mobile number"),
+  phoneNumber: yup.number(),
   gender: yup.string().required("Please select your gender"),
-  picture: yup.string(),
+  image: yup.string(),
 });
 
 export const passswordSchema = yup.object().shape({

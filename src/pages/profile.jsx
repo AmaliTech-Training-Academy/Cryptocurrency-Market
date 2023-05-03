@@ -4,6 +4,7 @@ import Epi from "../assets/edit picture.svg";
 import Home from "../assets/home vector.svg";
 import Che from "../assets/chevron 1.svg";
 import Psi from "../assets/Vector.svg";
+import avat from "../assets/avat.png";
 import Plok from "../assets/lock vector.svg";
 import { useFormik } from "formik";
 import { basicSchema } from "../schema";
@@ -108,9 +109,9 @@ const profile = () => {
               <div className="ml-[49px] mt-[32px]">
                 <div className="w-[525px] h-[127px] flex justify-between items-center">
                   <div className=" w-[127px] h-[127px] rounded-full relative">
-                    <div className=" w-[127px] h-[127px] rounded-full relative overflow-hidden bg-profile bg-no-repeat bg-cover">
+                    <div className=" w-[127px] h-[127px] rounded-full relative overflow-hidden  bg-no-repeat bg-cover">
                       <img
-                        src={`${user.image ? user.image : images}`}
+                        src={`${user.image ? user.image : images || avat}`}
                         alt=""
                         className="w-[127px] h-[127px]"
                       />

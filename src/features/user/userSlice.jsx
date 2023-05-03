@@ -38,7 +38,7 @@ export const updatePassword = createAsyncThunk(
   "user/updatePassword",
   async (user, thunkAPI) => {
     return changePasswordThunk(
-      "/auth/updatePassword",
+      "/updatePassword",
       { password: user },
       thunkAPI
     );
@@ -68,7 +68,7 @@ const userSlice = createSlice({
         const { user } = payload;
         state.user = user;
         addUserToLocalStorage(payload);
-        toast.success(user.firstName);
+        toast.success(`Welcome ${user.firstName}`);
       })
       .addCase(registerUser.rejected, (state) => {
         state.isLoading = false;
@@ -109,7 +109,7 @@ const userSlice = createSlice({
       })
       .addCase(updatePassword.rejected, (state) => {
         state.isLoading = false;
-        toast.success("Password Denied");
+        toast.error("Password Denied");
       });
   },
 });
