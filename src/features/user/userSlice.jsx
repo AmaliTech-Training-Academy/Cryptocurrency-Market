@@ -86,6 +86,7 @@ const userSlice = createSlice({
         state.isLoading = false;
         toast.error("Invalid Email or Passsword");
       })
+      
       .addCase(updateUserProfile.pending, (state) => {
         state.isLoading = true;
       })
