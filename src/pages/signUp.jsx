@@ -36,6 +36,7 @@ const signUp = () => {
     validationSchema: userSchema,
     onSubmit,
   });
+  
 
   useEffect(() => {
     if (done) {
@@ -123,8 +124,9 @@ const signUp = () => {
                   <button
                     type="submit"
                     className=" h-[42px] w-[268px] rounded-lg bg-[#0c3c4cce] font-normal text-white text-[17px] mb-[16px]"
+                    disabled={done}
                   >
-                    Sign Up
+                    {done ? "Submitting..." : "Sign Up"}
                   </button>
                   <p>
                     Already have an account?
