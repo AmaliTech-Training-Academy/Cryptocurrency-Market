@@ -11,7 +11,7 @@ const login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { user,isLoading } = useSelector((store) => store.user);
-
+  console.log(isLoading);
   const onSubmit = (values, actions) => {
     dispatch(loginUser(values));
   };
@@ -82,8 +82,9 @@ const login = () => {
                   <button
                     type="submit"
                     className=" h-[42px] w-[268px] rounded-lg bg-[#0c3c4cce] font-normal text-white text-[17px] mb-[16px] "
+                    disabled={isLoading}
                   >
-                    Login
+                    {isLoading ? "Submitting..." : "Login"}
                   </button>
                   <p>
                     Don’t have an account?

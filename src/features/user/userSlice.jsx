@@ -58,26 +58,27 @@ const userSlice = createSlice({
     builder
       .addCase(registerUser.pending, (state) => {
         state.isLoading = true;
+        state.done = true;
       })
 
       .addCase(registerUser.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         const { user } = payload;
-        state.done = true;
+        state.done = false;
         toast.success(`Welcome ${user.firstName}`);
       })
       .addCase(registerUser.rejected, (state) => {
         state.isLoading = false;
+        state.done = false;
         toast.error("Provide valid details");
       })
       .addCase(loginUser.pending, (state) => {
         state.isLoading = true;
       })
       .addCase(loginUser.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
         const { token } = payload;
         const { user } = payload;
-        state.isLoading = false;
-        state.done = false;
         state.user = user;
         addUserToLocalStorage(token);
         toast.success(`Welcome back ${user.firstName}`);

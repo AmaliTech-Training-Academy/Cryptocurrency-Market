@@ -19,7 +19,7 @@ const Assets = () => {
       {
   data && data.map((item)=>{
     return(
-      <Link to ={`/view-stats/${item.assetName}`}>
+      <Link to ={`/view-stats/${item.assetName}`} key={item.assetName}>
         <div className='mt-[20px] ml-8 w-[772px] h-[60px] flex items-center relative hover:bg-[rgba(217,217,217,0.28)] p-[20px] cursor-pointer mb-10 '>
           <div className=' '>{item.assetName}</div>
           <div className=' absolute left-[210px] 2xl:left-[210px]'>{item.symbol}</div>

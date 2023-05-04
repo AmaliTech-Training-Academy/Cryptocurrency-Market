@@ -9,7 +9,12 @@ const portfolioSlice = createSlice({
   initialState,
   reducers: {
     storePortfolio: (state, { payload }) => {
-      state.data.unshift(payload);
+      const existingItem = state.data.find((item) => item.uuid === payload.uuid);
+      if (!existingItem) {
+        state.data.unshift(payload);
+      }else{
+        alert("Item already in Watchlist")
+      }
     },
     deletePortfolio: (state, { payload }) => {
       state.data = state.data.filter((item) => item.uuid !== payload);
