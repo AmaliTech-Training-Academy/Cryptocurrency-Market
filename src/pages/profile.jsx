@@ -46,9 +46,10 @@ const profile = () => {
 
   const [imageSelected, setImageSelected] = useState("");
   const [images, setImages] = useState("");
-  const uploadImage = async () => {
+
+  const uploadImage = async (file) => {
     const formData = new FormData();
-    formData.append("file", imageSelected);
+    formData.append("file", file);
     formData.append("upload_preset", "x3pud7wu");
 
     axios
@@ -57,6 +58,11 @@ const profile = () => {
         setFieldValue("image", response.data?.secure_url);
         setImages(response.data?.secure_url);
       });
+  };
+
+  const handleImageChange = (e) => {
+    setImageSelected(e.target.files[0]);
+    uploadImage(e.target.files[0]);
   };
 
   return (
@@ -128,7 +134,7 @@ const profile = () => {
                       name="image"
                       id="image"
                       onBlur={handleBlur}
-                      onChange={(e) => setImageSelected(e.target.files[0])}
+                      onChange={handleImageChange}
                     />
                   </div>
                   <div className="flex flex-row items-start  gap-10">
