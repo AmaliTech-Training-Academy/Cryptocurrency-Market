@@ -44,8 +44,8 @@ const login = () => {
   return (
     <div className="w-full flex justify-center items-center ">
       <div className="">
-        <img src={icon} alt="" className="ml-[200px]" />
-        <div className="shadow w-[626px] flex flex-col justify-center items-center pt-[48px] pb-[55px] text-[#101828]">
+        <img src={icon} alt="" className="lg:ml-[200px] md:ml-[200px]" />
+        <div className="lg:w-[626px] lg:shadow md:shadow md:w-[626px] flex flex-col justify-center items-center pt-[48px] pb-[55px] text-[#101828]">
           <div className="">
             <div className=" flex flex-col justify-center items-center ">
               <h1 className="font-bold text-[rgba(12,60,76,0.81)] text-[26px] mb-[35.22px] text-center">
@@ -75,20 +75,20 @@ const login = () => {
                   touch={touched.password}
                 />
 
-                <Link to="" className="text-[#0000ffb3] ml-[210px] ">
+                <Link to="" className="text-[#0000ffb3] ml-24 lg:ml-[210px] md:ml-[210px] ">
                   Forgot password?
                 </Link>
                 <div className="mt-[46px]  h-[42px] text-center  ">
                   <button
                     type="submit"
-                    className=" h-[42px] w-[268px] rounded-lg bg-[#0c3c4cce] font-normal text-white text-[17px] mb-[16px] "
+                    className=" h-[42px] w-52 lg:w-[268px] md:w-[268px] rounded-lg bg-[#0c3c4cce] font-normal text-white  lg:text-[17px] mb-[16px] "
                     disabled={isLoading}
                   >
                     {isLoading ? "Submitting..." : "Login"}
                   </button>
                   <p>
                     Don’t have an account?
-                    <Link to="/signUp" className="text-[#0000ffb3]">
+                    <Link to="/signUp" className="text-[15px]  text-[#0000ffb3]">
                       SignUp
                     </Link>
                   </p>
