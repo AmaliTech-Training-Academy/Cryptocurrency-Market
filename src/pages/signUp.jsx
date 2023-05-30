@@ -49,13 +49,13 @@ const signUp = () => {
   return (
     <div className="w-full flex justify-center items-center ">
       <div className="">
-        <img src={icon} alt="" className="ml-[200px]" />
-        <div className="shadow w-[626px] flex flex-col justify-center items-center pt-[4px] pb-[55px] text-[#101828]">
+        <img src={icon} alt="" className="ml-14 lg:ml-[200px] md:ml-[200px]" />
+        <div className="lg:w-[626px] lg:shadow md:shadow md:w-[626px] flex flex-col justify-center items-center pt-[48px] pb-[55px] text-[#101828]">
           <div className="">
-            <h2 className="text-[34px] font-normal mb-[15px] text-center">
+            <h2 className="text-[20px] lg:text-[34px] md:text-[34px] font-normal mb-[15px] text-center ">
               Create Your Account{" "}
             </h2>
-            <p className="mb-[20px] text-[21.52px] text-center">
+            <p className="mb-[20px] text-[25px] lg:text-[21.52px] md:text-[21.52px] text-center">
               Get Started For Free By Signing Up Now.
             </p>
             <div className=" flex flex-col justify-center items-center">
@@ -123,7 +123,7 @@ const signUp = () => {
                 <div className="mt-[46px]  h-[42px] text-center  ">
                   <button
                     type="submit"
-                    className=" h-[42px] w-[268px] rounded-lg bg-[#0c3c4cce] font-normal text-white text-[17px] mb-[16px]"
+                    className=" h-[42px] w-52 lg:w-[268px] md:w-[268px] rounded-lg bg-[#0c3c4cce] font-normal text-white  lg:text-[17px] mb-[16px"
                     disabled={done}
                   >
                     {done ? "Submitting..." : "Sign Up"}
