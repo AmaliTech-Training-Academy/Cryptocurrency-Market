@@ -8,34 +8,39 @@ const Statistics = () => {
   const [data, setData] = useState();
   const [rate, setRate] = useState();
   const [price, setPrice] = useState();
+
+  const fetchdata = async () => {
+    const response = await axios.get(
+      "https://api.coinranking.com/v2/coins?limit=10"
+    );
+
+    const data = response.data.data.coins[0].sparkline.slice(0, 12);
+
+    if (data) {
+      setLoading(false);
+    } else {
+      setLoading(true);
+    }
+    setRate(response.data.data.coins[0].change);
+    setPrice(response.data.data.coins[0].price);
+    setData(
+      data.map((items, index) => {
+        return { hr: index * 2, price: parseFloat(items) };
+      })
+    );
+  };
+
   useEffect(() => {
-    const fetchdata = async () => {
-      const response = await axios.get(
-        "https://api.coinranking.com/v2/coins?limit=10"
-      );
-
-      const data = response.data.data.coins[0].sparkline.slice(0, 12);
-
-      if (data) {
-        setLoading(false);
-      } else {
-        setLoading(true);
-      }
-      setRate(response.data.data.coins[0].change);
-      setPrice(response.data.data.coins[0].price);
-      setData(
-        data.map((items, index) => {
-          return { hr: index * 2, price: parseFloat(items) };
-        })
-      );
-    };
     fetchdata();
-  }, [data]);
+
+    setInterval(() => fetchdata(), 120000);
+    
+  }, []);
 
   if (loading) {
     return (
       <div className="text-[40px] font-bold text-center mb-[69px] text-[#0C3C4C]      ">
-        <Loader/>
+        <Loader />
       </div>
     );
   }
@@ -50,7 +55,9 @@ const Statistics = () => {
         </div>
         <div className="flex  w-[220px] justify-between items-center">
           <h2 className="text-[21px]">US${Number(price).toFixed(2)}</h2>
-          <p className={`${rate > 0 ? 'text-[#32D583]' : 'text-[red]'}`}>{rate}%</p>
+          <p className={`${rate > 0 ? "text-[#32D583]" : "text-[red]"}`}>
+            {rate}%
+          </p>
         </div>
       </div>
       <div className="border-b mb-10"></div>
