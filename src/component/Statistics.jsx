@@ -1,45 +1,83 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+// Statistics.js
+
+import React, { useEffect, useRef, useState } from "react";
 import AreaChartComponent from "./AreaCharrt";
 import Loader from "./Loader";
 
 const Statistics = () => {
   const [loading, setLoading] = useState(true);
-  const [data, setData] = useState();
+  const [coins, setCoins] = useState([]);
   const [rate, setRate] = useState();
   const [price, setPrice] = useState();
+  const socketRef = useRef(null); // Use a ref to store the WebSocket connection
 
-  const fetchdata = async () => {
-    const response = await axios.get(
-      "https://api.coinranking.com/v2/coins?limit=10"
-    );
+  useEffect(() => {
+    // Create WebSocket connection
+    const ws = new WebSocket("ws://localhost:4000");
+    // Store the WebSocket connection in ref
+    socketRef.current = ws;
+    // Clean up the WebSocket connection on unmount
+    // return () => {
+    //   ws.close();
+    // };
+  }, []);
 
-    const data = response.data.data.coins[0].sparkline.slice(0, 12);
+  useEffect(() => {
+    // Event handler for receiving messages
+    const handleReceiveMessage = (event) => {
+      const message = event.data;
+      if (message !== "something") {
+        const coinData = JSON.parse(message).data.coins[0];
+        const data = coinData.sparkline.slice(0, 12).map((value, index) => ({
+          hr: index, // Or any appropriate value for the x-axis
+          price: value,
+        }));
+        setCoins(data);
+        setRate(coinData.change);
+        setPrice(coinData.price);
+        setLoading(false);
+      }
+    };
 
-    if (data) {
-      setLoading(false);
-    } else {
-      setLoading(true);
+    if (socketRef.current) {
+      // Attach the event handler to the WebSocket connection
+      socketRef.current.addEventListener("message", handleReceiveMessage);
     }
-    setRate(response.data.data.coins[0].change);
-    setPrice(response.data.data.coins[0].price);
-    setData(
-      data.map((items, index) => {
-        return { hr: index * 2, price: parseFloat(items) };
-      })
-    );
+
+    // Clean up the event handler on unmount
+    return () => {
+      if (socketRef.current) {
+        socketRef.current.removeEventListener("message", handleReceiveMessage);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      sendMessage();
+    }, 1000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
+
+  const sendMessage = () => {
+    if (socketRef.current) {
+      // Send a message to the server
+      socketRef.current.send("getCoin");
+    }
   };
 
   useEffect(() => {
-    fetchdata();
-
-    setInterval(() => fetchdata(), 120000);
-    
-  }, []);
+    if (!loading) {
+      sendMessage();
+    }
+  }, [loading]);
 
   if (loading) {
     return (
-      <div className="text-[40px] font-bold text-center mb-[69px] text-[#0C3C4C]      ">
+      <div className="text-[40px] font-bold text-center mb-[69px] text-[#0C3C4C]">
         <Loader />
       </div>
     );
@@ -61,7 +99,7 @@ const Statistics = () => {
         </div>
       </div>
       <div className="border-b mb-10"></div>
-      <AreaChartComponent data={data} />
+      <AreaChartComponent data={coins} />
     </div>
   );
 };
