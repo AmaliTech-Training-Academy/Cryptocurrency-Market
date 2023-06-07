@@ -16,11 +16,11 @@ const landingPage = () => {
   const [playerSize, setPlayerSize] = useState({ width: 640, height: 360 });
   const [modalVisible, setModalVisible] = useState(false);
 
-  const { data } = useSelector((store) => store.data);
+  const { socket } = useSelector((store) => store.websocket);
   
-  const all = data.data?.coins;
+  const all = socket?.coins;
   const indices = [0, 1, 4, 7];
-  const filterCoins = all.filter((element, index) => {
+  const filterCoins = all?.filter((element, index) => {
     return indices.includes(index);
   });
 

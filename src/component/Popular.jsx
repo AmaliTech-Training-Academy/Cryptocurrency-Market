@@ -4,14 +4,14 @@ import down from "../assets/negative.png";
 import { useSelector } from "react-redux";
 
 const Popular = () => {
-  const { data } = useSelector((store) => store.data);
-  const all = data.data?.coins.slice(0, 10);
+  const { socket } = useSelector((store) => store.websocket);
+  const data = socket?.coins.slice(0, 10);
 
   return (
     <div className="p-[40px] pt-[32px] pb-[10px] shadow">
       <h1 className="text-[25px] mb-[41px]">Popular Assets</h1>
-      {all &&
-        all.map((item) => {
+      {data &&
+        data.map((item) => {
           return (
             <div
               key={item.uuid}

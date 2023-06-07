@@ -11,7 +11,6 @@ const login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { user,isLoading } = useSelector((store) => store.user);
-  console.log(isLoading);
   const onSubmit = (values, actions) => {
     dispatch(loginUser(values));
   };

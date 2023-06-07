@@ -20,8 +20,8 @@ function ActiveCrypto() {
 
   const [allData, setAllData] = useState([]);
 
-  const { data } = useSelector((store) => store.data);
-  const all = data.data?.coins;
+  const { socket } = useSelector((store) => store.websocket);
+  const all = socket?.coins;
 
   const sortAlphabetically = () => {
     const modall = [...all];

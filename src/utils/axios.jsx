@@ -3,6 +3,7 @@ import { getUserFromLocalStorage } from "./localStorage";
 
 export const customFetch = axios.create({
   baseURL: `https://user-auth-server.onrender.com/api/v1/user`,
+  // headers: {},withCredentials: true,
 });
 
 customFetch.interceptors.request.use(

@@ -12,7 +12,7 @@ import {
 import { useSelector } from "react-redux";
 
 const cryptoGraphs = ({ item,uuid }) => {
-  const { data: all } = useSelector((store) => store.data);
+  const { socket: all } = useSelector((store) => store.websocket);
   
   const [data, setData] = useState([
     { hr: 0, price: 30011.57671544483 },
@@ -65,7 +65,7 @@ const cryptoGraphs = ({ item,uuid }) => {
   }
 
 
-  const info = all.data?.coins;
+  const info = all?.coins;
   const select = info.filter((item) => item.uuid === allID );
   return (
     <div className=" shadow p-4 mb-10">

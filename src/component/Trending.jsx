@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import plus from "../assets/plus.png";
 import down from "../assets/negative.png";
 import { useSelector } from "react-redux";
 
 const Trending = () => {
-  const { data } = useSelector((store) => store.data);
-
-  const all = data.data?.coins;
+  const { socket } = useSelector((store) => store.websocket);
+ 
+  const data = socket?.coins
 
   return (
     <div className="pl-[35px] pr-[67px] pt-[48px] pb-[10px] shadow overflow-y-auto h-[762px] scrollbar ">
@@ -22,8 +22,8 @@ const Trending = () => {
       </div>
       <div className="border-b mb-4"></div>
 
-      {all
-        ? all.map((items) => {
+      {data
+        ? data.map((items) => {
             return (
               <div
                 key={items.uuid}
@@ -67,32 +67,3 @@ const Trending = () => {
 };
 
 export default Trending;
-
-{
-  /* <div className="flex justify-between items-baseline mb-[30px]">
-      <div className="w-[75px] flex justify-between items-center ">
-        <img src={bnb} alt="" />
-        <h2>BNB</h2>
-      </div>
-      <h2 className="">BNB</h2>
-      <h2>$41,650,00</h2>
-      <div className="w-[100px] mr-8 flex justify-between items-center text-[#32D583]">
-        <img src={plus} alt="" />
-        <h2>+45.74%</h2>
-      </div>
-      <h2>$715,650M</h2>
-    </div>
-    <div className="flex justify-between items-baseline mb-[30px]">
-      <div className="w-[75px] flex justify-between items-center ">
-        <img src={bnb} alt="" />
-        <h2>BNB</h2>
-      </div>
-      <h2 className="">BNB</h2>
-      <h2>$41,650,00</h2>
-      <div className="w-[100px] mr-8 flex justify-between items-center text-[#32D583]">
-        <img src={plus} alt="" />
-        <h2>+45.74%</h2>
-      </div>
-      <h2>$715,650M</h2>
-    </div> */
-}

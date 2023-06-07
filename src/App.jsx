@@ -20,13 +20,22 @@ import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import PrivateRoutes from "./utils/PrivateRoute"
 import { getData } from "./features/crypto/cryptoSlice";
+import { connectSocket, setSocket } from "./features/webSocketSlice";
+
 
 const App = () => {
   
-const dispatch = useDispatch()
-  useEffect(()=>{
-  dispatch(getData())
-  },[dispatch])
+// const dispatch = useDispatch()
+//   useEffect(()=>{
+//   dispatch(getData())
+//   },[dispatch])
+
+ const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(connectSocket());
+  }, [dispatch]);
+
 
   return (
     <BrowserRouter>
